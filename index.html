@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="TradingView Automated Trading Integration — A software engineering case study in system integration, webhook workflows, and API communication." />
-  <title>TradingView Integration — System Integration Case Study</title>
+  <meta name="description" content="TradingView × Make × Capital.com API Integration — A software engineering case study in event-driven automation, REST API integration, and multi-platform workflow design." />
+  <title>TradingView × Make × Capital.com API Integration — Case Study</title>
   <script>
     /* Progressive enhancement flag: set BEFORE CSS paints.
        If JS is disabled or fails to load, content stays fully visible. */
@@ -22,13 +22,13 @@
 <nav id="navbar" role="navigation" aria-label="Main navigation">
   <a href="#hero" class="nav-logo">
     <span class="nav-logo-dot"></span>
-    <span>TradingView Integration</span>
+    <span>TradingView × Make × Capital.com</span>
   </a>
   <ul class="nav-links" id="nav-menu">
     <li><a href="#overview">Overview</a></li>
     <li><a href="#architecture">Architecture</a></li>
-    <li><a href="#timeline">Timeline</a></li>
     <li><a href="#challenges">Challenges</a></li>
+    <li><a href="#gallery">Gallery</a></li>
     <li><a href="#reflection">Reflection</a></li>
     <li><a href="#footer" class="nav-cta">Project Info</a></li>
   </ul>
@@ -59,24 +59,24 @@
         </div>
 
         <h1 class="hero-title">
-          TradingView<br />
-          <span class="hero-title-line2">Automated Trading</span><br />
-          Integration
+          TradingView × Make<br />
+          <span class="hero-title-line2">× Capital.com</span><br />
+          API Integration
         </h1>
 
         <p class="hero-desc">
-          Designing a cross-platform automation workflow by integrating strategy
-          signals, Webhook communication, and REST APIs — with a focus on system
-          reliability and engineering problem-solving.
+          An event-driven automation pipeline connecting TradingView signals,
+          Make scenarios, and the Capital.com Open API — built to demonstrate
+          system integration, not trading performance.
         </p>
 
         <div class="hero-tags">
-          <span class="hero-tag">Pine Script</span>
+          <span class="hero-tag">TradingView</span>
+          <span class="hero-tag">Make</span>
+          <span class="hero-tag">Capital.com API</span>
           <span class="hero-tag">Webhook</span>
-          <span class="hero-tag">REST API</span>
-          <span class="hero-tag">JSON</span>
+          <span class="hero-tag">Data Store</span>
           <span class="hero-tag">Event-Driven</span>
-          <span class="hero-tag">Automation</span>
         </div>
 
         <div class="hero-actions">
@@ -179,8 +179,8 @@
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg>
             </div>
             <div class="flow-node-text">
-              <div class="flow-node-label">Interface</div>
-              <div class="flow-node-name">Execution API</div>
+              <div class="flow-node-label">Automation</div>
+              <div class="flow-node-name">Make Scenario</div>
             </div>
             <div class="flow-node-status"></div>
           </div>
@@ -197,8 +197,8 @@
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00d4ff" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
             </div>
             <div class="flow-node-text">
-              <div class="flow-node-label">Output</div>
-              <div class="flow-node-name">Order Execution</div>
+              <div class="flow-node-label">Broker</div>
+              <div class="flow-node-name">Capital.com API</div>
             </div>
             <div class="flow-node-status"></div>
           </div>
@@ -567,16 +567,16 @@
       <div class="arch-node" tabindex="0">
         <div class="arch-node-box">
           <span class="arch-icon">⚙️</span>
-          <div class="arch-name">Middleware</div>
-          <div class="arch-sub">Processing</div>
+          <div class="arch-name">Make Scenario</div>
+          <div class="arch-sub">Automation</div>
         </div>
         <div class="arch-detail">
-          <div class="arch-detail-title">Middleware Layer</div>
+          <div class="arch-detail-title">Make Scenario</div>
           <dl class="arch-detail-spec">
-            <dt>Responsibility</dt><dd>Deduplicate, sequence and map to order parameters</dd>
-            <dt>Input</dt><dd>Validated request object</dd>
-            <dt>Output</dt><dd>Ordered order command</dd>
-            <dt>Failure Point</dt><dd class="arch-fail">Race condition / duplicate fire</dd>
+            <dt>Responsibility</dt><dd>Route events, authenticate, iterate positions and call the API</dd>
+            <dt>Input</dt><dd>Validated webhook payload</dd>
+            <dt>Output</dt><dd>HTTP request to Capital.com</dd>
+            <dt>Failure Point</dt><dd class="arch-fail">Wrong branch / duplicate fire</dd>
           </dl>
         </div>
       </div>
@@ -589,16 +589,16 @@
       <div class="arch-node" tabindex="0">
         <div class="arch-node-box">
           <span class="arch-icon">⚡</span>
-          <div class="arch-name">Execution API</div>
-          <div class="arch-sub">REST Interface</div>
+          <div class="arch-name">Capital.com API</div>
+          <div class="arch-sub">Open API</div>
         </div>
         <div class="arch-detail">
-          <div class="arch-detail-title">API Client</div>
+          <div class="arch-detail-title">Capital.com Open API</div>
           <dl class="arch-detail-spec">
-            <dt>Responsibility</dt><dd>Authenticate and submit the order to the broker</dd>
-            <dt>Input</dt><dd>Order command</dd>
-            <dt>Output</dt><dd>Authenticated API request</dd>
-            <dt>Failure Point</dt><dd class="arch-fail">Auth failure / precision rejection</dd>
+            <dt>Responsibility</dt><dd>Authenticate session and submit position commands</dd>
+            <dt>Input</dt><dd>HTTP order request</dd>
+            <dt>Output</dt><dd>Position open / close response</dd>
+            <dt>Failure Point</dt><dd class="arch-fail">Auth failure / size rejection</dd>
           </dl>
         </div>
       </div>
@@ -632,16 +632,16 @@
 
       <div class="arch-node" tabindex="0">
         <div class="arch-node-box">
-          <span class="arch-icon">✅</span>
-          <div class="arch-name">Execution</div>
-          <div class="arch-sub">Final Output</div>
+          <span class="arch-icon">🗄️</span>
+          <div class="arch-name">Data Store</div>
+          <div class="arch-sub">State Sync</div>
         </div>
         <div class="arch-detail">
-          <div class="arch-detail-title">Execution Result</div>
+          <div class="arch-detail-title">Make Data Store</div>
           <dl class="arch-detail-spec">
-            <dt>Responsibility</dt><dd>Confirm, log and reconcile the final state</dd>
-            <dt>Input</dt><dd>Fill confirmation</dd>
-            <dt>Output</dt><dd>Logged &amp; reconciled state</dd>
+            <dt>Responsibility</dt><dd>Persist position data for TP1 / TP2 / SL lookups</dd>
+            <dt>Input</dt><dd>Position open / close response</dd>
+            <dt>Output</dt><dd>Synced position records</dd>
             <dt>Failure Point</dt><dd class="arch-fail">State drift vs broker reality</dd>
           </dl>
         </div>
@@ -688,38 +688,38 @@
       </div>
 
       <div class="tech-card fade-in fade-in-delay-4">
-        <span class="tech-icon-wrapper">⚡</span>
-        <div class="tech-name">Execution Interface</div>
-        <p class="tech-desc">A stateless contract for submitting and querying orders, abstracting the broker behind a predictable request/response model.</p>
-        <span class="tech-badge">REST API</span>
+        <span class="tech-icon-wrapper">⚙️</span>
+        <div class="tech-name">Automation Engine</div>
+        <p class="tech-desc">Orchestrates the whole workflow — routing events, authenticating, branching by trade type, and dispatching API calls without a server to maintain.</p>
+        <span class="tech-badge">Make</span>
       </div>
 
       <div class="tech-card fade-in fade-in-delay-1">
-        <span class="tech-icon-wrapper">🟨</span>
-        <div class="tech-name">Processing Runtime</div>
-        <p class="tech-desc">Hosts the middleware logic — parsing, validation, deduplication, sequencing, and dispatch of every incoming event.</p>
-        <span class="tech-badge">JavaScript</span>
+        <span class="tech-icon-wrapper">⚡</span>
+        <div class="tech-name">Execution Interface</div>
+        <p class="tech-desc">A REST contract for opening, closing, and querying positions, abstracting the broker behind a predictable request/response model.</p>
+        <span class="tech-badge">Capital.com API</span>
       </div>
 
       <div class="tech-card fade-in fade-in-delay-2">
         <span class="tech-icon-wrapper">📋</span>
         <div class="tech-name">Message Contract</div>
-        <p class="tech-desc">The shared schema every system agrees on. Strict validation here is what makes cross-platform communication reliable.</p>
+        <p class="tech-desc">The shared schema every system agrees on. Strict alert JSON is what makes cross-platform communication reliable.</p>
         <span class="tech-badge">JSON</span>
       </div>
 
       <div class="tech-card fade-in fade-in-delay-3">
-        <span class="tech-icon-wrapper">🐙</span>
-        <div class="tech-name">Change History</div>
-        <p class="tech-desc">Records every configuration change and debugging iteration, making the system's evolution traceable and reversible.</p>
-        <span class="tech-badge">Git</span>
+        <span class="tech-icon-wrapper">🗄️</span>
+        <div class="tech-name">State Layer</div>
+        <p class="tech-desc">Persists position data across events so TP1, TP2, and Stop-Loss flows can look up exactly which positions to close.</p>
+        <span class="tech-badge">Data Store</span>
       </div>
 
       <div class="tech-card fade-in fade-in-delay-4">
-        <span class="tech-icon-wrapper">🛡️</span>
-        <div class="tech-name">Resilience Layer</div>
-        <p class="tech-desc">Retry logic, idempotency guards, and structured error responses that keep the pipeline correct under failure.</p>
-        <span class="tech-badge">Error Handling</span>
+        <span class="tech-icon-wrapper">🔁</span>
+        <div class="tech-name">Iteration Module</div>
+        <p class="tech-desc">Splits a batch of open positions into individual records, letting each one be processed and closed independently.</p>
+        <span class="tech-badge">Iterator</span>
       </div>
 
     </div>
@@ -746,7 +746,7 @@
 
       <div class="timeline-item fade-in">
         <div class="timeline-content">
-          <div class="timeline-phase">2026 · Start</div>
+          <div class="timeline-phase">2025 · Start</div>
           <div class="timeline-title">Project Started</div>
           <dl class="timeline-csr">
             <dt>Challenge</dt><dd>Define a clear engineering boundary for an open-ended idea.</dd>
@@ -1235,6 +1235,168 @@
 
 
 <!-- ══════════════════════════════════════════
+     IMPLEMENTATION GALLERY (proof of work)
+══════════════════════════════════════════ -->
+<section id="gallery" class="section" aria-labelledby="gallery-title">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="eyebrow" style="margin-bottom:1rem;">Proof of Work</div>
+      <div class="section-divider"></div>
+      <h2 class="section-title" id="gallery-title">Implementation Gallery</h2>
+      <p class="section-sub">
+        Real screenshots from the live system — API configuration, Make scenarios,
+        HTTP request/response pairs, Data Store records, and the TradingView alerts
+        that drive it all. Click any image to enlarge.
+      </p>
+    </div>
+
+    <!-- Group 1: System Setup -->
+    <div class="gallery-group fade-in">
+      <div class="gallery-group-head">
+        <span class="gallery-group-num">01</span>
+        <h3 class="gallery-group-title">System Setup &amp; Architecture</h3>
+        <p class="gallery-group-desc">API credentials and the end-to-end Make scenario that connects every platform.</p>
+      </div>
+      <div class="gallery-grid">
+        <figure class="gallery-item" data-src="img/01_capital_api_key_management.png">
+          <div class="gallery-thumb"><img loading="lazy" src="img/capital_api_key_management.png" alt="Capital.com API key management"></div>
+          <figcaption><span class="gallery-tag">01</span> Capital.com API Key management — the foundation for broker communication.</figcaption>
+        </figure>
+        <figure class="gallery-item" data-src="img/02_make_scenario_overview.png">
+          <div class="gallery-thumb"><img loading="lazy" src="img/make_scenario_overview.png" alt="Make scenario overview"></div>
+          <figcaption><span class="gallery-tag">02</span> Make scenario overview — the whole TradingView → Make → Capital.com data flow at a glance.</figcaption>
+        </figure>
+        <figure class="gallery-item" data-src="img/03_make_workflow_architecture.png">
+          <div class="gallery-thumb"><img loading="lazy" src="img/make_workflow_architecture.png" alt="Make workflow architecture"></div>
+          <figcaption><span class="gallery-tag">03</span> Full Make workflow — each module handles a different trade event end to end.</figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <!-- Group 2: Entry -->
+    <div class="gallery-group fade-in">
+      <div class="gallery-group-head">
+        <span class="gallery-group-num">02</span>
+        <h3 class="gallery-group-title">Position Entry (Buy / Sell)</h3>
+        <p class="gallery-group-desc">From webhook signal to an open position, with the data persisted for later management.</p>
+      </div>
+      <div class="gallery-grid">
+        <figure class="gallery-item" data-src="img/04_buy_sell_execution_workflow.png">
+          <div class="gallery-thumb"><img loading="lazy" src="img/buy_sell_execution_workflow.png" alt="Buy/Sell execution workflow"></div>
+          <figcaption><span class="gallery-tag">04</span> Entry workflow — webhook → auth → Capital API → save to Data Store.</figcaption>
+        </figure>
+        <figure class="gallery-item" data-src="img/05_http_open_position_request_response.png">
+          <div class="gallery-thumb"><img loading="lazy" src="img/http_open_position_request_response.png" alt="HTTP open position request and response"></div>
+          <figcaption><span class="gallery-tag">05</span> Open-position HTTP request &amp; response — API confirms the order was accepted.</figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <!-- Group 3: TP1 Partial Close -->
+    <div class="gallery-group fade-in">
+      <div class="gallery-group-head">
+        <span class="gallery-group-num">03</span>
+        <h3 class="gallery-group-title">TP1 — Partial Close</h3>
+        <p class="gallery-group-desc">Iterating open positions and closing a portion when the first take-profit triggers.</p>
+      </div>
+      <div class="gallery-grid">
+        <figure class="gallery-item" data-src="img/tp1_execution_workflow.png">
+          <div class="gallery-thumb"><img loading="lazy" src="img/tp1_execution_workflow.png" alt="TP1 execution workflow"></div>
+          <figcaption><span class="gallery-tag">06</span> TP1 flow — partial close triggered automatically on the TP1 condition.</figcaption>
+        </figure>
+        <figure class="gallery-item" data-src="img/07_position_iterator_processing.png">
+          <div class="gallery-thumb"><img loading="lazy" src="img/position_iterator_processing.png" alt="Position iterator processing"></div>
+          <figcaption><span class="gallery-tag">07</span> Iterator splits held positions into single records for per-position handling.</figcaption>
+        </figure>
+        <figure class="gallery-item" data-src="img/08_http_tp1_close_request_response.png">
+          <div class="gallery-thumb"><img loading="lazy" src="img/http_tp1_close_request_response.png" alt="HTTP TP1 close request and response"></div>
+          <figcaption><span class="gallery-tag">08</span> TP1 close HTTP request &amp; response — partial close confirmed by the API.</figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <!-- Group 4: TP2 / SL -->
+    <div class="gallery-group fade-in">
+      <div class="gallery-group-head">
+        <span class="gallery-group-num">04</span>
+        <h3 class="gallery-group-title">TP2 / Stop-Loss — Final Close</h3>
+        <p class="gallery-group-desc">The final exit path, mapping each held position back to the right close call.</p>
+      </div>
+      <div class="gallery-grid">
+        <figure class="gallery-item" data-src="img/09_tp2_sl_execution_workflow.png">
+          <div class="gallery-thumb"><img loading="lazy" src="img/tp2_sl_execution_workflow.png" alt="TP2/SL execution workflow"></div>
+          <figcaption><span class="gallery-tag">09</span> TP2 / SL flow — final close executed when either condition is met.</figcaption>
+        </figure>
+        <figure class="gallery-item" data-src="img/10_http_tp2_sl_close_request_response.png">
+          <div class="gallery-thumb"><img loading="lazy" src="img/http_tp2_sl_close_request_response.png" alt="HTTP TP2/SL close request and response"></div>
+          <figcaption><span class="gallery-tag">10</span> TP2 / SL close — the API call result for the final exit.</figcaption>
+        </figure>
+        <figure class="gallery-item" data-src="img/11_position_close_mapping.png">
+          <div class="gallery-thumb"><img loading="lazy" src="img/position_close_mapping.png" alt="Position close mapping"></div>
+          <figcaption><span class="gallery-tag">11</span> Position mapping — every held position matched to its correct close call.</figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <!-- Group 5: Data Store -->
+    <div class="gallery-group fade-in">
+      <div class="gallery-group-head">
+        <span class="gallery-group-num">05</span>
+        <h3 class="gallery-group-title">Data Store — State Management</h3>
+        <p class="gallery-group-desc">The schema and live records that keep position state consistent across events.</p>
+      </div>
+      <div class="gallery-grid">
+        <figure class="gallery-item" data-src="img/12_datastore_configuration.png">
+          <div class="gallery-thumb"><img loading="lazy" src="img/datastore_configuration.png" alt="Data Store configuration"></div>
+          <figcaption><span class="gallery-tag">12</span> Data Store schema — the fields tracked throughout the trade lifecycle.</figcaption>
+        </figure>
+        <figure class="gallery-item" data-src="img/13_datastore_records.png">
+          <div class="gallery-thumb"><img loading="lazy" src="img/datastore_records.png" alt="Data Store records"></div>
+          <figcaption><span class="gallery-tag">13</span> Live records — actual stored data queried by the TP1 / TP2 / SL flows.</figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <!-- Group 6: TradingView Alerts & Pine Script -->
+    <div class="gallery-group fade-in">
+      <div class="gallery-group-head">
+        <span class="gallery-group-num">06</span>
+        <h3 class="gallery-group-title">TradingView Alerts &amp; Pine Script</h3>
+        <p class="gallery-group-desc">The signal source — alert payloads and the Pine Script that generates them.</p>
+      </div>
+      <div class="gallery-grid">
+        <figure class="gallery-item" data-src="img/14_tradingview_tp1_alert.png">
+          <div class="gallery-thumb"><img loading="lazy" src="img/tradingview_tp1_alert.png" alt="TradingView TP1 alert JSON"></div>
+          <figcaption><span class="gallery-tag">14</span> TP1 alert JSON sent by TradingView when the condition is met.</figcaption>
+        </figure>
+        <figure class="gallery-item" data-src="img/15_tradingview_tp2_sl_alert.png">
+          <div class="gallery-thumb"><img loading="lazy" src="img/tradingview_tp2_sl_alert.png" alt="TradingView TP2/SL alert JSON"></div>
+          <figcaption><span class="gallery-tag">15</span> TP2 / SL alert JSON for the final-exit trigger.</figcaption>
+        </figure>
+        <figure class="gallery-item" data-src="img/16_tradingview_long_entry_alert_code.png">
+          <div class="gallery-thumb"><img loading="lazy" src="img/tradingview_long_entry_alert_code.png" alt="Pine Script long entry alert code"></div>
+          <figcaption><span class="gallery-tag">16</span> Pine Script entry alert — symbol, side, size and params, sent via webhook.</figcaption>
+        </figure>
+        <figure class="gallery-item" data-src="img/17_tradingview_long_exit_alert_code.png">
+          <div class="gallery-thumb"><img loading="lazy" src="img/tradingview_long_exit_alert_code.png" alt="Pine Script long exit alert code"></div>
+          <figcaption><span class="gallery-tag">17</span> Pine Script exit alerts — TP1, move-stop-loss and TP2 close logic.</figcaption>
+        </figure>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- Lightbox overlay -->
+<div class="lightbox" id="lightbox" aria-hidden="true">
+  <button class="lightbox-close" id="lightbox-close" aria-label="Close">&times;</button>
+  <img class="lightbox-img" id="lightbox-img" src="" alt="">
+  <div class="lightbox-caption" id="lightbox-caption"></div>
+</div>
+
+
+<!-- ══════════════════════════════════════════
      LESSONS LEARNED
 ══════════════════════════════════════════ -->
 <section id="lessons" class="section" aria-labelledby="lessons-title">
@@ -1442,12 +1604,13 @@
       <div class="dash-card dash-card-wide fade-in fade-in-delay-1">
         <div class="dash-card-label">Technologies</div>
         <div class="dash-tech">
+          <span class="dash-tech-tag">TradingView</span>
           <span class="dash-tech-tag">Pine Script</span>
-          <span class="dash-tech-tag">JavaScript</span>
+          <span class="dash-tech-tag">Make</span>
+          <span class="dash-tech-tag">Capital.com API</span>
           <span class="dash-tech-tag">Webhook</span>
-          <span class="dash-tech-tag">REST API</span>
+          <span class="dash-tech-tag">Data Store</span>
           <span class="dash-tech-tag">JSON</span>
-          <span class="dash-tech-tag">Git</span>
         </div>
       </div>
 

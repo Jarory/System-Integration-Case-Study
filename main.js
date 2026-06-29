@@ -180,3 +180,45 @@ archNodes.forEach(node => {
 document.addEventListener('DOMContentLoaded', () => {
   document.body.classList.add('loaded');
 });
+
+// ── Implementation Gallery Lightbox ───────────
+(function () {
+  const lightbox  = document.getElementById('lightbox');
+  if (!lightbox) return;
+  const lbImg     = document.getElementById('lightbox-img');
+  const lbCaption = document.getElementById('lightbox-caption');
+  const lbClose   = document.getElementById('lightbox-close');
+  const items     = document.querySelectorAll('.gallery-item');
+
+  function openLightbox(src, caption) {
+    lbImg.src = src;
+    lbCaption.textContent = caption || '';
+    lightbox.classList.add('open');
+    lightbox.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    lightbox.classList.remove('open');
+    lightbox.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    // clear src after transition so it doesn't flash next time
+    setTimeout(() => { lbImg.src = ''; }, 300);
+  }
+
+  items.forEach(item => {
+    item.addEventListener('click', () => {
+      const src = item.getAttribute('data-src');
+      const cap = item.querySelector('figcaption');
+      openLightbox(src, cap ? cap.textContent.trim() : '');
+    });
+  });
+
+  lbClose.addEventListener('click', closeLightbox);
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) closeLightbox();
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && lightbox.classList.contains('open')) closeLightbox();
+  });
+})();
