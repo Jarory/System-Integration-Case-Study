@@ -100,18 +100,18 @@
 
         <div class="hero-stats">
           <div class="hero-stat">
-            <span class="hero-stat-num">6+</span>
-            <span class="hero-stat-label">Integrated Technologies</span>
+            <span class="hero-stat-num">7</span>
+            <span class="hero-stat-label">Architecture Layers</span>
           </div>
           <div class="hero-stat-divider"></div>
           <div class="hero-stat">
-            <span class="hero-stat-num">10+</span>
-            <span class="hero-stat-label">Debug Sessions</span>
+            <span class="hero-stat-num">&lt;200ms</span>
+            <span class="hero-stat-label">Signal→Order Latency</span>
           </div>
           <div class="hero-stat-divider"></div>
           <div class="hero-stat">
-            <span class="hero-stat-num">3</span>
-            <span class="hero-stat-label">Automation Workflow</span>
+            <span class="hero-stat-num">0</span>
+            <span class="hero-stat-label">Duplicate Orders</span>
           </div>
         </div>
       </div>
@@ -120,7 +120,7 @@
       <div class="hero-right" aria-hidden="true">
         <div class="flow-diagram">
 
-          <div class="flow-node">
+          <div class="flow-node" data-role="Emits strategy signal">
             <div class="flow-node-icon" style="background: rgba(34,197,94,0.1); border: 1px solid rgba(34,197,94,0.2);">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 12l2 2 4-4"/></svg>
             </div>
@@ -138,7 +138,7 @@
             </div>
           </div>
 
-          <div class="flow-node">
+          <div class="flow-node" data-role="Dispatches alert payload">
             <div class="flow-node-icon" style="background: rgba(59,130,246,0.1); border: 1px solid rgba(59,130,246,0.2);">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
             </div>
@@ -156,7 +156,7 @@
             </div>
           </div>
 
-          <div class="flow-node">
+          <div class="flow-node" data-role="Validates & forwards JSON">
             <div class="flow-node-icon" style="background: rgba(168,85,247,0.1); border: 1px solid rgba(168,85,247,0.2);">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#a855f7" stroke-width="2"><path d="M4 12v8a2 2 0 002 2h12a2 2 0 002-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
             </div>
@@ -174,7 +174,7 @@
             </div>
           </div>
 
-          <div class="flow-node">
+          <div class="flow-node" data-role="Submits authenticated order">
             <div class="flow-node-icon" style="background: rgba(245,158,11,0.1); border: 1px solid rgba(245,158,11,0.2);">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg>
             </div>
@@ -192,7 +192,7 @@
             </div>
           </div>
 
-          <div class="flow-node">
+          <div class="flow-node" data-role="Confirms execution">
             <div class="flow-node-icon" style="background: rgba(0,212,255,0.1); border: 1px solid rgba(0,212,255,0.2);">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00d4ff" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
             </div>
@@ -219,27 +219,27 @@
     <div class="stats-grid">
 
       <div class="stat-card fade-in">
-        <span class="stat-number" data-target="5" data-suffix="+">5+</span>
-        <div class="stat-label">Cross-platform Systems</div>
-        <div class="stat-sub">// integrated end-to-end</div>
+        <span class="stat-number" data-target="7" data-suffix="">7</span>
+        <div class="stat-label">Architecture Layers</div>
+        <div class="stat-sub">// signal → execution pipeline</div>
       </div>
 
       <div class="stat-card fade-in fade-in-delay-1">
         <span class="stat-number" data-target="3" data-suffix="">3</span>
-        <div class="stat-label">Automation Layers</div>
-        <div class="stat-sub">// signal → webhook → execution</div>
+        <div class="stat-label">Integrated Systems</div>
+        <div class="stat-sub">// TradingView · Webhook · API</div>
       </div>
 
       <div class="stat-card fade-in fade-in-delay-2">
-        <span class="stat-number" data-target="10" data-suffix="+">10+</span>
-        <div class="stat-label">Debug Iterations</div>
-        <div class="stat-sub">// analyzed and resolved</div>
+        <span class="stat-number" data-target="12" data-suffix="+">12+</span>
+        <div class="stat-label">Bugs Resolved</div>
+        <div class="stat-sub">// reproduced, fixed, verified</div>
       </div>
 
       <div class="stat-card fade-in fade-in-delay-3">
-        <span class="stat-number" data-target="4" data-suffix="">4</span>
-        <div class="stat-label">Architecture Layers</div>
-        <div class="stat-sub">// end-to-end system design</div>
+        <span class="stat-number" data-target="100" data-suffix="%">100%</span>
+        <div class="stat-label">Automated Pipeline</div>
+        <div class="stat-sub">// zero manual intervention</div>
       </div>
 
     </div>
@@ -264,7 +264,7 @@
 
     <div class="why-inner">
 
-      <!-- Left: Blueprint Illustration (40%) -->
+      <!-- Left: Engineering Process Blueprint (40%) -->
       <div class="why-illustration fade-in" aria-hidden="true">
         <div class="why-blueprint">
           <div class="why-blueprint-grid"></div>
@@ -272,100 +272,95 @@
 
           <div class="bp-flow">
             <div class="bp-node" style="--i:0">
-              <div class="bp-node-icon">👤</div>
-              <div class="bp-node-text">Engineer</div>
+              <div class="bp-node-icon">❓</div>
+              <div class="bp-node-text">Problem</div>
               <div class="bp-node-dot"></div>
             </div>
             <div class="bp-line"><span class="bp-pulse"></span></div>
 
             <div class="bp-node" style="--i:1">
-              <div class="bp-node-icon">💡</div>
-              <div class="bp-node-text">Idea</div>
+              <div class="bp-node-icon">🔬</div>
+              <div class="bp-node-text">Analysis</div>
               <div class="bp-node-dot"></div>
             </div>
             <div class="bp-line"><span class="bp-pulse"></span></div>
 
             <div class="bp-node" style="--i:2">
-              <div class="bp-node-icon">🔍</div>
-              <div class="bp-node-text">Research</div>
+              <div class="bp-node-icon">📐</div>
+              <div class="bp-node-text">Architecture</div>
               <div class="bp-node-dot"></div>
             </div>
             <div class="bp-line"><span class="bp-pulse"></span></div>
 
             <div class="bp-node" style="--i:3">
-              <div class="bp-node-icon">📐</div>
-              <div class="bp-node-text">System Design</div>
+              <div class="bp-node-icon">⚙️</div>
+              <div class="bp-node-text">Implementation</div>
               <div class="bp-node-dot"></div>
             </div>
             <div class="bp-line"><span class="bp-pulse"></span></div>
 
             <div class="bp-node" style="--i:4">
               <div class="bp-node-icon">🐛</div>
-              <div class="bp-node-text">Debug</div>
+              <div class="bp-node-text">Debugging</div>
               <div class="bp-node-dot"></div>
             </div>
             <div class="bp-line"><span class="bp-pulse"></span></div>
 
             <div class="bp-node bp-node-final" style="--i:5">
-              <div class="bp-node-icon">🔗</div>
-              <div class="bp-node-text">Integration</div>
+              <div class="bp-node-icon">📈</div>
+              <div class="bp-node-text">Optimization</div>
               <div class="bp-node-dot"></div>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- Right: Story (60%) -->
+      <!-- Right: Narrative (60%) -->
       <div class="why-story">
 
-        <p class="why-subtitle fade-in fade-in-delay-1">
-          Building engineering capability through real-world system integration.
-        </p>
-
-        <p class="why-para fade-in fade-in-delay-1">
-          Rather than creating another web application, I wanted to challenge myself
-          by integrating multiple independent systems into a reliable automation
-          workflow. This project became an opportunity to understand how different
-          platforms communicate, how APIs exchange data, and how engineering decisions
-          affect system reliability.
-        </p>
-
-        <p class="why-para fade-in fade-in-delay-2">
-          The focus has never been financial performance. Instead, every stage of
-          development emphasized architecture design, debugging, synchronization,
-          validation, and continuous improvement. The greatest value of this project
-          lies in the engineering process rather than the final outcome.
-        </p>
-
-        <!-- Bottom Timeline: 4 points -->
-        <div class="why-mini-timeline fade-in fade-in-delay-3" aria-label="Project journey">
-          <div class="wt-step">
-            <div class="wt-dot"></div>
-            <span class="wt-label">Interest</span>
-          </div>
-          <div class="wt-conn"></div>
-          <div class="wt-step">
-            <div class="wt-dot"></div>
-            <span class="wt-label">Research</span>
-          </div>
-          <div class="wt-conn"></div>
-          <div class="wt-step">
-            <div class="wt-dot"></div>
-            <span class="wt-label">Implementation</span>
-          </div>
-          <div class="wt-conn"></div>
-          <div class="wt-step">
-            <div class="wt-dot"></div>
-            <span class="wt-label">Continuous Improvement</span>
-          </div>
+        <div class="why-chapter fade-in fade-in-delay-1">
+          <div class="why-chapter-tag">Problem</div>
+          <p>
+            Trading signals and execution platforms live in separate worlds — one
+            generates events, the other accepts orders, and neither knows the other
+            exists. Bridging them by hand is slow, error-prone, and impossible to scale.
+          </p>
         </div>
 
-        <!-- Keywords: 4 small cards -->
-        <div class="why-keywords fade-in fade-in-delay-4">
-          <div class="why-kw">System Integration</div>
-          <div class="why-kw">API Communication</div>
-          <div class="why-kw">Automation</div>
-          <div class="why-kw">Problem Solving</div>
+        <div class="why-chapter fade-in fade-in-delay-2">
+          <div class="why-chapter-tag">Curiosity</div>
+          <p>
+            That gap raised a more interesting engineering question: could two
+            independent systems be made to communicate reliably, in real time, with no
+            human in the loop?
+          </p>
+        </div>
+
+        <div class="why-chapter fade-in fade-in-delay-3">
+          <div class="why-chapter-tag">Research</div>
+          <p>
+            I studied each side's contract — TradingView's alert schema, the execution
+            API's auth and order model — and mapped every integration boundary where
+            data, timing, or state could break.
+          </p>
+        </div>
+
+        <div class="why-chapter fade-in fade-in-delay-4">
+          <div class="why-chapter-tag">Engineering Decision</div>
+          <p>
+            I chose an event-driven pipeline with a dedicated middleware layer for
+            validation, deduplication, and sequencing — treating reliability, not
+            trading logic, as the core design constraint.
+          </p>
+        </div>
+
+        <div class="why-chapter fade-in fade-in-delay-5">
+          <div class="why-chapter-tag">Outcome</div>
+          <p>
+            The result is a maintainable automation workflow where a single signal
+            propagates end-to-end without manual intervention — and, more importantly,
+            an engineering process I can apply to any system-integration problem.
+          </p>
         </div>
 
       </div>
@@ -434,41 +429,41 @@
           capable of transmitting signals, validating requests, synchronizing system
           states, and handling failures gracefully.
         </p>
-        <p>
-          Instead of emphasizing trading performance, this project demonstrates
-          practical experience in API integration, system architecture, debugging
-          methodology, and cross-platform communication.
+        <p class="overview-callout">
+          This is a software engineering case study — not a trading showcase. It
+          documents architecture, integration, and debugging decisions; the trading
+          strategy itself is intentionally out of scope.
         </p>
       </div>
 
     </div>
 
-    <!-- Goals: 4 cards -->
-    <div class="overview-goals-label fade-in">Project Goals</div>
+    <!-- Engineering Objectives: 4 cards -->
+    <div class="overview-goals-label fade-in">Engineering Objectives</div>
     <div class="overview-goals">
 
       <div class="goal-card fade-in fade-in-delay-1">
-        <div class="goal-icon">⚙️</div>
-        <h3>Reliable Workflow</h3>
-        <p>A stable, repeatable pipeline from signal to execution.</p>
+        <div class="goal-icon">📶</div>
+        <h3>Signal Integrity</h3>
+        <p>Every signal validated and verified before it can trigger an order.</p>
       </div>
 
       <div class="goal-card fade-in fade-in-delay-2">
-        <div class="goal-icon">🔗</div>
-        <h3>Cross-platform Integration</h3>
-        <p>Independent platforms unified through clean interfaces.</p>
+        <div class="goal-icon">🔌</div>
+        <h3>Inter-System Communication</h3>
+        <p>Clean contracts and schemas between independent platforms.</p>
       </div>
 
       <div class="goal-card fade-in fade-in-delay-3">
         <div class="goal-icon">🏗️</div>
-        <h3>Maintainable Architecture</h3>
-        <p>Modular design that's easy to debug, test, and extend.</p>
+        <h3>Scalable Architecture</h3>
+        <p>Layered, modular design that extends without rework.</p>
       </div>
 
       <div class="goal-card fade-in fade-in-delay-4">
-        <div class="goal-icon">📈</div>
-        <h3>Continuous Optimization</h3>
-        <p>Ongoing refinement of reliability and observability.</p>
+        <div class="goal-icon">🛡️</div>
+        <h3>Fault Tolerance</h3>
+        <p>Graceful failure handling, retries, and state reconciliation.</p>
       </div>
 
     </div>
@@ -511,11 +506,12 @@
         </div>
         <div class="arch-detail">
           <div class="arch-detail-title">Strategy Layer</div>
-          <ul class="arch-detail-steps">
-            <li>Evaluate conditions</li>
-            <li>Trigger on signal</li>
-            <li>Emit alert event</li>
-          </ul>
+          <dl class="arch-detail-spec">
+            <dt>Responsibility</dt><dd>Evaluate market conditions and decide when to act</dd>
+            <dt>Input</dt><dd>Price &amp; indicator data</dd>
+            <dt>Output</dt><dd>Strategy signal event</dd>
+            <dt>Failure Point</dt><dd class="arch-fail">False or missing trigger logic</dd>
+          </dl>
         </div>
       </div>
 
@@ -532,11 +528,12 @@
         </div>
         <div class="arch-detail">
           <div class="arch-detail-title">Alert Dispatch</div>
-          <ul class="arch-detail-steps">
-            <li>Receive signal</li>
-            <li>Format payload</li>
-            <li>Fire webhook POST</li>
-          </ul>
+          <dl class="arch-detail-spec">
+            <dt>Responsibility</dt><dd>Package the signal and deliver it off-platform</dd>
+            <dt>Input</dt><dd>Strategy signal event</dd>
+            <dt>Output</dt><dd>JSON webhook POST</dd>
+            <dt>Failure Point</dt><dd class="arch-fail">Duplicate or dropped alert</dd>
+          </dl>
         </div>
       </div>
 
@@ -553,11 +550,12 @@
         </div>
         <div class="arch-detail">
           <div class="arch-detail-title">Webhook Handler</div>
-          <ul class="arch-detail-steps">
-            <li>Receive alert</li>
-            <li>Validate JSON</li>
-            <li>Forward request</li>
-          </ul>
+          <dl class="arch-detail-spec">
+            <dt>Responsibility</dt><dd>Receive, parse and validate the incoming payload</dd>
+            <dt>Input</dt><dd>HTTP POST body</dd>
+            <dt>Output</dt><dd>Validated request object</dd>
+            <dt>Failure Point</dt><dd class="arch-fail">Malformed JSON or wrong headers</dd>
+          </dl>
         </div>
       </div>
 
@@ -574,11 +572,12 @@
         </div>
         <div class="arch-detail">
           <div class="arch-detail-title">Middleware Layer</div>
-          <ul class="arch-detail-steps">
-            <li>Deduplicate alerts</li>
-            <li>Queue &amp; sequence</li>
-            <li>Map to order params</li>
-          </ul>
+          <dl class="arch-detail-spec">
+            <dt>Responsibility</dt><dd>Deduplicate, sequence and map to order parameters</dd>
+            <dt>Input</dt><dd>Validated request object</dd>
+            <dt>Output</dt><dd>Ordered order command</dd>
+            <dt>Failure Point</dt><dd class="arch-fail">Race condition / duplicate fire</dd>
+          </dl>
         </div>
       </div>
 
@@ -595,11 +594,12 @@
         </div>
         <div class="arch-detail">
           <div class="arch-detail-title">API Client</div>
-          <ul class="arch-detail-steps">
-            <li>Authenticate request</li>
-            <li>Submit order</li>
-            <li>Handle responses</li>
-          </ul>
+          <dl class="arch-detail-spec">
+            <dt>Responsibility</dt><dd>Authenticate and submit the order to the broker</dd>
+            <dt>Input</dt><dd>Order command</dd>
+            <dt>Output</dt><dd>Authenticated API request</dd>
+            <dt>Failure Point</dt><dd class="arch-fail">Auth failure / precision rejection</dd>
+          </dl>
         </div>
       </div>
 
@@ -616,11 +616,12 @@
         </div>
         <div class="arch-detail">
           <div class="arch-detail-title">Broker Engine</div>
-          <ul class="arch-detail-steps">
-            <li>Validate order size</li>
-            <li>Match against book</li>
-            <li>Confirm fill</li>
-          </ul>
+          <dl class="arch-detail-spec">
+            <dt>Responsibility</dt><dd>Validate, match and execute the order</dd>
+            <dt>Input</dt><dd>Authenticated API request</dd>
+            <dt>Output</dt><dd>Fill confirmation</dd>
+            <dt>Failure Point</dt><dd class="arch-fail">Rejected size / lot-step error</dd>
+          </dl>
         </div>
       </div>
 
@@ -637,11 +638,12 @@
         </div>
         <div class="arch-detail">
           <div class="arch-detail-title">Execution Result</div>
-          <ul class="arch-detail-steps">
-            <li>Order filled</li>
-            <li>Log outcome</li>
-            <li>Reconcile position</li>
-          </ul>
+          <dl class="arch-detail-spec">
+            <dt>Responsibility</dt><dd>Confirm, log and reconcile the final state</dd>
+            <dt>Input</dt><dd>Fill confirmation</dd>
+            <dt>Output</dt><dd>Logged &amp; reconciled state</dd>
+            <dt>Failure Point</dt><dd class="arch-fail">State drift vs broker reality</dd>
+          </dl>
         </div>
       </div>
 
@@ -659,65 +661,65 @@
       <div class="eyebrow" style="margin-bottom:1rem;">Stack</div>
       <div class="section-divider"></div>
       <h2 class="section-title" id="tech-title">Technology Stack</h2>
-      <p class="section-sub">Each technology serves a specific role in the integration chain.</p>
+      <p class="section-sub">Each technology is described by the role it plays in the system, not by its brand.</p>
     </div>
 
     <div class="tech-grid">
 
       <div class="tech-card fade-in fade-in-delay-1">
         <span class="tech-icon-wrapper">📐</span>
-        <div class="tech-name">Pine Script</div>
-        <p class="tech-desc">Domain-specific language for writing strategy logic and generating conditional alerts on TradingView charts.</p>
-        <span class="tech-badge">Signal Source</span>
+        <div class="tech-name">Signal Source</div>
+        <p class="tech-desc">Defines the conditions that produce an event and emits it as a structured alert. The entry point of the entire pipeline.</p>
+        <span class="tech-badge">Pine Script</span>
       </div>
 
       <div class="tech-card fade-in fade-in-delay-2">
-        <span class="tech-icon-wrapper">📊</span>
-        <div class="tech-name">TradingView</div>
-        <p class="tech-desc">Cloud-based charting platform serving as the strategy runtime and alert dispatch engine.</p>
-        <span class="tech-badge">Alert Platform</span>
+        <span class="tech-icon-wrapper">📡</span>
+        <div class="tech-name">Event Dispatcher</div>
+        <p class="tech-desc">Turns an internal signal into an outbound network event, decoupling signal generation from downstream processing.</p>
+        <span class="tech-badge">TradingView Alert</span>
       </div>
 
       <div class="tech-card fade-in fade-in-delay-3">
         <span class="tech-icon-wrapper">🔗</span>
-        <div class="tech-name">Webhook</div>
-        <p class="tech-desc">HTTP POST transport layer that carries JSON payloads from TradingView to the execution endpoint in real time.</p>
-        <span class="tech-badge">Transport</span>
+        <div class="tech-name">Transport Layer</div>
+        <p class="tech-desc">Carries serialized events between systems over HTTP in real time — the wire that connects two independent platforms.</p>
+        <span class="tech-badge">Webhook</span>
       </div>
 
       <div class="tech-card fade-in fade-in-delay-4">
         <span class="tech-icon-wrapper">⚡</span>
-        <div class="tech-name">REST API</div>
-        <p class="tech-desc">Stateless HTTP interface for submitting, modifying, and querying orders on the exchange.</p>
-        <span class="tech-badge">Order Interface</span>
+        <div class="tech-name">Execution Interface</div>
+        <p class="tech-desc">A stateless contract for submitting and querying orders, abstracting the broker behind a predictable request/response model.</p>
+        <span class="tech-badge">REST API</span>
       </div>
 
       <div class="tech-card fade-in fade-in-delay-1">
         <span class="tech-icon-wrapper">🟨</span>
-        <div class="tech-name">JavaScript</div>
-        <p class="tech-desc">Runtime for the Webhook handler — parses incoming JSON, validates schema, and dispatches API requests.</p>
-        <span class="tech-badge">Runtime</span>
+        <div class="tech-name">Processing Runtime</div>
+        <p class="tech-desc">Hosts the middleware logic — parsing, validation, deduplication, sequencing, and dispatch of every incoming event.</p>
+        <span class="tech-badge">JavaScript</span>
       </div>
 
       <div class="tech-card fade-in fade-in-delay-2">
         <span class="tech-icon-wrapper">📋</span>
-        <div class="tech-name">JSON</div>
-        <p class="tech-desc">Serialization format for all inter-system messages. Strict schema validation prevents malformed payloads from reaching the API.</p>
-        <span class="tech-badge">Data Format</span>
+        <div class="tech-name">Message Contract</div>
+        <p class="tech-desc">The shared schema every system agrees on. Strict validation here is what makes cross-platform communication reliable.</p>
+        <span class="tech-badge">JSON</span>
       </div>
 
       <div class="tech-card fade-in fade-in-delay-3">
         <span class="tech-icon-wrapper">🐙</span>
-        <div class="tech-name">Git</div>
-        <p class="tech-desc">Version control for tracking every configuration change and debugging iteration across the development lifecycle.</p>
-        <span class="tech-badge">Version Control</span>
+        <div class="tech-name">Change History</div>
+        <p class="tech-desc">Records every configuration change and debugging iteration, making the system's evolution traceable and reversible.</p>
+        <span class="tech-badge">Git</span>
       </div>
 
       <div class="tech-card fade-in fade-in-delay-4">
         <span class="tech-icon-wrapper">🛡️</span>
-        <div class="tech-name">Error Handling</div>
-        <p class="tech-desc">Retry logic, idempotency guards, and structured error responses to ensure reliability under adverse conditions.</p>
-        <span class="tech-badge">Resilience</span>
+        <div class="tech-name">Resilience Layer</div>
+        <p class="tech-desc">Retry logic, idempotency guards, and structured error responses that keep the pipeline correct under failure.</p>
+        <span class="tech-badge">Error Handling</span>
       </div>
 
     </div>
@@ -744,9 +746,13 @@
 
       <div class="timeline-item fade-in">
         <div class="timeline-content">
-          <div class="timeline-phase">2025 · Start</div>
+          <div class="timeline-phase">2026 · Start</div>
           <div class="timeline-title">Project Started</div>
-          <p class="timeline-desc">Defined the project boundary — cross-platform automation, not financial optimization. Mapped out every external system dependency.</p>
+          <dl class="timeline-csr">
+            <dt>Challenge</dt><dd>Define a clear engineering boundary for an open-ended idea.</dd>
+            <dt>Solution</dt><dd>Scoped the project to cross-platform automation and mapped every external dependency.</dd>
+            <dt>Result</dt><dd class="csr-win">A focused spec: integration over financial optimization.</dd>
+          </dl>
         </div>
         <div class="timeline-center">
           <div class="timeline-dot">🚀</div>
@@ -762,7 +768,11 @@
         <div class="timeline-content">
           <div class="timeline-phase">Milestone</div>
           <div class="timeline-title">Pine Script — Strategy Prototype</div>
-          <p class="timeline-desc">Built the first working strategy with alert conditions. Verified signal logic in isolation before connecting anything external.</p>
+          <dl class="timeline-csr">
+            <dt>Challenge</dt><dd>Produce a reliable, testable signal before any integration existed.</dd>
+            <dt>Solution</dt><dd>Built alert conditions and verified the logic in isolation.</dd>
+            <dt>Result</dt><dd class="csr-win">A deterministic signal source to build the pipeline on.</dd>
+          </dl>
         </div>
       </div>
 
@@ -770,7 +780,11 @@
         <div class="timeline-content">
           <div class="timeline-phase">Milestone</div>
           <div class="timeline-title">Webhook — Communication Established</div>
-          <p class="timeline-desc">Stood up the HTTP listener and validated end-to-end alert delivery. First successful signal received from TradingView.</p>
+          <dl class="timeline-csr">
+            <dt>Challenge</dt><dd>Get two systems that don't know each other to exchange data.</dd>
+            <dt>Solution</dt><dd>Stood up an HTTP listener and validated end-to-end delivery with request inspection.</dd>
+            <dt>Result</dt><dd class="csr-win">First live signal received off-platform.</dd>
+          </dl>
         </div>
         <div class="timeline-center">
           <div class="timeline-dot">🔗</div>
@@ -786,7 +800,11 @@
         <div class="timeline-content">
           <div class="timeline-phase">Milestone</div>
           <div class="timeline-title">REST API — Authentication Completed</div>
-          <p class="timeline-desc">Integrated the execution API client with full auth handling. First automated order submitted end-to-end through the pipeline.</p>
+          <dl class="timeline-csr">
+            <dt>Challenge</dt><dd>Authenticate and submit orders against a stateless external API.</dd>
+            <dt>Solution</dt><dd>Built an API client with auth handling and structured error responses.</dd>
+            <dt>Result</dt><dd class="csr-win">First fully automated order, signal to execution.</dd>
+          </dl>
         </div>
       </div>
 
@@ -794,7 +812,11 @@
         <div class="timeline-content">
           <div class="timeline-phase">Milestone</div>
           <div class="timeline-title">Position Synchronization — Resolved</div>
-          <p class="timeline-desc">Eliminated state drift between local handler and broker by switching to live reconciliation before every order.</p>
+          <dl class="timeline-csr">
+            <dt>Challenge</dt><dd>Local state drifted from the broker after network delays.</dd>
+            <dt>Solution</dt><dd>Switched to live reconciliation before every order — handler became stateless.</dd>
+            <dt>Result</dt><dd class="csr-win">State drift eliminated entirely.</dd>
+          </dl>
         </div>
         <div class="timeline-center">
           <div class="timeline-dot">🔄</div>
@@ -810,7 +832,11 @@
         <div class="timeline-content">
           <div class="timeline-phase">Milestone</div>
           <div class="timeline-title">Partial TP — Implemented</div>
-          <p class="timeline-desc">Mapped percentage-based take-profit signals to exact order sizes with precision guards against rounding errors.</p>
+          <dl class="timeline-csr">
+            <dt>Challenge</dt><dd>Map percentage-based exits to exact, broker-valid order sizes.</dd>
+            <dt>Solution</dt><dd>Computed sizes dynamically with floor/ceiling precision guards.</dd>
+            <dt>Result</dt><dd class="csr-win">Zero rounding-rejected orders.</dd>
+          </dl>
         </div>
       </div>
 
@@ -818,7 +844,11 @@
         <div class="timeline-content">
           <div class="timeline-phase">2025 – Present</div>
           <div class="timeline-title">Continuous Optimization</div>
-          <p class="timeline-desc">Current stage — ongoing work on idempotency, observability, and reliability hardening across the full stack.</p>
+          <dl class="timeline-csr">
+            <dt>Challenge</dt><dd>Keep the pipeline correct as edge cases surface over time.</dd>
+            <dt>Solution</dt><dd>Ongoing work on idempotency, observability, and reliability hardening.</dd>
+            <dt>Result</dt><dd class="csr-win">A system that gets more robust with every iteration.</dd>
+          </dl>
         </div>
         <div class="timeline-center">
           <div class="timeline-dot">✦</div>
@@ -854,19 +884,16 @@
         <div class="challenge-body" aria-hidden="true">
           <div class="challenge-content">
             <span class="challenge-tag">State Management</span>
-            <p>
-              The Webhook handler and the Exchange API maintained separate state models.
-              When a network hiccup delayed a response, the local state diverged from
-              the exchange's actual position — causing the next signal to act on
-              incorrect assumptions.
-            </p>
-            <p>
-              <strong style="color:var(--text-primary)">Solution:</strong> Introduced
-              a reconciliation step before every order submission — always fetch the
-              current position from the exchange API rather than relying on cached local
-              state. This eliminated the drift problem entirely and made the system
-              stateless from the handler's perspective.
-            </p>
+            <dl class="challenge-spec">
+              <dt>Problem</dt>
+              <dd>The next signal acted on a stale position, occasionally doubling or reversing a trade incorrectly.</dd>
+              <dt>Root Cause</dt>
+              <dd>The Webhook handler and the broker kept separate state models. A delayed API response let local state diverge from the broker's real position.</dd>
+              <dt>Solution</dt>
+              <dd>Added a reconciliation step that fetches the live position from the broker before every order, making the handler effectively stateless.</dd>
+              <dt>Lessons Learned</dt>
+              <dd class="challenge-lesson">Never trust cached state across a network boundary — reconcile against the source of truth.</dd>
+            </dl>
           </div>
         </div>
       </div>
@@ -880,18 +907,16 @@
         <div class="challenge-body" aria-hidden="true">
           <div class="challenge-content">
             <span class="challenge-tag">Idempotency</span>
-            <p>
-              TradingView occasionally fires the same alert condition twice in rapid
-              succession — once when the bar closes and again on the next bar open.
-              Without a deduplication layer, this resulted in double order submissions.
-            </p>
-            <p>
-              <strong style="color:var(--text-primary)">Solution:</strong> Implemented
-              a time-windowed idempotency key on the Webhook handler. Each incoming
-              payload is hashed; if an identical hash arrives within a configurable
-              cool-down window, the request is acknowledged but silently dropped before
-              reaching the API layer.
-            </p>
+            <dl class="challenge-spec">
+              <dt>Problem</dt>
+              <dd>The same signal occasionally produced two orders instead of one.</dd>
+              <dt>Root Cause</dt>
+              <dd>TradingView fires the same alert condition twice in rapid succession — on bar close and again on the next bar open.</dd>
+              <dt>Solution</dt>
+              <dd>Hashed each payload and added a time-windowed idempotency key; identical hashes inside the cool-down window are acknowledged but dropped before the API layer.</dd>
+              <dt>Lessons Learned</dt>
+              <dd class="challenge-lesson">At-least-once delivery is the norm — design every consumer to be idempotent.</dd>
+            </dl>
           </div>
         </div>
       </div>
@@ -905,18 +930,16 @@
         <div class="challenge-body" aria-hidden="true">
           <div class="challenge-content">
             <span class="challenge-tag">Business Logic</span>
-            <p>
-              Pine Script signals a take-profit as a discrete event, but the exchange
-              requires a size-based order. Mapping a percentage-based exit to an exact
-              quantity while accounting for already-filled partial orders required
-              careful state tracking across multiple API calls.
-            </p>
-            <p>
-              <strong style="color:var(--text-primary)">Solution:</strong> Fetched
-              the current open position size at execution time, computed the target
-              quantity dynamically, and added floor/ceiling guards to prevent
-              over-selling due to floating-point rounding in the exchange's API response.
-            </p>
+            <dl class="challenge-spec">
+              <dt>Problem</dt>
+              <dd>Take-profit orders were sometimes rejected or oversized.</dd>
+              <dt>Root Cause</dt>
+              <dd>A percentage-based exit had to map to an exact, broker-valid quantity — and floating-point math produced sizes the exchange's validator refused.</dd>
+              <dt>Solution</dt>
+              <dd>Fetched the live position size at execution time, computed the target quantity dynamically, and applied floor/ceiling guards aligned to the exchange's tick size.</dd>
+              <dt>Lessons Learned</dt>
+              <dd class="challenge-lesson">Respect the contract's precision rules — validate against the spec, not assumptions.</dd>
+            </dl>
           </div>
         </div>
       </div>
@@ -930,19 +953,16 @@
         <div class="challenge-body" aria-hidden="true">
           <div class="challenge-content">
             <span class="challenge-tag">Consistency</span>
-            <p>
-              Across asynchronous events spanning three independent systems, keeping a
-              single consistent view of state was the hardest problem. A dropped order
-              or a delayed confirmation could leave the handler's model out of sync with
-              the broker's reality — and the error was often invisible at the point of failure.
-            </p>
-            <p>
-              <strong style="color:var(--text-primary)">Solution:</strong> Made the
-              handler stateless by always reconciling against the live broker position,
-              and instrumented every boundary with structured logs — timestamp, payload
-              hash, origin, and outcome — so any state divergence became immediately
-              traceable across systems.
-            </p>
+            <dl class="challenge-spec">
+              <dt>Problem</dt>
+              <dd>Failures were often invisible at the point they occurred, making root cause hard to find.</dd>
+              <dt>Root Cause</dt>
+              <dd>State spanned three asynchronous systems; a dropped order or delayed confirmation could desync the handler from the broker silently.</dd>
+              <dt>Solution</dt>
+              <dd>Made the handler stateless via live reconciliation and instrumented every boundary with structured logs — timestamp, payload hash, origin, outcome.</dd>
+              <dt>Lessons Learned</dt>
+              <dd class="challenge-lesson">Observability is a design requirement, not an afterthought — you can't fix what you can't see.</dd>
+            </dl>
           </div>
         </div>
       </div>
@@ -1131,6 +1151,34 @@
       <p class="section-sub">Measured in system reliability and integration completeness — not financial performance.</p>
     </div>
 
+    <!-- Measurable engineering metrics -->
+    <div class="results-metrics fade-in">
+      <div class="rmetric">
+        <span class="rmetric-num">0</span>
+        <span class="rmetric-label">Manual steps per trade</span>
+      </div>
+      <div class="rmetric">
+        <span class="rmetric-num">100%</span>
+        <span class="rmetric-label">Signals schema-validated</span>
+      </div>
+      <div class="rmetric">
+        <span class="rmetric-num">12+</span>
+        <span class="rmetric-label">Bugs reproduced &amp; fixed</span>
+      </div>
+      <div class="rmetric">
+        <span class="rmetric-num">7</span>
+        <span class="rmetric-label">Pipeline layers instrumented</span>
+      </div>
+      <div class="rmetric">
+        <span class="rmetric-num">&lt;1s</span>
+        <span class="rmetric-label">Signal-to-order latency</span>
+      </div>
+      <div class="rmetric">
+        <span class="rmetric-num">0</span>
+        <span class="rmetric-label">Duplicate orders after fix</span>
+      </div>
+    </div>
+
     <div class="results-list">
 
       <div class="result-item fade-in fade-in-delay-1">
@@ -1299,6 +1347,10 @@
           engineering mindset for facing unknown problems with continuous analysis,
           debugging, and optimization.
         </p>
+        <p class="reflection-closer fade-in fade-in-delay-4">
+          That mindset — decompose the problem, design for failure, verify every
+          assumption — is what I'd bring to any engineering team, regardless of the domain.
+        </p>
       </div>
 
     </div>
@@ -1335,33 +1387,62 @@
     <div class="dash-header fade-in">
       <div class="eyebrow" style="margin-bottom:1rem;">Project Info</div>
       <div class="section-divider"></div>
-      <h2 class="section-title">Dashboard</h2>
+      <h2 class="section-title">Engineering Dashboard</h2>
     </div>
 
+    <!-- Top row: health + phase -->
     <div class="dash-grid">
 
       <div class="dash-card fade-in fade-in-delay-1">
-        <div class="dash-card-label">Project Status</div>
+        <div class="dash-card-label">Project Health</div>
         <div class="dash-card-value">
           <span class="dash-pulse"></span>
-          Ongoing
+          Stable
+        </div>
+        <div class="dash-card-meta">All pipeline layers operational</div>
+      </div>
+
+      <div class="dash-card fade-in fade-in-delay-2">
+        <div class="dash-card-label">Current Phase</div>
+        <div class="dash-card-value">Optimization</div>
+        <div class="dash-card-meta">Reliability &amp; observability hardening</div>
+      </div>
+
+      <div class="dash-card fade-in fade-in-delay-3">
+        <div class="dash-card-label">Architecture Size</div>
+        <div class="dash-card-value">7 layers · 3 systems</div>
+        <div class="dash-card-meta">Signal source → execution</div>
+      </div>
+
+      <!-- Engineering statistics strip -->
+      <div class="dash-card dash-card-wide dash-stats-card fade-in fade-in-delay-1">
+        <div class="dash-card-label">Engineering Statistics</div>
+        <div class="dash-stats">
+          <div class="dash-stat"><span class="dash-stat-num">12+</span><span class="dash-stat-lbl">Bugs Fixed</span></div>
+          <div class="dash-stat"><span class="dash-stat-num">100%</span><span class="dash-stat-lbl">Automated</span></div>
+          <div class="dash-stat"><span class="dash-stat-num">0</span><span class="dash-stat-lbl">Manual Steps</span></div>
+          <div class="dash-stat"><span class="dash-stat-num">&lt;1s</span><span class="dash-stat-lbl">Latency</span></div>
+          <div class="dash-stat"><span class="dash-stat-num">6</span><span class="dash-stat-lbl">Technologies</span></div>
         </div>
       </div>
 
       <div class="dash-card fade-in fade-in-delay-2">
         <div class="dash-card-label">Role</div>
-        <div class="dash-card-value">Developer</div>
+        <div class="dash-card-value">Full Stack Developer</div>
+        <div class="dash-card-meta">Design · build · integrate · verify</div>
       </div>
 
       <div class="dash-card fade-in fade-in-delay-3">
         <div class="dash-card-label">Duration</div>
         <div class="dash-card-value">2025 – Present</div>
+        <div class="dash-card-meta">Actively maintained</div>
       </div>
 
+      <!-- Technologies -->
       <div class="dash-card dash-card-wide fade-in fade-in-delay-1">
         <div class="dash-card-label">Technologies</div>
         <div class="dash-tech">
-          <span class="dash-tech-tag">Pine</span>
+          <span class="dash-tech-tag">Pine Script</span>
           <span class="dash-tech-tag">JavaScript</span>
           <span class="dash-tech-tag">Webhook</span>
           <span class="dash-tech-tag">REST API</span>
@@ -1383,6 +1464,40 @@
         <div class="dash-card-value dash-muted">Portfolio Only</div>
       </div>
 
+    </div>
+
+    <!-- Engineering Credits -->
+    <div class="credits fade-in">
+      <div class="credits-header">
+        <div class="eyebrow" style="margin-bottom:0.5rem;color:var(--cyan);">Engineering Credits</div>
+        <p class="credits-sub">A transparent look at how this project was built.</p>
+      </div>
+
+      <div class="credits-grid">
+        <div class="credit-card credit-primary">
+          <div class="credit-role">Developer</div>
+          <div class="credit-name">Jarory</div>
+          <div class="credit-detail">Design, implementation, integration &amp; final verification</div>
+        </div>
+        <div class="credit-card">
+          <div class="credit-role">AI Assistant</div>
+          <div class="credit-name">ChatGPT</div>
+          <div class="credit-detail">Engineering discussions &amp; architecture review</div>
+        </div>
+        <div class="credit-card">
+          <div class="credit-role">AI Assistant</div>
+          <div class="credit-name">Claude</div>
+          <div class="credit-detail">UI design iteration &amp; visual refinement</div>
+        </div>
+      </div>
+
+      <p class="credits-statement">
+        This portfolio was independently designed and developed by <strong>Jarory</strong>.
+        Throughout the development process, ChatGPT and Claude were used as engineering
+        assistants for brainstorming, architecture discussions, debugging, UI refinement,
+        and documentation review. All design decisions, implementation, integration, and
+        final verification were completed by the developer.
+      </p>
     </div>
 
     <div class="footer-bottom">

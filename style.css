@@ -485,6 +485,37 @@ body::before {
 .flow-node:hover {
   border-color: var(--border-accent);
   box-shadow: 0 0 24px var(--blue-glow);
+  transform: translateX(4px);
+}
+
+.flow-node {
+  transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s var(--ease-out);
+}
+
+/* Hover role tooltip */
+.flow-node[data-role]::after {
+  content: attr(data-role);
+  position: absolute;
+  right: calc(100% + 12px);
+  top: 50%;
+  transform: translateY(-50%) translateX(6px);
+  white-space: nowrap;
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  color: var(--cyan);
+  background: rgba(13,13,24,0.97);
+  border: 1px solid var(--border-accent);
+  border-radius: 6px;
+  padding: 0.35rem 0.6rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s, transform 0.25s var(--ease-out);
+  z-index: 5;
+}
+
+.flow-node:hover::after {
+  opacity: 1;
+  transform: translateY(-50%) translateX(0);
 }
 
 .flow-node.active {
@@ -1085,6 +1116,43 @@ body::before {
   line-height: 1.6;
 }
 
+/* Timeline Challenge / Solution / Result */
+.timeline-csr {
+  margin: 0;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.4rem 0.75rem;
+  align-items: baseline;
+}
+
+.timeline-csr dt {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  white-space: nowrap;
+  padding-top: 0.05rem;
+}
+
+.timeline-csr dd {
+  margin: 0;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.timeline-csr dd.csr-win {
+  color: var(--cyan);
+  font-weight: 500;
+}
+
+/* On odd (right-aligned) timeline items, keep CSR readable left-aligned */
+.timeline-item:nth-child(odd) .timeline-csr { text-align: left; }
+.timeline-item:nth-child(odd) .timeline-content .timeline-csr dt,
+.timeline-item:nth-child(odd) .timeline-content .timeline-csr dd { text-align: left; }
+
 /* =============================================
    CHALLENGES
    ============================================= */
@@ -1168,7 +1236,7 @@ body::before {
 }
 
 .challenge-card.open .challenge-body {
-  max-height: 500px;
+  max-height: 700px;
 }
 
 .challenge-content {
@@ -1185,6 +1253,38 @@ body::before {
 }
 
 .challenge-content p:last-child { margin-bottom: 0; }
+
+/* Challenge Problem/Root Cause/Solution/Lessons spec */
+.challenge-spec {
+  margin: 0.5rem 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.challenge-spec dt {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--blue-bright);
+  margin-bottom: 0.3rem;
+}
+
+.challenge-spec dd {
+  margin: 0;
+  font-size: 0.84rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+
+.challenge-spec dd.challenge-lesson {
+  color: var(--cyan);
+  font-weight: 500;
+  border-left: 2px solid var(--border-accent);
+  padding-left: 0.75rem;
+}
 
 .challenge-tag {
   display: inline-block;
@@ -1355,11 +1455,52 @@ body::before {
   background: var(--bg-surface);
 }
 
+/* Measurable engineering metrics band */
+.results-metrics {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 1px;
+  margin-top: var(--space-lg);
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  overflow: hidden;
+}
+
+.rmetric {
+  background: var(--bg-surface);
+  padding: 1.5rem 1rem;
+  text-align: center;
+  transition: background 0.25s;
+}
+
+.rmetric:hover { background: var(--bg-card-hover); }
+
+.rmetric-num {
+  display: block;
+  font-size: 1.8rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  background: linear-gradient(135deg, var(--blue-bright) 0%, var(--cyan) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 0.4rem;
+}
+
+.rmetric-label {
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  color: var(--text-muted);
+  letter-spacing: 0.02em;
+  line-height: 1.3;
+}
+
 .results-list {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 1rem;
-  margin-top: var(--space-lg);
+  margin-top: 1.25rem;
 }
 
 .result-item {
@@ -1679,7 +1820,94 @@ body::before {
   font-weight: 500;
 }
 
+/* =============================================
+   ENGINEERING CREDITS
+   ============================================= */
+.credits {
+  margin-top: var(--space-lg);
+  padding-top: var(--space-lg);
+  border-top: 1px solid var(--border);
+}
+
+.credits-header {
+  margin-bottom: 1.5rem;
+}
+
+.credits-sub {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+}
+
+.credits-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+  margin-bottom: 1.75rem;
+}
+
+.credit-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  padding: 1.5rem;
+  transition: border-color 0.3s, transform 0.3s var(--ease-out);
+}
+
+.credit-card:hover {
+  border-color: var(--border-accent);
+  transform: translateY(-3px);
+}
+
+.credit-primary {
+  border-color: rgba(0, 102, 255, 0.3);
+  background: linear-gradient(135deg, rgba(0, 102, 255, 0.06) 0%, var(--bg-card) 60%);
+}
+
+.credit-role {
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-bottom: 0.6rem;
+}
+
+.credit-primary .credit-role { color: var(--cyan); }
+
+.credit-name {
+  font-size: 1.25rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.credit-detail {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.credits-statement {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  line-height: 1.75;
+  max-width: 760px;
+  padding: 1.25rem 1.5rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--blue);
+  border-radius: var(--r-sm);
+}
+
+.credits-statement strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
 .footer-bottom {
+  margin-top: var(--space-lg);
   border-top: 1px solid var(--border);
   padding-top: 1.5rem;
   display: flex;
@@ -1795,8 +2023,8 @@ body::before {
   top: calc(100% + 14px);
   left: 50%;
   transform: translateX(-50%) translateY(8px);
-  width: 200px;
-  background: rgba(13, 13, 24, 0.97);
+  width: 240px;
+  background: rgba(13, 13, 24, 0.98);
   border: 1px solid var(--border-accent);
   border-radius: var(--r-md);
   padding: 1rem 1.1rem;
@@ -1866,6 +2094,35 @@ body::before {
 }
 
 .arch-detail-steps li:first-child::before { content: '→'; }
+
+/* Spec definition list (Responsibility / Input / Output / Failure) */
+.arch-detail-spec {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.4rem 0.7rem;
+  margin: 0;
+}
+
+.arch-detail-spec dt {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+  padding-top: 0.1rem;
+}
+
+.arch-detail-spec dd {
+  font-size: 0.72rem;
+  color: var(--text-secondary);
+  line-height: 1.35;
+  margin: 0;
+}
+
+.arch-detail-spec dd.arch-fail {
+  color: #f8a4a4;
+}
 
 /* =============================================
    DEBUG JOURNEY — GIT COMMIT LOG
@@ -2330,7 +2587,41 @@ body::before {
 .why-story {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1.4rem;
+}
+
+.why-chapter {
+  position: relative;
+  padding-left: 1.4rem;
+}
+
+.why-chapter::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.4rem;
+  bottom: 0.4rem;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--blue), var(--cyan));
+  border-radius: 2px;
+  opacity: 0.5;
+}
+
+.why-chapter-tag {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: var(--cyan);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  margin-bottom: 0.5rem;
+}
+
+.why-chapter p {
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+  line-height: 1.75;
+  max-width: 66ch;
 }
 
 .why-subtitle {
@@ -2535,6 +2826,17 @@ body::before {
 
 .overview-text p:last-child { margin-bottom: 0; }
 
+.overview-callout {
+  border-left: 2px solid var(--border-accent);
+  padding-left: 1rem !important;
+  color: var(--text-primary) !important;
+  font-weight: 500;
+  background: linear-gradient(90deg, var(--blue-glow) 0%, transparent 80%);
+  border-radius: 0 var(--r-sm) var(--r-sm) 0;
+  padding-top: 0.75rem !important;
+  padding-bottom: 0.75rem !important;
+}
+
 /* Overview closing quote */
 .overview-quote {
   text-align: center;
@@ -2672,6 +2974,18 @@ body::before {
   font-weight: 500;
 }
 
+.reflection-closer {
+  font-size: 1.05rem !important;
+  font-weight: 600 !important;
+  color: var(--text-primary) !important;
+  padding-top: 1.5rem;
+  margin-top: 0.5rem;
+  border-top: 1px solid var(--border);
+  border-left: 3px solid var(--blue);
+  padding-left: 1.25rem;
+  border-top: none;
+}
+
 /* =============================================
    ENGINEERING MINDSET — SOUL STATEMENT
    ============================================= */
@@ -2769,6 +3083,46 @@ body::before {
   gap: 0.5rem;
 }
 
+.dash-card-meta {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+  line-height: 1.4;
+}
+
+.dash-stats-card { display: flex; flex-direction: column; }
+
+.dash-stats {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1rem;
+  margin-top: 0.75rem;
+}
+
+.dash-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  text-align: center;
+}
+
+.dash-stat-num {
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  background: linear-gradient(135deg, var(--blue-bright) 0%, var(--cyan) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.dash-stat-lbl {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  color: var(--text-muted);
+  letter-spacing: 0.02em;
+}
+
 .dash-muted {
   font-size: 1rem;
   color: var(--text-secondary);
@@ -2830,6 +3184,9 @@ body::before {
   .reflection-inner { grid-template-columns: 1fr; }
   .dash-grid { grid-template-columns: repeat(2, 1fr); }
   .dash-card-wide { grid-column: span 2; }
+  .results-metrics { grid-template-columns: repeat(3, 1fr); }
+  .dash-stats { grid-template-columns: repeat(5, 1fr); gap: 0.6rem; }
+  .credits-grid { grid-template-columns: repeat(3, 1fr); }
 }
 
 @media (max-width: 768px) {
@@ -2866,6 +3223,10 @@ body::before {
   .hero-stats { flex-wrap: wrap; gap: 1rem; }
   .dash-grid { grid-template-columns: 1fr; }
   .dash-card-wide { grid-column: span 1; }
+  .results-metrics { grid-template-columns: repeat(2, 1fr); }
+  .dash-stats { grid-template-columns: repeat(2, 1fr); gap: 1rem 0.6rem; }
+  .credits-grid { grid-template-columns: 1fr; }
+  .timeline-csr { grid-template-columns: auto 1fr; }
   .challenges-grid { grid-template-columns: 1fr; }
   .arch-flow { flex-direction: column; }
   .arch-arrow { transform: rotate(90deg); }
