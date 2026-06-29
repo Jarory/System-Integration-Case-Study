@@ -1300,7 +1300,7 @@
         <p class="gallery-group-desc">Iterating open positions and closing a portion when the first take-profit triggers.</p>
       </div>
       <div class="gallery-grid">
-        <figure class="gallery-item" data-src="img/tp1_execution_workflow.png">
+        <figure class="gallery-item" data-src="img/06_tp1_execution_workflow.png">
           <div class="gallery-thumb"><img loading="lazy" src="img/tp1_execution_workflow.png" alt="TP1 execution workflow"></div>
           <figcaption><span class="gallery-tag">06</span> TP1 flow — partial close triggered automatically on the TP1 condition.</figcaption>
         </figure>
@@ -1389,10 +1389,19 @@
 
 
 <!-- Lightbox overlay -->
-<div class="lightbox" id="lightbox" aria-hidden="true">
-  <button class="lightbox-close" id="lightbox-close" aria-label="Close">&times;</button>
-  <img class="lightbox-img" id="lightbox-img" src="" alt="">
-  <div class="lightbox-caption" id="lightbox-caption"></div>
+<div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Image viewer">
+  <button class="lightbox-close" id="lightbox-close" aria-label="Close image viewer">&times;</button>
+  <button class="lightbox-nav lightbox-prev" id="lightbox-prev" aria-label="Previous image">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"></polyline></svg>
+  </button>
+  <div class="lightbox-stage">
+    <img class="lightbox-img" id="lightbox-img" src="" alt="">
+    <div class="lightbox-caption" id="lightbox-caption"></div>
+    <div class="lightbox-counter" id="lightbox-counter"></div>
+  </div>
+  <button class="lightbox-nav lightbox-next" id="lightbox-next" aria-label="Next image">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg>
+  </button>
 </div>
 
 

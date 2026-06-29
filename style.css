@@ -73,6 +73,21 @@ body {
   color: #fff;
 }
 
+/* Accessible keyboard focus — visible ring for keyboard users only */
+:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+a:focus-visible,
+button:focus-visible,
+.gallery-item:focus-visible,
+.challenge-header:focus-visible,
+.arch-node:focus-visible {
+  outline: 2px solid var(--cyan);
+  outline-offset: 3px;
+}
+
 /* =============================================
    SCROLLBAR
    ============================================= */
@@ -210,14 +225,32 @@ body::before {
 }
 
 .nav-links a {
+  position: relative;
   font-size: 0.85rem;
   font-weight: 500;
   color: var(--text-secondary);
   text-decoration: none;
-  transition: color 0.2s;
+  transition: color 0.25s var(--ease-out);
+}
+
+.nav-links a:not(.nav-cta)::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -6px;
+  height: 2px;
+  border-radius: 2px;
+  background: linear-gradient(to right, var(--blue), var(--cyan));
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.25s var(--ease-out);
 }
 
 .nav-links a:hover { color: var(--text-primary); }
+
+.nav-links a.active:not(.nav-cta) { color: var(--text-primary); }
+.nav-links a.active:not(.nav-cta)::after { transform: scaleX(1); }
 
 .nav-cta {
   font-size: 0.8rem !important;
@@ -808,7 +841,11 @@ body::before {
    ============================================= */
 #architecture {
   position: relative;
-  overflow: hidden;
+  /* Was overflow:hidden, which clipped the hover tooltips that extend
+     below each node. Use clip on the X axis only so the bg-glow doesn't
+     cause horizontal scroll, while letting tooltips overflow downward. */
+  overflow: visible;
+  padding-bottom: calc(var(--space-xl) + 120px);
 }
 
 .arch-bg-glow {
@@ -818,6 +855,7 @@ body::before {
   transform: translate(-50%, -50%);
   width: 800px;
   height: 800px;
+  max-width: 100%;
   background: radial-gradient(ellipse, rgba(0, 102, 255, 0.06) 0%, transparent 65%);
   pointer-events: none;
 }
@@ -1499,7 +1537,7 @@ body::before {
 .results-list {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 1rem;
+  gap: 1.25rem;
   margin-top: 1.25rem;
 }
 
@@ -1511,7 +1549,7 @@ body::before {
   border: 1px solid var(--border);
   border-radius: var(--r-md);
   padding: 1.5rem;
-  transition: border-color 0.3s, transform 0.3s var(--ease-out);
+  transition: border-color 0.25s var(--ease-out), transform 0.25s var(--ease-out);
 }
 
 .result-item:hover {
@@ -2016,7 +2054,8 @@ body::before {
 /* =============================================
    ARCHITECTURE HOVER DETAIL
    ============================================= */
-.arch-node { position: relative; }
+.arch-node { position: relative; z-index: 1; }
+.arch-node:hover, .arch-node:focus-within { z-index: 30; }
 
 .arch-detail {
   position: absolute;
@@ -2966,6 +3005,7 @@ body::before {
   font-size: 1rem;
   color: var(--text-secondary);
   line-height: 1.85;
+  max-width: 62ch;
 }
 
 .reflection-right p:first-child {
@@ -3208,17 +3248,20 @@ body::before {
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1.25rem;
+  gap: 1.5rem;
+  align-items: stretch;
 }
 
 .gallery-item {
   margin: 0;
+  display: flex;
+  flex-direction: column;
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: var(--r-md);
   overflow: hidden;
   cursor: zoom-in;
-  transition: border-color 0.3s, transform 0.3s var(--ease-out), box-shadow 0.3s;
+  transition: border-color 0.25s var(--ease-out), transform 0.25s var(--ease-out), box-shadow 0.25s var(--ease-out);
 }
 
 .gallery-item:hover {
@@ -3227,10 +3270,15 @@ body::before {
   box-shadow: 0 16px 40px rgba(0, 102, 255, 0.12);
 }
 
+.gallery-item:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 2px;
+}
+
 .gallery-thumb {
   position: relative;
   width: 100%;
-  aspect-ratio: 16 / 10;
+  aspect-ratio: 16 / 9;
   overflow: hidden;
   background: var(--bg-void);
 }
@@ -3251,23 +3299,24 @@ body::before {
 .gallery-thumb img[src=""] { opacity: 0; }
 
 .gallery-item figcaption {
-  padding: 0.9rem 1rem;
-  font-size: 0.78rem;
+  flex: 1;
+  padding: 1rem 1.1rem;
+  font-size: 0.84rem;
   color: var(--text-secondary);
-  line-height: 1.5;
+  line-height: 1.6;
   display: flex;
-  gap: 0.5rem;
+  gap: 0.6rem;
   align-items: baseline;
 }
 
 .gallery-tag {
   font-family: var(--font-mono);
-  font-size: 0.65rem;
+  font-size: 0.66rem;
   font-weight: 600;
   color: var(--blue-bright);
   background: var(--blue-glow);
   border: 1px solid var(--border-accent);
-  padding: 0.1rem 0.4rem;
+  padding: 0.12rem 0.45rem;
   border-radius: 4px;
   flex-shrink: 0;
 }
@@ -3277,16 +3326,17 @@ body::before {
   position: fixed;
   inset: 0;
   z-index: 1000;
-  background: rgba(5, 5, 10, 0.92);
-  backdrop-filter: blur(12px);
+  background: rgba(5, 5, 10, 0.93);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 1rem;
   padding: 3rem;
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.3s, visibility 0.3s;
+  transition: opacity 0.3s var(--ease-out), visibility 0.3s var(--ease-out);
 }
 
 .lightbox.open {
@@ -3294,22 +3344,39 @@ body::before {
   visibility: visible;
 }
 
-.lightbox-img {
+.lightbox-stage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   max-width: 92vw;
-  max-height: 80vh;
+}
+
+.lightbox-img {
+  max-width: 88vw;
+  max-height: 78vh;
   object-fit: contain;
   border: 1px solid var(--border-accent);
   border-radius: var(--r-md);
   box-shadow: 0 24px 80px rgba(0, 0, 0, 0.6);
+  opacity: 1;
+  transition: opacity 0.25s var(--ease-out);
 }
 
 .lightbox-caption {
   margin-top: 1.25rem;
-  font-size: 0.85rem;
+  font-size: 0.92rem;
   color: var(--text-secondary);
   text-align: center;
-  max-width: 700px;
-  line-height: 1.5;
+  max-width: 640px;
+  line-height: 1.6;
+}
+
+.lightbox-counter {
+  margin-top: 0.6rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
 }
 
 .lightbox-close {
@@ -3325,10 +3392,11 @@ body::before {
   font-size: 1.6rem;
   line-height: 1;
   cursor: pointer;
-  transition: background 0.2s, border-color 0.2s, transform 0.2s;
+  transition: background 0.25s var(--ease-out), border-color 0.25s var(--ease-out), transform 0.25s var(--ease-out);
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 2;
 }
 
 .lightbox-close:hover {
@@ -3336,6 +3404,29 @@ body::before {
   border-color: var(--border-accent);
   transform: rotate(90deg);
 }
+
+.lightbox-nav {
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  color: var(--text-primary);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.25s var(--ease-out), border-color 0.25s var(--ease-out), transform 0.25s var(--ease-out);
+}
+
+.lightbox-nav:hover {
+  background: var(--blue-glow);
+  border-color: var(--border-accent);
+  transform: scale(1.08);
+}
+
+.lightbox-nav:active { transform: scale(0.96); }
 
 /* =============================================
    RESPONSIVE
@@ -3402,7 +3493,7 @@ body::before {
   .results-metrics { grid-template-columns: repeat(2, 1fr); }
   .dash-stats { grid-template-columns: repeat(2, 1fr); gap: 1rem 0.6rem; }
   .credits-grid { grid-template-columns: 1fr; }
-  .gallery-grid { grid-template-columns: 1fr; }
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); }
   .lightbox { padding: 1.5rem; }
   .timeline-csr { grid-template-columns: auto 1fr; }
   .challenges-grid { grid-template-columns: 1fr; }
@@ -3450,6 +3541,10 @@ body::before {
   .git-commits::before { left: calc(1rem + 7px); }
   .git-commit { grid-template-columns: 24px 1fr; gap: 0.75rem; }
   .git-head-badge { margin-left: 0; width: 100%; margin-top: 0.25rem; }
+}
+
+@media (max-width: 520px) {
+  .gallery-grid { grid-template-columns: 1fr; }
 }
 
 @media (prefers-reduced-motion: reduce) {

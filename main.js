@@ -101,12 +101,21 @@ challengeCards.forEach(card => {
   const header = card.querySelector('.challenge-header');
   if (!header) return;
 
-  header.addEventListener('click', () => {
+  // Make the header keyboard-operable
+  header.setAttribute('tabindex', '0');
+  header.setAttribute('role', 'button');
+  const body = card.querySelector('.challenge-body');
+  header.setAttribute('aria-expanded', 'false');
+
+  function toggle() {
     const isOpen = card.classList.toggle('open');
-    const body = card.querySelector('.challenge-body');
-    if (body) {
-      body.setAttribute('aria-hidden', !isOpen);
-    }
+    header.setAttribute('aria-expanded', String(isOpen));
+    if (body) body.setAttribute('aria-hidden', String(!isOpen));
+  }
+
+  header.addEventListener('click', toggle);
+  header.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); }
   });
 });
 
@@ -159,17 +168,38 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 
-// ── Architecture node hover labels ────────────
-const archNodes = document.querySelectorAll('.arch-node');
+// ── Architecture node hover z-index handled in CSS ──
+// (.arch-node:hover { z-index: 30 }) — no JS needed.
 
-archNodes.forEach(node => {
-  node.addEventListener('mouseenter', () => {
-    node.style.zIndex = '10';
+// ── Scroll-spy: active nav section indicator ──
+(function () {
+  const navLinks = Array.from(document.querySelectorAll('.nav-links a[href^="#"]'));
+  const map = new Map();
+  navLinks.forEach(a => {
+    const id = a.getAttribute('href').slice(1);
+    const sec = document.getElementById(id);
+    if (sec) map.set(sec, a);
   });
-  node.addEventListener('mouseleave', () => {
-    node.style.zIndex = '';
-  });
-});
+  if (map.size === 0) return;
+
+  let ticking = false;
+  function updateActive() {
+    ticking = false;
+    const probe = window.scrollY + window.innerHeight * 0.35;
+    let currentLink = null;
+    map.forEach((link, sec) => {
+      if (sec.offsetTop <= probe) currentLink = link;
+    });
+    navLinks.forEach(a => a.classList.remove('active'));
+    if (currentLink) currentLink.classList.add('active');
+  }
+
+  window.addEventListener('scroll', () => {
+    if (!ticking) { requestAnimationFrame(updateActive); ticking = true; }
+  }, { passive: true });
+  window.addEventListener('resize', updateActive, { passive: true });
+  updateActive();
+})();
 
 // ── Git Commits & Lesson Cards ────────────────
 // Reveal animations are now handled purely in CSS
@@ -188,37 +218,71 @@ document.addEventListener('DOMContentLoaded', () => {
   const lbImg     = document.getElementById('lightbox-img');
   const lbCaption = document.getElementById('lightbox-caption');
   const lbClose   = document.getElementById('lightbox-close');
-  const items     = document.querySelectorAll('.gallery-item');
+  const lbPrev    = document.getElementById('lightbox-prev');
+  const lbNext    = document.getElementById('lightbox-next');
+  const lbCounter = document.getElementById('lightbox-counter');
+  const items     = Array.from(document.querySelectorAll('.gallery-item'));
+  let current = 0;
 
-  function openLightbox(src, caption) {
-    lbImg.src = src;
-    lbCaption.textContent = caption || '';
+  function render(i) {
+    const item = items[i];
+    if (!item) return;
+    const src = item.getAttribute('data-src');
+    const cap = item.querySelector('figcaption');
+    // fade the image out, swap, fade back in
+    lbImg.style.opacity = '0';
+    setTimeout(() => {
+      lbImg.src = src;
+      lbImg.alt = (item.querySelector('img') || {}).alt || '';
+      lbCaption.textContent = cap ? cap.textContent.trim() : '';
+      if (lbCounter) lbCounter.textContent = `${i + 1} / ${items.length}`;
+      lbImg.style.opacity = '1';
+    }, 150);
+  }
+
+  function openLightbox(i) {
+    current = i;
+    render(i);
     lightbox.classList.add('open');
     lightbox.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
+    lbClose.focus();
   }
 
   function closeLightbox() {
     lightbox.classList.remove('open');
     lightbox.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = '';
-    // clear src after transition so it doesn't flash next time
     setTimeout(() => { lbImg.src = ''; }, 300);
+    // restore focus to the trigger
+    if (items[current]) items[current].focus();
   }
 
-  items.forEach(item => {
-    item.addEventListener('click', () => {
-      const src = item.getAttribute('data-src');
-      const cap = item.querySelector('figcaption');
-      openLightbox(src, cap ? cap.textContent.trim() : '');
+  function next() { current = (current + 1) % items.length; render(current); }
+  function prev() { current = (current - 1 + items.length) % items.length; render(current); }
+
+  items.forEach((item, i) => {
+    // make each gallery item keyboard-activatable
+    item.setAttribute('tabindex', '0');
+    item.setAttribute('role', 'button');
+    item.addEventListener('click', () => openLightbox(i));
+    item.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openLightbox(i); }
     });
   });
 
   lbClose.addEventListener('click', closeLightbox);
+  if (lbNext) lbNext.addEventListener('click', (e) => { e.stopPropagation(); next(); });
+  if (lbPrev) lbPrev.addEventListener('click', (e) => { e.stopPropagation(); prev(); });
+
   lightbox.addEventListener('click', (e) => {
     if (e.target === lightbox) closeLightbox();
   });
+
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && lightbox.classList.contains('open')) closeLightbox();
+    if (!lightbox.classList.contains('open')) return;
+    if (e.key === 'Escape')     closeLightbox();
+    if (e.key === 'ArrowRight') next();
+    if (e.key === 'ArrowLeft')  prev();
   });
 })();
