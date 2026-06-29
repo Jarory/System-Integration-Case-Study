@@ -1,0 +1,1402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="TradingView Automated Trading Integration — A software engineering case study in system integration, webhook workflows, and API communication." />
+  <title>TradingView Integration — System Integration Case Study</title>
+  <script>
+    /* Progressive enhancement flag: set BEFORE CSS paints.
+       If JS is disabled or fails to load, content stays fully visible. */
+    document.documentElement.classList.add('js-enabled');
+  </script>
+  <link rel="stylesheet" href="./style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════
+     NAVBAR
+══════════════════════════════════════════ -->
+<nav id="navbar" role="navigation" aria-label="Main navigation">
+  <a href="#hero" class="nav-logo">
+    <span class="nav-logo-dot"></span>
+    <span>TradingView Integration</span>
+  </a>
+  <ul class="nav-links" id="nav-menu">
+    <li><a href="#overview">Overview</a></li>
+    <li><a href="#architecture">Architecture</a></li>
+    <li><a href="#timeline">Timeline</a></li>
+    <li><a href="#challenges">Challenges</a></li>
+    <li><a href="#reflection">Reflection</a></li>
+    <li><a href="#footer" class="nav-cta">Project Info</a></li>
+  </ul>
+  <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+</nav>
+
+
+<!-- ══════════════════════════════════════════
+     HERO
+══════════════════════════════════════════ -->
+<section id="hero">
+  <div class="hero-grid-bg"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-glow-left"></div>
+
+  <div class="container">
+    <div class="hero-inner">
+
+      <!-- Left -->
+      <div class="hero-left">
+        <div class="hero-badge">
+          <span class="hero-badge-dot"></span>
+          System Integration Case Study
+        </div>
+
+        <h1 class="hero-title">
+          TradingView<br />
+          <span class="hero-title-line2">Automated Trading</span><br />
+          Integration
+        </h1>
+
+        <p class="hero-desc">
+          Designing a cross-platform automation workflow by integrating strategy
+          signals, Webhook communication, and REST APIs — with a focus on system
+          reliability and engineering problem-solving.
+        </p>
+
+        <div class="hero-tags">
+          <span class="hero-tag">Pine Script</span>
+          <span class="hero-tag">Webhook</span>
+          <span class="hero-tag">REST API</span>
+          <span class="hero-tag">JSON</span>
+          <span class="hero-tag">Event-Driven</span>
+          <span class="hero-tag">Automation</span>
+        </div>
+
+        <div class="hero-actions">
+          <a href="#overview" class="btn-primary">
+            View Engineering Process
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M8 3L13 8L8 13M3 8H13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+          <a href="#architecture" class="btn-ghost">
+            View Architecture
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+              <path d="M7 2L12 7L7 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </a>
+        </div>
+
+        <p class="hero-tagline">
+          Building reliable automation systems through engineering rather than speculation.
+        </p>
+
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <span class="hero-stat-num">6+</span>
+            <span class="hero-stat-label">Integrated Technologies</span>
+          </div>
+          <div class="hero-stat-divider"></div>
+          <div class="hero-stat">
+            <span class="hero-stat-num">10+</span>
+            <span class="hero-stat-label">Debug Sessions</span>
+          </div>
+          <div class="hero-stat-divider"></div>
+          <div class="hero-stat">
+            <span class="hero-stat-num">3</span>
+            <span class="hero-stat-label">Automation Workflow</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Animated Flow Diagram -->
+      <div class="hero-right" aria-hidden="true">
+        <div class="flow-diagram">
+
+          <div class="flow-node">
+            <div class="flow-node-icon" style="background: rgba(34,197,94,0.1); border: 1px solid rgba(34,197,94,0.2);">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 12l2 2 4-4"/></svg>
+            </div>
+            <div class="flow-node-text">
+              <div class="flow-node-label">Strategy Layer</div>
+              <div class="flow-node-name">Pine Script</div>
+            </div>
+            <div class="flow-node-status"></div>
+          </div>
+
+          <div class="flow-connector">
+            <div class="flow-connector-line">
+              <div class="flow-connector-pulse"></div>
+              <div class="flow-connector-pulse"></div>
+            </div>
+          </div>
+
+          <div class="flow-node">
+            <div class="flow-node-icon" style="background: rgba(59,130,246,0.1); border: 1px solid rgba(59,130,246,0.2);">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+            </div>
+            <div class="flow-node-text">
+              <div class="flow-node-label">Platform</div>
+              <div class="flow-node-name">TradingView Alert</div>
+            </div>
+            <div class="flow-node-status"></div>
+          </div>
+
+          <div class="flow-connector">
+            <div class="flow-connector-line">
+              <div class="flow-connector-pulse"></div>
+              <div class="flow-connector-pulse"></div>
+            </div>
+          </div>
+
+          <div class="flow-node">
+            <div class="flow-node-icon" style="background: rgba(168,85,247,0.1); border: 1px solid rgba(168,85,247,0.2);">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#a855f7" stroke-width="2"><path d="M4 12v8a2 2 0 002 2h12a2 2 0 002-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
+            </div>
+            <div class="flow-node-text">
+              <div class="flow-node-label">Communication</div>
+              <div class="flow-node-name">Webhook</div>
+            </div>
+            <div class="flow-node-status"></div>
+          </div>
+
+          <div class="flow-connector">
+            <div class="flow-connector-line">
+              <div class="flow-connector-pulse"></div>
+              <div class="flow-connector-pulse"></div>
+            </div>
+          </div>
+
+          <div class="flow-node">
+            <div class="flow-node-icon" style="background: rgba(245,158,11,0.1); border: 1px solid rgba(245,158,11,0.2);">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg>
+            </div>
+            <div class="flow-node-text">
+              <div class="flow-node-label">Interface</div>
+              <div class="flow-node-name">Execution API</div>
+            </div>
+            <div class="flow-node-status"></div>
+          </div>
+
+          <div class="flow-connector">
+            <div class="flow-connector-line">
+              <div class="flow-connector-pulse"></div>
+              <div class="flow-connector-pulse"></div>
+            </div>
+          </div>
+
+          <div class="flow-node">
+            <div class="flow-node-icon" style="background: rgba(0,212,255,0.1); border: 1px solid rgba(0,212,255,0.2);">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00d4ff" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div class="flow-node-text">
+              <div class="flow-node-label">Output</div>
+              <div class="flow-node-name">Order Execution</div>
+            </div>
+            <div class="flow-node-status"></div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     STATISTICS
+══════════════════════════════════════════ -->
+<section id="statistics" aria-label="Project statistics">
+  <div class="container">
+    <div class="stats-grid">
+
+      <div class="stat-card fade-in">
+        <span class="stat-number" data-target="5" data-suffix="+">5+</span>
+        <div class="stat-label">Cross-platform Systems</div>
+        <div class="stat-sub">// integrated end-to-end</div>
+      </div>
+
+      <div class="stat-card fade-in fade-in-delay-1">
+        <span class="stat-number" data-target="3" data-suffix="">3</span>
+        <div class="stat-label">Automation Layers</div>
+        <div class="stat-sub">// signal → webhook → execution</div>
+      </div>
+
+      <div class="stat-card fade-in fade-in-delay-2">
+        <span class="stat-number" data-target="10" data-suffix="+">10+</span>
+        <div class="stat-label">Debug Iterations</div>
+        <div class="stat-sub">// analyzed and resolved</div>
+      </div>
+
+      <div class="stat-card fade-in fade-in-delay-3">
+        <span class="stat-number" data-target="4" data-suffix="">4</span>
+        <div class="stat-label">Architecture Layers</div>
+        <div class="stat-sub">// end-to-end system design</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     WHY THIS PROJECT
+══════════════════════════════════════════ -->
+<section id="why" class="section why-section" aria-labelledby="why-title">
+  <div class="container">
+
+    <div class="section-header fade-in" style="text-align:center;">
+      <div class="eyebrow" style="margin-bottom:1rem;color:var(--cyan);">From Curiosity to Engineering</div>
+      <h2 class="section-title" id="why-title">Why This Project</h2>
+      <p class="why-lead">
+        What started as curiosity about automation gradually evolved into a complete
+        cross-platform system integration project.
+      </p>
+    </div>
+
+    <div class="why-inner">
+
+      <!-- Left: Blueprint Illustration (40%) -->
+      <div class="why-illustration fade-in" aria-hidden="true">
+        <div class="why-blueprint">
+          <div class="why-blueprint-grid"></div>
+          <div class="why-blueprint-glow"></div>
+
+          <div class="bp-flow">
+            <div class="bp-node" style="--i:0">
+              <div class="bp-node-icon">👤</div>
+              <div class="bp-node-text">Engineer</div>
+              <div class="bp-node-dot"></div>
+            </div>
+            <div class="bp-line"><span class="bp-pulse"></span></div>
+
+            <div class="bp-node" style="--i:1">
+              <div class="bp-node-icon">💡</div>
+              <div class="bp-node-text">Idea</div>
+              <div class="bp-node-dot"></div>
+            </div>
+            <div class="bp-line"><span class="bp-pulse"></span></div>
+
+            <div class="bp-node" style="--i:2">
+              <div class="bp-node-icon">🔍</div>
+              <div class="bp-node-text">Research</div>
+              <div class="bp-node-dot"></div>
+            </div>
+            <div class="bp-line"><span class="bp-pulse"></span></div>
+
+            <div class="bp-node" style="--i:3">
+              <div class="bp-node-icon">📐</div>
+              <div class="bp-node-text">System Design</div>
+              <div class="bp-node-dot"></div>
+            </div>
+            <div class="bp-line"><span class="bp-pulse"></span></div>
+
+            <div class="bp-node" style="--i:4">
+              <div class="bp-node-icon">🐛</div>
+              <div class="bp-node-text">Debug</div>
+              <div class="bp-node-dot"></div>
+            </div>
+            <div class="bp-line"><span class="bp-pulse"></span></div>
+
+            <div class="bp-node bp-node-final" style="--i:5">
+              <div class="bp-node-icon">🔗</div>
+              <div class="bp-node-text">Integration</div>
+              <div class="bp-node-dot"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Story (60%) -->
+      <div class="why-story">
+
+        <p class="why-subtitle fade-in fade-in-delay-1">
+          Building engineering capability through real-world system integration.
+        </p>
+
+        <p class="why-para fade-in fade-in-delay-1">
+          Rather than creating another web application, I wanted to challenge myself
+          by integrating multiple independent systems into a reliable automation
+          workflow. This project became an opportunity to understand how different
+          platforms communicate, how APIs exchange data, and how engineering decisions
+          affect system reliability.
+        </p>
+
+        <p class="why-para fade-in fade-in-delay-2">
+          The focus has never been financial performance. Instead, every stage of
+          development emphasized architecture design, debugging, synchronization,
+          validation, and continuous improvement. The greatest value of this project
+          lies in the engineering process rather than the final outcome.
+        </p>
+
+        <!-- Bottom Timeline: 4 points -->
+        <div class="why-mini-timeline fade-in fade-in-delay-3" aria-label="Project journey">
+          <div class="wt-step">
+            <div class="wt-dot"></div>
+            <span class="wt-label">Interest</span>
+          </div>
+          <div class="wt-conn"></div>
+          <div class="wt-step">
+            <div class="wt-dot"></div>
+            <span class="wt-label">Research</span>
+          </div>
+          <div class="wt-conn"></div>
+          <div class="wt-step">
+            <div class="wt-dot"></div>
+            <span class="wt-label">Implementation</span>
+          </div>
+          <div class="wt-conn"></div>
+          <div class="wt-step">
+            <div class="wt-dot"></div>
+            <span class="wt-label">Continuous Improvement</span>
+          </div>
+        </div>
+
+        <!-- Keywords: 4 small cards -->
+        <div class="why-keywords fade-in fade-in-delay-4">
+          <div class="why-kw">System Integration</div>
+          <div class="why-kw">API Communication</div>
+          <div class="why-kw">Automation</div>
+          <div class="why-kw">Problem Solving</div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     PROJECT OVERVIEW
+══════════════════════════════════════════ -->
+<section id="overview" class="section" aria-labelledby="overview-title">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="eyebrow" style="margin-bottom:1rem;">Project Summary</div>
+      <div class="section-divider"></div>
+      <h2 class="section-title" id="overview-title">Overview</h2>
+    </div>
+
+    <div class="overview-inner">
+
+      <!-- Left: Project Information panel (6 hoverable rows) -->
+      <div class="overview-info fade-in">
+        <div class="overview-info-title">Project Information</div>
+        <div class="overview-info-list">
+          <div class="overview-info-row">
+            <span class="overview-info-key">Category</span>
+            <span class="overview-info-val">System Integration</span>
+          </div>
+          <div class="overview-info-row">
+            <span class="overview-info-key">Role</span>
+            <span class="overview-info-val">Full Stack Developer</span>
+          </div>
+          <div class="overview-info-row">
+            <span class="overview-info-key">Duration</span>
+            <span class="overview-info-val">2025 – Present</span>
+          </div>
+          <div class="overview-info-row">
+            <span class="overview-info-key">Status</span>
+            <span class="overview-info-val">
+              <span class="overview-info-pulse"></span>
+              Continuous Improvement
+            </span>
+          </div>
+          <div class="overview-info-row">
+            <span class="overview-info-key">Repository</span>
+            <span class="overview-info-val">Private</span>
+          </div>
+          <div class="overview-info-row">
+            <span class="overview-info-key">Platform</span>
+            <span class="overview-info-val">TradingView</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Project Overview text -->
+      <div class="overview-text fade-in fade-in-delay-1">
+        <div class="overview-text-label">Engineering Case Study</div>
+        <h3 class="overview-text-title">Project Overview</h3>
+        <p>
+          This project focuses on building a reliable event-driven workflow connecting
+          TradingView, Webhook communication, and external execution APIs.
+        </p>
+        <p>
+          The primary objective is to design a maintainable automation architecture
+          capable of transmitting signals, validating requests, synchronizing system
+          states, and handling failures gracefully.
+        </p>
+        <p>
+          Instead of emphasizing trading performance, this project demonstrates
+          practical experience in API integration, system architecture, debugging
+          methodology, and cross-platform communication.
+        </p>
+      </div>
+
+    </div>
+
+    <!-- Goals: 4 cards -->
+    <div class="overview-goals-label fade-in">Project Goals</div>
+    <div class="overview-goals">
+
+      <div class="goal-card fade-in fade-in-delay-1">
+        <div class="goal-icon">⚙️</div>
+        <h3>Reliable Workflow</h3>
+        <p>A stable, repeatable pipeline from signal to execution.</p>
+      </div>
+
+      <div class="goal-card fade-in fade-in-delay-2">
+        <div class="goal-icon">🔗</div>
+        <h3>Cross-platform Integration</h3>
+        <p>Independent platforms unified through clean interfaces.</p>
+      </div>
+
+      <div class="goal-card fade-in fade-in-delay-3">
+        <div class="goal-icon">🏗️</div>
+        <h3>Maintainable Architecture</h3>
+        <p>Modular design that's easy to debug, test, and extend.</p>
+      </div>
+
+      <div class="goal-card fade-in fade-in-delay-4">
+        <div class="goal-icon">📈</div>
+        <h3>Continuous Optimization</h3>
+        <p>Ongoing refinement of reliability and observability.</p>
+      </div>
+
+    </div>
+
+    <!-- Closing Quote -->
+    <div class="overview-quote fade-in">
+      <blockquote>
+        Good software is built through continuous refinement,
+        <span class="overview-quote-hl">not perfect first attempts.</span>
+      </blockquote>
+      <p class="overview-quote-sub">This project is still evolving.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     ARCHITECTURE
+══════════════════════════════════════════ -->
+<section id="architecture" class="section" aria-labelledby="arch-title">
+  <div class="arch-bg-glow"></div>
+  <div class="container">
+    <div class="section-header fade-in" style="text-align:center;">
+      <div class="eyebrow" style="margin-bottom:1rem;">System Design</div>
+      <div class="section-divider" style="margin:0 auto 1.5rem;"></div>
+      <h2 class="section-title" id="arch-title">Architecture</h2>
+      <p class="section-sub" style="margin:0 auto;">
+        Seven layers, each with a distinct responsibility and a clearly defined interface
+        to its neighbors. Hover any layer to see what happens inside it.
+      </p>
+    </div>
+
+    <div class="arch-flow fade-in fade-in-delay-1" role="img" aria-label="System architecture flow diagram">
+
+      <div class="arch-node" tabindex="0">
+        <div class="arch-node-box">
+          <span class="arch-icon">📐</span>
+          <div class="arch-name">Pine Script</div>
+          <div class="arch-sub">Strategy Logic</div>
+        </div>
+        <div class="arch-detail">
+          <div class="arch-detail-title">Strategy Layer</div>
+          <ul class="arch-detail-steps">
+            <li>Evaluate conditions</li>
+            <li>Trigger on signal</li>
+            <li>Emit alert event</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="arch-arrow" aria-hidden="true">
+        <div class="arch-arrow-line"></div>
+        <div class="arch-arrow-head"></div>
+      </div>
+
+      <div class="arch-node" tabindex="0">
+        <div class="arch-node-box">
+          <span class="arch-icon">🔔</span>
+          <div class="arch-name">Alert</div>
+          <div class="arch-sub">TradingView</div>
+        </div>
+        <div class="arch-detail">
+          <div class="arch-detail-title">Alert Dispatch</div>
+          <ul class="arch-detail-steps">
+            <li>Receive signal</li>
+            <li>Format payload</li>
+            <li>Fire webhook POST</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="arch-arrow" aria-hidden="true">
+        <div class="arch-arrow-line"></div>
+        <div class="arch-arrow-head"></div>
+      </div>
+
+      <div class="arch-node" tabindex="0">
+        <div class="arch-node-box">
+          <span class="arch-icon">🔗</span>
+          <div class="arch-name">Webhook</div>
+          <div class="arch-sub">HTTP Transport</div>
+        </div>
+        <div class="arch-detail">
+          <div class="arch-detail-title">Webhook Handler</div>
+          <ul class="arch-detail-steps">
+            <li>Receive alert</li>
+            <li>Validate JSON</li>
+            <li>Forward request</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="arch-arrow" aria-hidden="true">
+        <div class="arch-arrow-line"></div>
+        <div class="arch-arrow-head"></div>
+      </div>
+
+      <div class="arch-node" tabindex="0">
+        <div class="arch-node-box">
+          <span class="arch-icon">⚙️</span>
+          <div class="arch-name">Middleware</div>
+          <div class="arch-sub">Processing</div>
+        </div>
+        <div class="arch-detail">
+          <div class="arch-detail-title">Middleware Layer</div>
+          <ul class="arch-detail-steps">
+            <li>Deduplicate alerts</li>
+            <li>Queue &amp; sequence</li>
+            <li>Map to order params</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="arch-arrow" aria-hidden="true">
+        <div class="arch-arrow-line"></div>
+        <div class="arch-arrow-head"></div>
+      </div>
+
+      <div class="arch-node" tabindex="0">
+        <div class="arch-node-box">
+          <span class="arch-icon">⚡</span>
+          <div class="arch-name">Execution API</div>
+          <div class="arch-sub">REST Interface</div>
+        </div>
+        <div class="arch-detail">
+          <div class="arch-detail-title">API Client</div>
+          <ul class="arch-detail-steps">
+            <li>Authenticate request</li>
+            <li>Submit order</li>
+            <li>Handle responses</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="arch-arrow" aria-hidden="true">
+        <div class="arch-arrow-line"></div>
+        <div class="arch-arrow-head"></div>
+      </div>
+
+      <div class="arch-node" tabindex="0">
+        <div class="arch-node-box">
+          <span class="arch-icon">🏦</span>
+          <div class="arch-name">Broker</div>
+          <div class="arch-sub">Market Layer</div>
+        </div>
+        <div class="arch-detail">
+          <div class="arch-detail-title">Broker Engine</div>
+          <ul class="arch-detail-steps">
+            <li>Validate order size</li>
+            <li>Match against book</li>
+            <li>Confirm fill</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="arch-arrow" aria-hidden="true">
+        <div class="arch-arrow-line"></div>
+        <div class="arch-arrow-head"></div>
+      </div>
+
+      <div class="arch-node" tabindex="0">
+        <div class="arch-node-box">
+          <span class="arch-icon">✅</span>
+          <div class="arch-name">Execution</div>
+          <div class="arch-sub">Final Output</div>
+        </div>
+        <div class="arch-detail">
+          <div class="arch-detail-title">Execution Result</div>
+          <ul class="arch-detail-steps">
+            <li>Order filled</li>
+            <li>Log outcome</li>
+            <li>Reconcile position</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     TECHNOLOGY STACK
+══════════════════════════════════════════ -->
+<section id="tech" class="section" aria-labelledby="tech-title">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="eyebrow" style="margin-bottom:1rem;">Stack</div>
+      <div class="section-divider"></div>
+      <h2 class="section-title" id="tech-title">Technology Stack</h2>
+      <p class="section-sub">Each technology serves a specific role in the integration chain.</p>
+    </div>
+
+    <div class="tech-grid">
+
+      <div class="tech-card fade-in fade-in-delay-1">
+        <span class="tech-icon-wrapper">📐</span>
+        <div class="tech-name">Pine Script</div>
+        <p class="tech-desc">Domain-specific language for writing strategy logic and generating conditional alerts on TradingView charts.</p>
+        <span class="tech-badge">Signal Source</span>
+      </div>
+
+      <div class="tech-card fade-in fade-in-delay-2">
+        <span class="tech-icon-wrapper">📊</span>
+        <div class="tech-name">TradingView</div>
+        <p class="tech-desc">Cloud-based charting platform serving as the strategy runtime and alert dispatch engine.</p>
+        <span class="tech-badge">Alert Platform</span>
+      </div>
+
+      <div class="tech-card fade-in fade-in-delay-3">
+        <span class="tech-icon-wrapper">🔗</span>
+        <div class="tech-name">Webhook</div>
+        <p class="tech-desc">HTTP POST transport layer that carries JSON payloads from TradingView to the execution endpoint in real time.</p>
+        <span class="tech-badge">Transport</span>
+      </div>
+
+      <div class="tech-card fade-in fade-in-delay-4">
+        <span class="tech-icon-wrapper">⚡</span>
+        <div class="tech-name">REST API</div>
+        <p class="tech-desc">Stateless HTTP interface for submitting, modifying, and querying orders on the exchange.</p>
+        <span class="tech-badge">Order Interface</span>
+      </div>
+
+      <div class="tech-card fade-in fade-in-delay-1">
+        <span class="tech-icon-wrapper">🟨</span>
+        <div class="tech-name">JavaScript</div>
+        <p class="tech-desc">Runtime for the Webhook handler — parses incoming JSON, validates schema, and dispatches API requests.</p>
+        <span class="tech-badge">Runtime</span>
+      </div>
+
+      <div class="tech-card fade-in fade-in-delay-2">
+        <span class="tech-icon-wrapper">📋</span>
+        <div class="tech-name">JSON</div>
+        <p class="tech-desc">Serialization format for all inter-system messages. Strict schema validation prevents malformed payloads from reaching the API.</p>
+        <span class="tech-badge">Data Format</span>
+      </div>
+
+      <div class="tech-card fade-in fade-in-delay-3">
+        <span class="tech-icon-wrapper">🐙</span>
+        <div class="tech-name">Git</div>
+        <p class="tech-desc">Version control for tracking every configuration change and debugging iteration across the development lifecycle.</p>
+        <span class="tech-badge">Version Control</span>
+      </div>
+
+      <div class="tech-card fade-in fade-in-delay-4">
+        <span class="tech-icon-wrapper">🛡️</span>
+        <div class="tech-name">Error Handling</div>
+        <p class="tech-desc">Retry logic, idempotency guards, and structured error responses to ensure reliability under adverse conditions.</p>
+        <span class="tech-badge">Resilience</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     DEVELOPMENT TIMELINE
+══════════════════════════════════════════ -->
+<section id="timeline" class="section" aria-labelledby="timeline-title">
+  <div class="container">
+    <div class="section-header fade-in" style="text-align:center;">
+      <div class="eyebrow" style="margin-bottom:1rem;">Development</div>
+      <div class="section-divider" style="margin:0 auto 1.5rem;"></div>
+      <h2 class="section-title" id="timeline-title">Timeline</h2>
+      <p class="section-sub" style="margin:0 auto;">
+        A real development record — each milestone marks a working layer added to the
+        system, not just a planning step.
+      </p>
+    </div>
+
+    <div class="timeline-list" aria-label="Development milestones">
+
+      <div class="timeline-item fade-in">
+        <div class="timeline-content">
+          <div class="timeline-phase">2025 · Start</div>
+          <div class="timeline-title">Project Started</div>
+          <p class="timeline-desc">Defined the project boundary — cross-platform automation, not financial optimization. Mapped out every external system dependency.</p>
+        </div>
+        <div class="timeline-center">
+          <div class="timeline-dot">🚀</div>
+        </div>
+        <div class="timeline-empty"></div>
+      </div>
+
+      <div class="timeline-item fade-in fade-in-delay-1">
+        <div class="timeline-empty"></div>
+        <div class="timeline-center">
+          <div class="timeline-dot">📐</div>
+        </div>
+        <div class="timeline-content">
+          <div class="timeline-phase">Milestone</div>
+          <div class="timeline-title">Pine Script — Strategy Prototype</div>
+          <p class="timeline-desc">Built the first working strategy with alert conditions. Verified signal logic in isolation before connecting anything external.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item fade-in">
+        <div class="timeline-content">
+          <div class="timeline-phase">Milestone</div>
+          <div class="timeline-title">Webhook — Communication Established</div>
+          <p class="timeline-desc">Stood up the HTTP listener and validated end-to-end alert delivery. First successful signal received from TradingView.</p>
+        </div>
+        <div class="timeline-center">
+          <div class="timeline-dot">🔗</div>
+        </div>
+        <div class="timeline-empty"></div>
+      </div>
+
+      <div class="timeline-item fade-in fade-in-delay-1">
+        <div class="timeline-empty"></div>
+        <div class="timeline-center">
+          <div class="timeline-dot">⚡</div>
+        </div>
+        <div class="timeline-content">
+          <div class="timeline-phase">Milestone</div>
+          <div class="timeline-title">REST API — Authentication Completed</div>
+          <p class="timeline-desc">Integrated the execution API client with full auth handling. First automated order submitted end-to-end through the pipeline.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item fade-in">
+        <div class="timeline-content">
+          <div class="timeline-phase">Milestone</div>
+          <div class="timeline-title">Position Synchronization — Resolved</div>
+          <p class="timeline-desc">Eliminated state drift between local handler and broker by switching to live reconciliation before every order.</p>
+        </div>
+        <div class="timeline-center">
+          <div class="timeline-dot">🔄</div>
+        </div>
+        <div class="timeline-empty"></div>
+      </div>
+
+      <div class="timeline-item fade-in fade-in-delay-1">
+        <div class="timeline-empty"></div>
+        <div class="timeline-center">
+          <div class="timeline-dot">🎯</div>
+        </div>
+        <div class="timeline-content">
+          <div class="timeline-phase">Milestone</div>
+          <div class="timeline-title">Partial TP — Implemented</div>
+          <p class="timeline-desc">Mapped percentage-based take-profit signals to exact order sizes with precision guards against rounding errors.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item fade-in">
+        <div class="timeline-content">
+          <div class="timeline-phase">2025 – Present</div>
+          <div class="timeline-title">Continuous Optimization</div>
+          <p class="timeline-desc">Current stage — ongoing work on idempotency, observability, and reliability hardening across the full stack.</p>
+        </div>
+        <div class="timeline-center">
+          <div class="timeline-dot">✦</div>
+        </div>
+        <div class="timeline-empty"></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     CHALLENGES
+══════════════════════════════════════════ -->
+<section id="challenges" class="section" aria-labelledby="challenges-title">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="eyebrow" style="margin-bottom:1rem;">Problem Solving</div>
+      <div class="section-divider"></div>
+      <h2 class="section-title" id="challenges-title">Engineering Challenges</h2>
+      <p class="section-sub">Click each challenge to expand the full engineering context.</p>
+    </div>
+
+    <div class="challenges-grid">
+
+      <div class="challenge-card fade-in fade-in-delay-1">
+        <div class="challenge-header">
+          <span class="challenge-num">CHALLENGE 01</span>
+          <h3 class="challenge-title">Position Synchronization</h3>
+          <span class="challenge-toggle" aria-label="Expand">+</span>
+        </div>
+        <div class="challenge-body" aria-hidden="true">
+          <div class="challenge-content">
+            <span class="challenge-tag">State Management</span>
+            <p>
+              The Webhook handler and the Exchange API maintained separate state models.
+              When a network hiccup delayed a response, the local state diverged from
+              the exchange's actual position — causing the next signal to act on
+              incorrect assumptions.
+            </p>
+            <p>
+              <strong style="color:var(--text-primary)">Solution:</strong> Introduced
+              a reconciliation step before every order submission — always fetch the
+              current position from the exchange API rather than relying on cached local
+              state. This eliminated the drift problem entirely and made the system
+              stateless from the handler's perspective.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="challenge-card fade-in fade-in-delay-2">
+        <div class="challenge-header">
+          <span class="challenge-num">CHALLENGE 02</span>
+          <h3 class="challenge-title">Duplicate Alert Firing</h3>
+          <span class="challenge-toggle" aria-label="Expand">+</span>
+        </div>
+        <div class="challenge-body" aria-hidden="true">
+          <div class="challenge-content">
+            <span class="challenge-tag">Idempotency</span>
+            <p>
+              TradingView occasionally fires the same alert condition twice in rapid
+              succession — once when the bar closes and again on the next bar open.
+              Without a deduplication layer, this resulted in double order submissions.
+            </p>
+            <p>
+              <strong style="color:var(--text-primary)">Solution:</strong> Implemented
+              a time-windowed idempotency key on the Webhook handler. Each incoming
+              payload is hashed; if an identical hash arrives within a configurable
+              cool-down window, the request is acknowledged but silently dropped before
+              reaching the API layer.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="challenge-card fade-in fade-in-delay-3">
+        <div class="challenge-header">
+          <span class="challenge-num">CHALLENGE 03</span>
+          <h3 class="challenge-title">Partial Take-Profit Logic</h3>
+          <span class="challenge-toggle" aria-label="Expand">+</span>
+        </div>
+        <div class="challenge-body" aria-hidden="true">
+          <div class="challenge-content">
+            <span class="challenge-tag">Business Logic</span>
+            <p>
+              Pine Script signals a take-profit as a discrete event, but the exchange
+              requires a size-based order. Mapping a percentage-based exit to an exact
+              quantity while accounting for already-filled partial orders required
+              careful state tracking across multiple API calls.
+            </p>
+            <p>
+              <strong style="color:var(--text-primary)">Solution:</strong> Fetched
+              the current open position size at execution time, computed the target
+              quantity dynamically, and added floor/ceiling guards to prevent
+              over-selling due to floating-point rounding in the exchange's API response.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="challenge-card fade-in fade-in-delay-4">
+        <div class="challenge-header">
+          <span class="challenge-num">CHALLENGE 04</span>
+          <h3 class="challenge-title">State Management</h3>
+          <span class="challenge-toggle" aria-label="Expand">+</span>
+        </div>
+        <div class="challenge-body" aria-hidden="true">
+          <div class="challenge-content">
+            <span class="challenge-tag">Consistency</span>
+            <p>
+              Across asynchronous events spanning three independent systems, keeping a
+              single consistent view of state was the hardest problem. A dropped order
+              or a delayed confirmation could leave the handler's model out of sync with
+              the broker's reality — and the error was often invisible at the point of failure.
+            </p>
+            <p>
+              <strong style="color:var(--text-primary)">Solution:</strong> Made the
+              handler stateless by always reconciling against the live broker position,
+              and instrumented every boundary with structured logs — timestamp, payload
+              hash, origin, and outcome — so any state divergence became immediately
+              traceable across systems.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     DEBUG JOURNEY
+══════════════════════════════════════════ -->
+<section id="debug" class="section" aria-labelledby="debug-title">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="eyebrow" style="margin-bottom:1rem;">Engineering Process</div>
+      <div class="section-divider"></div>
+      <h2 class="section-title" id="debug-title">Debug Journey</h2>
+      <p class="section-sub">Real engineering is measured by how problems are diagnosed and resolved — not just by the features that ship.</p>
+    </div>
+
+    <!-- Git Commit Style Debug Log -->
+    <div class="git-log fade-in fade-in-delay-1" role="region" aria-label="Debug commit history">
+
+      <div class="git-log-header" aria-hidden="true">
+        <div class="git-log-bar">
+          <span class="term-dot red"></span>
+          <span class="term-dot yellow"></span>
+          <span class="term-dot green"></span>
+          <span class="git-log-title">git log --oneline · integration-system</span>
+        </div>
+        <span class="git-branch">main</span>
+      </div>
+
+      <div class="git-commits">
+
+        <!-- Commit v0.2 -->
+        <div class="git-commit">
+          <div class="git-commit-graph">
+            <span class="git-node"></span>
+          </div>
+          <div class="git-commit-body">
+            <div class="git-commit-top">
+              <span class="git-tag">v0.2</span>
+              <span class="git-hash">a1f9c3d</span>
+              <span class="git-label git-label-fix">fix</span>
+            </div>
+            <h3 class="git-commit-msg">Resolve TP1 partial take-profit quantity bug</h3>
+            <p class="git-commit-desc">
+              Take-profit signals mapped a percentage exit to an exact order size,
+              but already-filled partial orders caused over-selling. Added dynamic
+              position-size lookup at execution time with floor/ceiling guards
+              against floating-point rounding.
+            </p>
+            <div class="git-commit-files">
+              <span class="git-file">webhook/handler.js</span>
+              <span class="git-file">api/orders.js</span>
+              <span class="git-diff git-diff-add">+38</span>
+              <span class="git-diff git-diff-del">−12</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Commit v0.4 -->
+        <div class="git-commit">
+          <div class="git-commit-graph">
+            <span class="git-node"></span>
+          </div>
+          <div class="git-commit-body">
+            <div class="git-commit-top">
+              <span class="git-tag">v0.4</span>
+              <span class="git-hash">7b2e8a1</span>
+              <span class="git-label git-label-refactor">refactor</span>
+            </div>
+            <h3 class="git-commit-msg">Improve position synchronization with exchange</h3>
+            <p class="git-commit-desc">
+              Local state diverged from the exchange after network delays, causing
+              the next signal to act on stale data. Replaced cached local state with
+              a reconciliation step that always fetches the live position before
+              every order — handler is now effectively stateless.
+            </p>
+            <div class="git-commit-files">
+              <span class="git-file">api/position.js</span>
+              <span class="git-file">webhook/reconcile.js</span>
+              <span class="git-diff git-diff-add">+64</span>
+              <span class="git-diff git-diff-del">−29</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Commit v0.6 -->
+        <div class="git-commit">
+          <div class="git-commit-graph">
+            <span class="git-node"></span>
+          </div>
+          <div class="git-commit-body">
+            <div class="git-commit-top">
+              <span class="git-tag">v0.6</span>
+              <span class="git-hash">c4d0f5e</span>
+              <span class="git-label git-label-fix">fix</span>
+            </div>
+            <h3 class="git-commit-msg">Fix race condition on close + open reversal</h3>
+            <p class="git-commit-desc">
+              Reversal alerts fired position-close and position-open within
+              milliseconds; the exchange processed the open before the close
+              settled, doubling the position. Introduced a FIFO async queue so each
+              payload resolves before the next is dispatched.
+            </p>
+            <div class="git-commit-files">
+              <span class="git-file">webhook/queue.js</span>
+              <span class="git-diff git-diff-add">+52</span>
+              <span class="git-diff git-diff-del">−7</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Commit v0.8 -->
+        <div class="git-commit">
+          <div class="git-commit-graph">
+            <span class="git-node"></span>
+          </div>
+          <div class="git-commit-body">
+            <div class="git-commit-top">
+              <span class="git-tag">v0.8</span>
+              <span class="git-hash">e9a7b2c</span>
+              <span class="git-label git-label-feat">feat</span>
+            </div>
+            <h3 class="git-commit-msg">Resolve duplicate alert firing with idempotency keys</h3>
+            <p class="git-commit-desc">
+              TradingView occasionally fired the same alert twice — on bar close and
+              next bar open — causing double submissions. Added time-windowed
+              idempotency: each payload is hashed and silently dropped if an identical
+              hash arrives inside the cool-down window.
+            </p>
+            <div class="git-commit-files">
+              <span class="git-file">webhook/idempotency.js</span>
+              <span class="git-diff git-diff-add">+41</span>
+              <span class="git-diff git-diff-del">−3</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Commit v1.0 -->
+        <div class="git-commit git-commit-head">
+          <div class="git-commit-graph">
+            <span class="git-node git-node-head"></span>
+          </div>
+          <div class="git-commit-body">
+            <div class="git-commit-top">
+              <span class="git-tag git-tag-head">v1.0</span>
+              <span class="git-hash">f1c0de0</span>
+              <span class="git-label git-label-feat">feat</span>
+              <span class="git-head-badge">HEAD → main</span>
+            </div>
+            <h3 class="git-commit-msg">Add structured observability across all boundaries</h3>
+            <p class="git-commit-desc">
+              Instrumented every integration boundary with structured log entries —
+              timestamp, payload hash, system origin, and outcome — plus a local
+              correlation viewer. Mean time to root cause dropped dramatically. System
+              reached production-grade reliability.
+            </p>
+            <div class="git-commit-files">
+              <span class="git-file">lib/logger.js</span>
+              <span class="git-file">tools/log-viewer.js</span>
+              <span class="git-diff git-diff-add">+127</span>
+              <span class="git-diff git-diff-del">−18</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     RESULTS
+══════════════════════════════════════════ -->
+<section id="results" class="section" aria-labelledby="results-title">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="eyebrow" style="margin-bottom:1rem;">Engineering Outcomes</div>
+      <div class="section-divider"></div>
+      <h2 class="section-title" id="results-title">Results</h2>
+      <p class="section-sub">Measured in system reliability and integration completeness — not financial performance.</p>
+    </div>
+
+    <div class="results-list">
+
+      <div class="result-item fade-in fade-in-delay-1">
+        <div class="result-check">✓</div>
+        <div class="result-text">
+          <h4>End-to-End Webhook Integration</h4>
+          <p>TradingView alerts reliably deliver structured JSON payloads to the handler endpoint with full schema validation on every request.</p>
+        </div>
+      </div>
+
+      <div class="result-item fade-in fade-in-delay-2">
+        <div class="result-check">✓</div>
+        <div class="result-text">
+          <h4>Execution API Connected</h4>
+          <p>REST API client handles authentication, order submission, position queries, and structured error responses across all execution paths.</p>
+        </div>
+      </div>
+
+      <div class="result-item fade-in fade-in-delay-3">
+        <div class="result-check">✓</div>
+        <div class="result-text">
+          <h4>Cross-platform Workflow Established</h4>
+          <p>A single Pine Script signal propagates through TradingView, Webhook transport, and Exchange API without any manual intervention at any stage.</p>
+        </div>
+      </div>
+
+      <div class="result-item fade-in fade-in-delay-4">
+        <div class="result-check">✓</div>
+        <div class="result-text">
+          <h4>Idempotency & Duplicate Prevention</h4>
+          <p>Time-windowed deduplication prevents duplicate order submission from near-simultaneous alert firings at the TradingView layer.</p>
+        </div>
+      </div>
+
+      <div class="result-item fade-in fade-in-delay-1">
+        <div class="result-check">✓</div>
+        <div class="result-text">
+          <h4>Sequential Order Execution Queue</h4>
+          <p>FIFO async queue ensures position-close and position-open orders are never dispatched concurrently, eliminating the race condition class of errors.</p>
+        </div>
+      </div>
+
+      <div class="result-item fade-in fade-in-delay-2">
+        <div class="result-check">✓</div>
+        <div class="result-text">
+          <h4>Structured Observability</h4>
+          <p>Every integration boundary emits structured log entries for timestamp, payload hash, system origin, and outcome — enabling rapid root-cause analysis.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     LESSONS LEARNED
+══════════════════════════════════════════ -->
+<section id="lessons" class="section" aria-labelledby="lessons-title">
+  <div class="lessons-bg"></div>
+  <div class="container">
+    <div class="lessons-inner">
+
+      <div class="fade-in">
+        <div class="eyebrow" style="margin-bottom:1rem;">Key Takeaways</div>
+        <div class="section-divider"></div>
+        <h2 class="section-title" id="lessons-title">Lessons<br />Learned</h2>
+        <p class="section-sub" style="margin-top:1rem; font-size:0.9rem;">
+          The lasting output of this project is not a workflow — it is an
+          engineering mindset built through repeated cycles of failure,
+          analysis, and resolution.
+        </p>
+      </div>
+
+      <div class="lessons-grid fade-in">
+
+        <div class="lesson-card">
+          <div class="lesson-card-num">01</div>
+          <div class="lesson-card-icon">🧠</div>
+          <div class="lesson-text">
+            <h4>System Thinking</h4>
+            <p>Learned to decompose a complex workflow into independent modules with clearly defined responsibilities and communication boundaries.</p>
+          </div>
+        </div>
+
+        <div class="lesson-card">
+          <div class="lesson-card-num">02</div>
+          <div class="lesson-card-icon">⚡</div>
+          <div class="lesson-text">
+            <h4>API Integration</h4>
+            <p>Built practical experience in request validation, authentication, and reliable API communication across external systems.</p>
+          </div>
+        </div>
+
+        <div class="lesson-card">
+          <div class="lesson-card-num">03</div>
+          <div class="lesson-card-icon">🐛</div>
+          <div class="lesson-text">
+            <h4>Debugging</h4>
+            <p>Developed a structured debugging workflow by reproducing, isolating, verifying, and documenting issues throughout development.</p>
+          </div>
+        </div>
+
+        <div class="lesson-card">
+          <div class="lesson-card-num">04</div>
+          <div class="lesson-card-icon">🔄</div>
+          <div class="lesson-text">
+            <h4>State Management</h4>
+            <p>Learned the importance of maintaining consistent system state across asynchronous events.</p>
+          </div>
+        </div>
+
+        <div class="lesson-card">
+          <div class="lesson-card-num">05</div>
+          <div class="lesson-card-icon">🔗</div>
+          <div class="lesson-text">
+            <h4>Cross-platform Workflow</h4>
+            <p>Integrated multiple independent services into a unified event-driven automation pipeline.</p>
+          </div>
+        </div>
+
+        <div class="lesson-card">
+          <div class="lesson-card-num">06</div>
+          <div class="lesson-card-icon">📈</div>
+          <div class="lesson-text">
+            <h4>Continuous Learning</h4>
+            <p>Every issue became an opportunity to improve engineering judgment and problem-solving ability.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     REFLECTION
+══════════════════════════════════════════ -->
+<section id="reflection" class="section" aria-labelledby="reflection-title">
+  <div class="container">
+    <div class="reflection-inner">
+
+      <!-- Left -->
+      <div class="reflection-left fade-in">
+        <div class="eyebrow" style="margin-bottom:1rem;">Looking Back</div>
+        <div class="section-divider"></div>
+        <h2 class="section-title" id="reflection-title">Reflection</h2>
+      </div>
+
+      <!-- Right -->
+      <div class="reflection-right">
+        <p class="fade-in fade-in-delay-1">
+          The greatest takeaway was never a trading strategy. It was gradually coming
+          to understand — through one debugging session after another — why system
+          integration, API communication, event-driven architecture, and cross-platform
+          collaboration matter so much.
+        </p>
+        <p class="fade-in fade-in-delay-2">
+          Every bug forced me to re-examine my own design assumptions. Over time, that
+          built a habit: analyze the problem first, verify the hypothesis next, and only
+          then correct the workflow.
+        </p>
+        <p class="fade-in fade-in-delay-3">
+          Through this project I didn't just finish an automation pipeline — I built an
+          engineering mindset for facing unknown problems with continuous analysis,
+          debugging, and optimization.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     ENGINEERING MINDSET (the soul of the page)
+══════════════════════════════════════════ -->
+<section id="mindset" class="section" aria-labelledby="mindset-title">
+  <div class="mindset-bg"></div>
+  <div class="container">
+    <div class="mindset-inner fade-in">
+      <div class="eyebrow" style="margin-bottom:1.5rem;color:var(--cyan);">Engineering Mindset</div>
+      <h2 class="mindset-quote" id="mindset-title">
+        Good software isn't built by avoiding bugs.<br />
+        It's built by <span class="mindset-highlight">learning from every bug.</span>
+      </h2>
+      <p class="mindset-sub">
+        好的軟體不是因為沒有錯誤，而是因為每一次錯誤都讓系統變得更可靠。
+      </p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     FOOTER
+══════════════════════════════════════════ -->
+<footer id="footer" role="contentinfo">
+  <div class="container">
+
+    <div class="dash-header fade-in">
+      <div class="eyebrow" style="margin-bottom:1rem;">Project Info</div>
+      <div class="section-divider"></div>
+      <h2 class="section-title">Dashboard</h2>
+    </div>
+
+    <div class="dash-grid">
+
+      <div class="dash-card fade-in fade-in-delay-1">
+        <div class="dash-card-label">Project Status</div>
+        <div class="dash-card-value">
+          <span class="dash-pulse"></span>
+          Ongoing
+        </div>
+      </div>
+
+      <div class="dash-card fade-in fade-in-delay-2">
+        <div class="dash-card-label">Role</div>
+        <div class="dash-card-value">Developer</div>
+      </div>
+
+      <div class="dash-card fade-in fade-in-delay-3">
+        <div class="dash-card-label">Duration</div>
+        <div class="dash-card-value">2025 – Present</div>
+      </div>
+
+      <div class="dash-card dash-card-wide fade-in fade-in-delay-1">
+        <div class="dash-card-label">Technologies</div>
+        <div class="dash-tech">
+          <span class="dash-tech-tag">Pine</span>
+          <span class="dash-tech-tag">JavaScript</span>
+          <span class="dash-tech-tag">Webhook</span>
+          <span class="dash-tech-tag">REST API</span>
+          <span class="dash-tech-tag">JSON</span>
+          <span class="dash-tech-tag">Git</span>
+        </div>
+      </div>
+
+      <div class="dash-card fade-in fade-in-delay-2">
+        <div class="dash-card-label">Repository</div>
+        <div class="dash-card-value dash-muted">
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0a8 8 0 00-2.5 15.6c.4.07.55-.17.55-.38v-1.3c-2.2.48-2.67-1.07-2.67-1.07-.36-.92-.88-1.16-.88-1.16-.72-.49.05-.48.05-.48.8.06 1.22.82 1.22.82.71 1.22 1.87.87 2.33.66.07-.52.28-.87.5-1.07-1.76-.2-3.6-.88-3.6-3.92 0-.87.31-1.58.82-2.13-.08-.2-.36-1.01.08-2.1 0 0 .67-.22 2.2.82a7.6 7.6 0 014 0c1.53-1.04 2.2-.82 2.2-.82.44 1.09.16 1.9.08 2.1.51.55.82 1.26.82 2.13 0 3.05-1.85 3.72-3.61 3.92.28.24.54.72.54 1.46v2.17c0 .21.15.46.55.38A8 8 0 008 0z"/></svg>
+          Private
+        </div>
+      </div>
+
+      <div class="dash-card fade-in fade-in-delay-3">
+        <div class="dash-card-label">Demo</div>
+        <div class="dash-card-value dash-muted">Portfolio Only</div>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p>Built with vanilla HTML · CSS · JavaScript — no frameworks</p>
+      <div class="footer-status">
+        <span class="footer-status-dot"></span>
+        System Active · Continuous Improvement
+      </div>
+    </div>
+
+  </div>
+</footer>
+
+
+<script src="./js/main.js"></script>
+</body>
+</html>
