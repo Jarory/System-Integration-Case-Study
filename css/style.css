@@ -209,7 +209,7 @@ body::before {
 
 .nav-logo {
   font-family: var(--font-mono);
-  font-size: 0.85rem;
+  font-size: 1.1rem;
   font-weight: 600;
   color: var(--text-primary);
   text-decoration: none;
@@ -248,7 +248,7 @@ body::before {
 
 .nav-links a {
   position: relative;
-  font-size: 0.85rem;
+  font-size: 1rem;
   font-weight: 500;
   color: var(--text-secondary);
   text-decoration: none;
@@ -281,7 +281,7 @@ body::before {
 }
 
 .nav-cta {
-  font-size: 0.8rem !important;
+  font-size: 1rem !important;
   font-weight: 600 !important;
   color: var(--text-primary) !important;
   border: 1px solid var(--border-accent);
