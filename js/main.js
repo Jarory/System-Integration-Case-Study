@@ -212,30 +212,41 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // ── Implementation Gallery Lightbox ───────────
-(function () {
+// v5 — event-delegation version (robust against caching / DOM timing)
+(function initLightbox() {
+  // Defer until DOM is fully parsed
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initLightbox, { once: true });
+    return;
+  }
+
+  console.log('[portfolio] lightbox v5 active');
+
   const lightbox  = document.getElementById('lightbox');
-  if (!lightbox) return;
+  if (!lightbox) { console.warn('[portfolio] #lightbox not found'); return; }
   const lbImg     = document.getElementById('lightbox-img');
   const lbCaption = document.getElementById('lightbox-caption');
   const lbClose   = document.getElementById('lightbox-close');
   const lbPrev    = document.getElementById('lightbox-prev');
   const lbNext    = document.getElementById('lightbox-next');
   const lbCounter = document.getElementById('lightbox-counter');
-  const items     = Array.from(document.querySelectorAll('.gallery-item'));
+
+  function getItems() { return Array.from(document.querySelectorAll('.gallery-item')); }
   let current = 0;
 
   function render(i) {
+    const items = getItems();
     const item = items[i];
     if (!item) return;
     const src = item.getAttribute('data-src');
     const cap = item.querySelector('figcaption');
-    // fade the image out, swap, fade back in
     lbImg.style.opacity = '0';
     setTimeout(() => {
-      lbImg.src = src;
-      lbImg.alt = (item.querySelector('img') || {}).alt || '';
+      lbImg.src = src || '';
+      const innerImg = item.querySelector('img');
+      lbImg.alt = innerImg ? (innerImg.alt || '') : '';
       lbCaption.textContent = cap ? cap.textContent.trim() : '';
-      if (lbCounter) lbCounter.textContent = `${i + 1} / ${items.length}`;
+      if (lbCounter) lbCounter.textContent = (i + 1) + ' / ' + items.length;
       lbImg.style.opacity = '1';
     }, 150);
   }
@@ -246,7 +257,7 @@ document.addEventListener('DOMContentLoaded', () => {
     lightbox.classList.add('open');
     lightbox.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
-    lbClose.focus();
+    if (lbClose) { try { lbClose.focus(); } catch (e) {} }
   }
 
   function closeLightbox() {
@@ -254,29 +265,48 @@ document.addEventListener('DOMContentLoaded', () => {
     lightbox.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = '';
     setTimeout(() => { lbImg.src = ''; }, 300);
-    // restore focus to the trigger
-    if (items[current]) items[current].focus();
   }
 
-  function next() { current = (current + 1) % items.length; render(current); }
-  function prev() { current = (current - 1 + items.length) % items.length; render(current); }
+  function next() { const n = getItems().length; current = (current + 1) % n; render(current); }
+  function prev() { const n = getItems().length; current = (current - 1 + n) % n; render(current); }
 
-  items.forEach((item, i) => {
-    // make each gallery item keyboard-activatable
+  // Mark gallery items as interactive (a11y) — done once
+  getItems().forEach(item => {
     item.setAttribute('tabindex', '0');
     item.setAttribute('role', 'button');
-    item.addEventListener('click', () => openLightbox(i));
-    item.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openLightbox(i); }
-    });
   });
 
-  lbClose.addEventListener('click', closeLightbox);
-  if (lbNext) lbNext.addEventListener('click', (e) => { e.stopPropagation(); next(); });
-  if (lbPrev) lbPrev.addEventListener('click', (e) => { e.stopPropagation(); prev(); });
+  // EVENT DELEGATION: a single listener on document catches every gallery
+  // click, even if a child (img / figcaption / tag) is the actual target.
+  document.addEventListener('click', (e) => {
+    const item = e.target.closest && e.target.closest('.gallery-item');
+    if (item) {
+      const items = getItems();
+      const idx = items.indexOf(item);
+      if (idx > -1) openLightbox(idx);
+      return;
+    }
+  });
+
+  // Keyboard activation on gallery items
+  document.addEventListener('keydown', (e) => {
+    if ((e.key === 'Enter' || e.key === ' ')) {
+      const item = e.target.closest && e.target.closest('.gallery-item');
+      if (item) {
+        e.preventDefault();
+        const idx = getItems().indexOf(item);
+        if (idx > -1) openLightbox(idx);
+      }
+    }
+  });
+
+  if (lbClose) lbClose.addEventListener('click', closeLightbox);
+  if (lbNext)  lbNext.addEventListener('click', (e) => { e.stopPropagation(); next(); });
+  if (lbPrev)  lbPrev.addEventListener('click', (e) => { e.stopPropagation(); prev(); });
 
   lightbox.addEventListener('click', (e) => {
-    if (e.target === lightbox) closeLightbox();
+    // close only when the dark backdrop (not the image/buttons) is clicked
+    if (e.target === lightbox || e.target.classList.contains('lightbox-stage')) closeLightbox();
   });
 
   document.addEventListener('keydown', (e) => {

@@ -4,13 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="TradingView × Make × Capital.com API Integration — A software engineering case study in event-driven automation, REST API integration, and multi-platform workflow design." />
-  <title>TradingView × Make × Capital.com API Integration — Case Study</title>
+  <title>TradingView × Make × Capital.com 自動化系統整合</title>
   <script>
     /* Progressive enhancement flag: set BEFORE CSS paints.
        If JS is disabled or fails to load, content stays fully visible. */
     document.documentElement.classList.add('js-enabled');
   </script>
-  <link rel="stylesheet" href="./style.css" />
+  <link rel="stylesheet" href="./css/style.css?v=5" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 </head>
@@ -22,15 +22,15 @@
 <nav id="navbar" role="navigation" aria-label="Main navigation">
   <a href="#hero" class="nav-logo">
     <span class="nav-logo-dot"></span>
-    <span>TradingView × Make × Capital.com</span>
+    <span>TradingView × Make × Capital.com 自動化系統整合</span>
   </a>
   <ul class="nav-links" id="nav-menu">
-    <li><a href="#overview">Overview</a></li>
-    <li><a href="#architecture">Architecture</a></li>
-    <li><a href="#challenges">Challenges</a></li>
-    <li><a href="#gallery">Gallery</a></li>
-    <li><a href="#reflection">Reflection</a></li>
-    <li><a href="#footer" class="nav-cta">Project Info</a></li>
+    <li><a href="#overview">專案總覽</a></li>
+    <li><a href="#architecture">系統架構</a></li>
+    <li><a href="#challenges">技術挑戰</a></li>
+    <li><a href="#gallery">系統實作展示</a></li>
+    <li><a href="#reflection">專案心得</a></li>
+    <li><a href="#footer" class="nav-cta">專案總覽</a></li>
   </ul>
   <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
     <span></span>
@@ -55,7 +55,7 @@
       <div class="hero-left">
         <div class="hero-badge">
           <span class="hero-badge-dot"></span>
-          System Integration Case Study
+          跨平台系統整合專案
         </div>
 
         <h1 class="hero-title">
@@ -65,9 +65,8 @@
         </h1>
 
         <p class="hero-desc">
-          An event-driven automation pipeline connecting TradingView signals,
-          Make scenarios, and the Capital.com Open API — built to demonstrate
-          system integration, not trading performance.
+          本專案透過 TradingView、Make 與 Capital.com API 建立完整的事件驅動自動化流程，重點放在跨平台系統整合、資料傳遞、流程自動化，
+          以及實際開發過程中的問題分析與除錯，而非交易績效本身
         </p>
 
         <div class="hero-tags">
@@ -81,13 +80,13 @@
 
         <div class="hero-actions">
           <a href="#overview" class="btn-primary">
-            View Engineering Process
+            查看開發歷程
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
               <path d="M8 3L13 8L8 13M3 8H13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </a>
           <a href="#architecture" class="btn-ghost">
-            View Architecture
+            查看系統架構
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
               <path d="M7 2L12 7L7 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
             </svg>
@@ -95,23 +94,23 @@
         </div>
 
         <p class="hero-tagline">
-          Building reliable automation systems through engineering rather than speculation.
+          每一次除錯與修正，都是讓系統更可靠的一步
         </p>
 
         <div class="hero-stats">
           <div class="hero-stat">
             <span class="hero-stat-num">7</span>
-            <span class="hero-stat-label">Architecture Layers</span>
+            <span class="hero-stat-label">系統架構層</span>
           </div>
           <div class="hero-stat-divider"></div>
           <div class="hero-stat">
-            <span class="hero-stat-num">&lt;200ms</span>
-            <span class="hero-stat-label">Signal→Order Latency</span>
+            <span class="hero-stat-num">&lt;1秒</span>
+            <span class="hero-stat-label">流程處理延遲</span>
           </div>
           <div class="hero-stat-divider"></div>
           <div class="hero-stat">
             <span class="hero-stat-num">0</span>
-            <span class="hero-stat-label">Duplicate Orders</span>
+            <span class="hero-stat-label">重複觸發訂單(錯誤)</span>
           </div>
         </div>
       </div>
@@ -144,7 +143,7 @@
             </div>
             <div class="flow-node-text">
               <div class="flow-node-label">Platform</div>
-              <div class="flow-node-name">TradingView Alert</div>
+              <div class="flow-node-name">TradingView 快訊</div>
             </div>
             <div class="flow-node-status"></div>
           </div>
@@ -180,7 +179,7 @@
             </div>
             <div class="flow-node-text">
               <div class="flow-node-label">Automation</div>
-              <div class="flow-node-name">Make Scenario</div>
+              <div class="flow-node-name">Make 自動化流程</div>
             </div>
             <div class="flow-node-status"></div>
           </div>
@@ -220,26 +219,26 @@
 
       <div class="stat-card fade-in">
         <span class="stat-number" data-target="7" data-suffix="">7</span>
-        <div class="stat-label">Architecture Layers</div>
-        <div class="stat-sub">// signal → execution pipeline</div>
+        <div class="stat-label">系統層級</div>
+        <div class="stat-sub">// 策略 → 訊號 → 執行流程</div>
       </div>
 
       <div class="stat-card fade-in fade-in-delay-1">
         <span class="stat-number" data-target="3" data-suffix="">3</span>
-        <div class="stat-label">Integrated Systems</div>
+        <div class="stat-label">整合系統</div>
         <div class="stat-sub">// TradingView · Webhook · API</div>
       </div>
 
       <div class="stat-card fade-in fade-in-delay-2">
         <span class="stat-number" data-target="12" data-suffix="+">12+</span>
-        <div class="stat-label">Bugs Resolved</div>
-        <div class="stat-sub">// reproduced, fixed, verified</div>
+        <div class="stat-label">已修正問題</div>
+        <div class="stat-sub">// 除錯、修正、驗證</div>
       </div>
 
       <div class="stat-card fade-in fade-in-delay-3">
         <span class="stat-number" data-target="100" data-suffix="%">100%</span>
-        <div class="stat-label">Automated Pipeline</div>
-        <div class="stat-sub">// zero manual intervention</div>
+        <div class="stat-label">自動化流程</div>
+        <div class="stat-sub">// 全流程自動執行</div>
       </div>
 
     </div>
@@ -254,11 +253,10 @@
   <div class="container">
 
     <div class="section-header fade-in" style="text-align:center;">
-      <div class="eyebrow" style="margin-bottom:1rem;color:var(--cyan);">From Curiosity to Engineering</div>
-      <h2 class="section-title" id="why-title">Why This Project</h2>
+      <div class="eyebrow" style="margin-bottom:1rem;color:var(--cyan);">從好奇到實作</div>
+      <h2 class="section-title" id="why-title">為什麼做這個專案</h2>
       <p class="why-lead">
-        What started as curiosity about automation gradually evolved into a complete
-        cross-platform system integration project.
+        一開始只是想研究自動化流程，最後逐步發展成完整的跨平台系統整合專案.....
       </p>
     </div>
 
@@ -273,42 +271,42 @@
           <div class="bp-flow">
             <div class="bp-node" style="--i:0">
               <div class="bp-node-icon">❓</div>
-              <div class="bp-node-text">Problem</div>
+              <div class="bp-node-text">發現問題</div>
               <div class="bp-node-dot"></div>
             </div>
             <div class="bp-line"><span class="bp-pulse"></span></div>
 
             <div class="bp-node" style="--i:1">
               <div class="bp-node-icon">🔬</div>
-              <div class="bp-node-text">Analysis</div>
+              <div class="bp-node-text">分析需求</div>
               <div class="bp-node-dot"></div>
             </div>
             <div class="bp-line"><span class="bp-pulse"></span></div>
 
             <div class="bp-node" style="--i:2">
               <div class="bp-node-icon">📐</div>
-              <div class="bp-node-text">Architecture</div>
+              <div class="bp-node-text">架構設計</div>
               <div class="bp-node-dot"></div>
             </div>
             <div class="bp-line"><span class="bp-pulse"></span></div>
 
             <div class="bp-node" style="--i:3">
               <div class="bp-node-icon">⚙️</div>
-              <div class="bp-node-text">Implementation</div>
+              <div class="bp-node-text">開發實作</div>
               <div class="bp-node-dot"></div>
             </div>
             <div class="bp-line"><span class="bp-pulse"></span></div>
 
             <div class="bp-node" style="--i:4">
               <div class="bp-node-icon">🐛</div>
-              <div class="bp-node-text">Debugging</div>
+              <div class="bp-node-text">除錯修正</div>
               <div class="bp-node-dot"></div>
             </div>
             <div class="bp-line"><span class="bp-pulse"></span></div>
 
             <div class="bp-node bp-node-final" style="--i:5">
               <div class="bp-node-icon">📈</div>
-              <div class="bp-node-text">Optimization</div>
+              <div class="bp-node-text">持續優化</div>
               <div class="bp-node-dot"></div>
             </div>
           </div>
@@ -319,47 +317,37 @@
       <div class="why-story">
 
         <div class="why-chapter fade-in fade-in-delay-1">
-          <div class="why-chapter-tag">Problem</div>
+          <div class="why-chapter-tag">發現問題</div>
           <p>
-            Trading signals and execution platforms live in separate worlds — one
-            generates events, the other accepts orders, and neither knows the other
-            exists. Bridging them by hand is slow, error-prone, and impossible to scale.
+            TradingView 能產生交易訊號，但實際下單平台彼此獨立，兩者無法直接溝通，只能依靠人工操作，不僅效率低，也容易發生錯誤。
           </p>
         </div>
 
         <div class="why-chapter fade-in fade-in-delay-2">
-          <div class="why-chapter-tag">Curiosity</div>
+          <div class="why-chapter-tag">發想</div>
           <p>
-            That gap raised a more interesting engineering question: could two
-            independent systems be made to communicate reliably, in real time, with no
-            human in the loop?
+            我開始思考，是否能建立一套流程，讓兩個原本互不相通的系統，自動交換資料並完成整個交易流程?
           </p>
         </div>
 
         <div class="why-chapter fade-in fade-in-delay-3">
-          <div class="why-chapter-tag">Research</div>
+          <div class="why-chapter-tag">研究</div>
           <p>
-            I studied each side's contract — TradingView's alert schema, the execution
-            API's auth and order model — and mapped every integration boundary where
-            data, timing, or state could break.
+            為了完成整合，我研究了 TradingView Alert 格式、Capital.com API、Webhook 通訊方式以及 Make 的流程控制，釐清每個系統的資料格式與限制。
           </p>
         </div>
 
         <div class="why-chapter fade-in fade-in-delay-4">
-          <div class="why-chapter-tag">Engineering Decision</div>
+          <div class="why-chapter-tag">解決方案</div>
           <p>
-            I chose an event-driven pipeline with a dedicated middleware layer for
-            validation, deduplication, and sequencing — treating reliability, not
-            trading logic, as the core design constraint.
+            最終採用事件驅動（Event-Driven）架構，以 Make 作為流程中介，負責驗證資料、串接 API、控制流程順序，提升整體可靠性與維護性。
           </p>
         </div>
 
         <div class="why-chapter fade-in fade-in-delay-5">
-          <div class="why-chapter-tag">Outcome</div>
+          <div class="why-chapter-tag">最終成果</div>
           <p>
-            The result is a maintainable automation workflow where a single signal
-            propagates end-to-end without manual intervention — and, more importantly,
-            an engineering process I can apply to any system-integration problem.
+            建立一套完整且可持續維護的自動化交易流程，從 TradingView 產生交易訊號，經由 Make 負責流程控制、資料處理與訂單狀態管理，最後串接 Capital.com API 完成下單，全流程皆可自動執行，並累積了跨平台系統整合、API 串接與事件驅動架構的實務經驗。
           </p>
         </div>
 
@@ -375,42 +363,42 @@
 <section id="overview" class="section" aria-labelledby="overview-title">
   <div class="container">
     <div class="section-header fade-in">
-      <div class="eyebrow" style="margin-bottom:1rem;">Project Summary</div>
+      <div class="eyebrow" style="margin-bottom:1rem;">專案簡介</div>
       <div class="section-divider"></div>
-      <h2 class="section-title" id="overview-title">Overview</h2>
+      <h2 class="section-title" id="overview-title">專案總覽</h2>
     </div>
 
     <div class="overview-inner">
 
       <!-- Left: Project Information panel (6 hoverable rows) -->
       <div class="overview-info fade-in">
-        <div class="overview-info-title">Project Information</div>
+        <div class="overview-info-title">專案資訊</div>
         <div class="overview-info-list">
           <div class="overview-info-row">
-            <span class="overview-info-key">Category</span>
-            <span class="overview-info-val">System Integration</span>
+            <span class="overview-info-key">專案類型</span>
+            <span class="overview-info-val">跨平台系統整合</span>
           </div>
           <div class="overview-info-row">
-            <span class="overview-info-key">Role</span>
-            <span class="overview-info-val">Full Stack Developer</span>
+            <span class="overview-info-key">擔任角色</span>
+            <span class="overview-info-val">全端開發（個人專案）</span>
           </div>
           <div class="overview-info-row">
-            <span class="overview-info-key">Duration</span>
-            <span class="overview-info-val">2025 – Present</span>
+            <span class="overview-info-key">開發期間</span>
+            <span class="overview-info-val">2025 - 至今</span>
           </div>
           <div class="overview-info-row">
-            <span class="overview-info-key">Status</span>
+            <span class="overview-info-key">目前狀態</span>
             <span class="overview-info-val">
               <span class="overview-info-pulse"></span>
-              Continuous Improvement
+              持續優化中
             </span>
           </div>
           <div class="overview-info-row">
-            <span class="overview-info-key">Repository</span>
-            <span class="overview-info-val">Private</span>
+            <span class="overview-info-key">程式碼</span>
+            <span class="overview-info-val">未公開</span>
           </div>
           <div class="overview-info-row">
-            <span class="overview-info-key">Platform</span>
+            <span class="overview-info-key">主要平台</span>
             <span class="overview-info-val">TradingView</span>
           </div>
         </div>
@@ -418,52 +406,45 @@
 
       <!-- Right: Project Overview text -->
       <div class="overview-text fade-in fade-in-delay-1">
-        <div class="overview-text-label">Engineering Case Study</div>
-        <h3 class="overview-text-title">Project Overview</h3>
+        <div class="overview-text-label">系統整合案例</div>
+        <h3 class="overview-text-title">專案說明</h3>
         <p>
-          This project focuses on building a reliable event-driven workflow connecting
-          TradingView, Webhook communication, and external execution APIs.
-        </p>
-        <p>
-          The primary objective is to design a maintainable automation architecture
-          capable of transmitting signals, validating requests, synchronizing system
-          states, and handling failures gracefully.
+          本專案採用事件驅動（Event-Driven）架構，整合 TradingView、Webhook、Make 與 Capital.com API，建構一套具備流程控制、資料驗證、狀態同步及
+          錯誤處理能力的跨平台自動化交易流程，確保各平台間能穩定協作，並提升系統可靠性與可維護性。
         </p>
         <p class="overview-callout">
-          This is a software engineering case study — not a trading showcase. It
-          documents architecture, integration, and debugging decisions; the trading
-          strategy itself is intentionally out of scope.
+          本作品主要展示系統架構設計、跨平台整合、API 串接與除錯歷程，交易策略本身並非本專案重點。
         </p>
       </div>
 
     </div>
 
     <!-- Engineering Objectives: 4 cards -->
-    <div class="overview-goals-label fade-in">Engineering Objectives</div>
+    <div class="overview-goals-label fade-in">設計目標</div>
     <div class="overview-goals">
 
       <div class="goal-card fade-in fade-in-delay-1">
         <div class="goal-icon">📶</div>
-        <h3>Signal Integrity</h3>
-        <p>Every signal validated and verified before it can trigger an order.</p>
+        <h3>訊號正確性</h3>
+        <p>每筆交易訊號皆經過驗證，避免異常資料造成錯誤下單</p>
       </div>
 
       <div class="goal-card fade-in fade-in-delay-2">
         <div class="goal-icon">🔌</div>
-        <h3>Inter-System Communication</h3>
-        <p>Clean contracts and schemas between independent platforms.</p>
+        <h3>跨系統通訊</h3>
+        <p>建立一致的資料格式，讓不同平台能穩定交換資訊</p>
       </div>
 
       <div class="goal-card fade-in fade-in-delay-3">
         <div class="goal-icon">🏗️</div>
-        <h3>Scalable Architecture</h3>
-        <p>Layered, modular design that extends without rework.</p>
+        <h3>可擴充架構</h3>
+        <p>模組化設計，方便後續新增功能與維護</p>
       </div>
 
       <div class="goal-card fade-in fade-in-delay-4">
         <div class="goal-icon">🛡️</div>
-        <h3>Fault Tolerance</h3>
-        <p>Graceful failure handling, retries, and state reconciliation.</p>
+        <h3>容錯機制</h3>
+        <p>發生異常時仍能安全處理流程，降低錯誤造成的影響</p>
       </div>
 
     </div>
@@ -471,10 +452,10 @@
     <!-- Closing Quote -->
     <div class="overview-quote fade-in">
       <blockquote>
-        Good software is built through continuous refinement,
-        <span class="overview-quote-hl">not perfect first attempts.</span>
+        好的系統，不只是能運作，
+        <span class="overview-quote-hl">更要能持續改善前進</span>
       </blockquote>
-      <p class="overview-quote-sub">This project is still evolving.</p>
+      <p class="overview-quote-sub">持續改善，才能打造可靠的軟體</p>
     </div>
   </div>
 </section>
@@ -487,12 +468,11 @@
   <div class="arch-bg-glow"></div>
   <div class="container">
     <div class="section-header fade-in" style="text-align:center;">
-      <div class="eyebrow" style="margin-bottom:1rem;">System Design</div>
+      <div class="eyebrow" style="margin-bottom:1rem;">架構設計</div>
       <div class="section-divider" style="margin:0 auto 1.5rem;"></div>
-      <h2 class="section-title" id="arch-title">Architecture</h2>
+      <h2 class="section-title" id="arch-title">系統架構</h2>
       <p class="section-sub" style="margin:0 auto;">
-        Seven layers, each with a distinct responsibility and a clearly defined interface
-        to its neighbors. Hover any layer to see what happens inside it.
+        整個系統採用七層模組化架構，每一層皆負責不同功能，並透過明確的介面彼此串接，滑鼠移至各層即可查看詳細說明
       </p>
     </div>
 
@@ -502,15 +482,15 @@
         <div class="arch-node-box">
           <span class="arch-icon">📐</span>
           <div class="arch-name">Pine Script</div>
-          <div class="arch-sub">Strategy Logic</div>
+          <div class="arch-sub">交易策略</div>
         </div>
         <div class="arch-detail">
-          <div class="arch-detail-title">Strategy Layer</div>
+          <div class="arch-detail-title">策略層（Strategy Layer）</div>
           <dl class="arch-detail-spec">
-            <dt>Responsibility</dt><dd>Evaluate market conditions and decide when to act</dd>
-            <dt>Input</dt><dd>Price &amp; indicator data</dd>
-            <dt>Output</dt><dd>Strategy signal event</dd>
-            <dt>Failure Point</dt><dd class="arch-fail">False or missing trigger logic</dd>
+            <dt>負責功能</dt><dd>依據市場條件判斷是否產生交易訊號。</dd>
+            <dt>輸入</dt><dd>價格資料 &amp; 技術指標</dd>
+            <dt>輸出</dt><dd>交易訊號</dd>
+            <dt>異常情況</dt><dd class="arch-fail">策略條件錯誤或訊號未正確觸發</dd>
           </dl>
         </div>
       </div>
@@ -527,12 +507,12 @@
           <div class="arch-sub">TradingView</div>
         </div>
         <div class="arch-detail">
-          <div class="arch-detail-title">Alert Dispatch</div>
+          <div class="arch-detail-title">訊號派送（Alert Dispatch）</div>
           <dl class="arch-detail-spec">
-            <dt>Responsibility</dt><dd>Package the signal and deliver it off-platform</dd>
-            <dt>Input</dt><dd>Strategy signal event</dd>
-            <dt>Output</dt><dd>JSON webhook POST</dd>
-            <dt>Failure Point</dt><dd class="arch-fail">Duplicate or dropped alert</dd>
+            <dt>負責功能</dt><dd>將交易訊號封裝後，透過 TradingView Alert 發送至外部系統。</dd>
+            <dt>輸入</dt><dd>交易訊號</dd>
+            <dt>輸出</dt><dd>Webhook 請求（JSON）</dd>
+            <dt>異常情況</dt><dd class="arch-fail">訊號重複發送或遺失</dd>
           </dl>
         </div>
       </div>
@@ -546,15 +526,15 @@
         <div class="arch-node-box">
           <span class="arch-icon">🔗</span>
           <div class="arch-name">Webhook</div>
-          <div class="arch-sub">HTTP Transport</div>
+          <div class="arch-sub">資料傳輸</div>
         </div>
         <div class="arch-detail">
-          <div class="arch-detail-title">Webhook Handler</div>
+          <div class="arch-detail-title">Webhook 接收層</div>
           <dl class="arch-detail-spec">
-            <dt>Responsibility</dt><dd>Receive, parse and validate the incoming payload</dd>
-            <dt>Input</dt><dd>HTTP POST body</dd>
-            <dt>Output</dt><dd>Validated request object</dd>
-            <dt>Failure Point</dt><dd class="arch-fail">Malformed JSON or wrong headers</dd>
+            <dt>負責功能</dt><dd>接收、解析並驗證傳入的 Webhook 資料。</dd>
+            <dt>輸入</dt><dd>HTTP POST 請求</dd>
+            <dt>輸出 </dt><dd>驗證完成的請求資料</dd>
+            <dt>異常情況</dt><dd class="arch-fail">JSON 格式錯誤或請求標頭異常</dd>
           </dl>
         </div>
       </div>
@@ -568,15 +548,15 @@
         <div class="arch-node-box">
           <span class="arch-icon">⚙️</span>
           <div class="arch-name">Make Scenario</div>
-          <div class="arch-sub">Automation</div>
+          <div class="arch-sub">流程控制</div>
         </div>
         <div class="arch-detail">
-          <div class="arch-detail-title">Make Scenario</div>
+          <div class="arch-detail-title">流程控制（Make Scenario）</div>
           <dl class="arch-detail-spec">
-            <dt>Responsibility</dt><dd>Route events, authenticate, iterate positions and call the API</dd>
-            <dt>Input</dt><dd>Validated webhook payload</dd>
-            <dt>Output</dt><dd>HTTP request to Capital.com</dd>
-            <dt>Failure Point</dt><dd class="arch-fail">Wrong branch / duplicate fire</dd>
+            <dt>負責功能</dt><dd>負責流程分流、資料驗證、部位查詢及 API 呼叫。</dd>
+            <dt>輸入</dt><dd>驗證完成的 Webhook 資料</dd>
+            <dt>輸出</dt><dd>送往 Capital.com API 的請求</dd>
+            <dt>異常情況</dt><dd class="arch-fail">流程分支錯誤或重複執行</dd>
           </dl>
         </div>
       </div>
@@ -590,15 +570,15 @@
         <div class="arch-node-box">
           <span class="arch-icon">⚡</span>
           <div class="arch-name">Capital.com API</div>
-          <div class="arch-sub">Open API</div>
+          <div class="arch-sub">API 串接</div>
         </div>
         <div class="arch-detail">
-          <div class="arch-detail-title">Capital.com Open API</div>
+          <div class="arch-detail-title">Capital.com API</div>
           <dl class="arch-detail-spec">
-            <dt>Responsibility</dt><dd>Authenticate session and submit position commands</dd>
-            <dt>Input</dt><dd>HTTP order request</dd>
-            <dt>Output</dt><dd>Position open / close response</dd>
-            <dt>Failure Point</dt><dd class="arch-fail">Auth failure / size rejection</dd>
+            <dt>負責功能</dt><dd>完成身份驗證並送出交易指令。</dd>
+            <dt>輸入</dt><dd>交易請求</dd>
+            <dt>輸出</dt><dd>開倉／平倉結果</dd>
+            <dt>異常情況</dt><dd class="arch-fail">驗證失敗、交易量錯誤或 API 拒絕請求</dd>
           </dl>
         </div>
       </div>
@@ -611,16 +591,16 @@
       <div class="arch-node" tabindex="0">
         <div class="arch-node-box">
           <span class="arch-icon">🏦</span>
-          <div class="arch-name">Broker</div>
-          <div class="arch-sub">Market Layer</div>
+          <div class="arch-name">交易平台</div>
+          <div class="arch-sub">交易執行層</div>
         </div>
         <div class="arch-detail">
-          <div class="arch-detail-title">Broker Engine</div>
+          <div class="arch-detail-title">交易平台</div>
           <dl class="arch-detail-spec">
-            <dt>Responsibility</dt><dd>Validate, match and execute the order</dd>
-            <dt>Input</dt><dd>Authenticated API request</dd>
-            <dt>Output</dt><dd>Fill confirmation</dd>
-            <dt>Failure Point</dt><dd class="arch-fail">Rejected size / lot-step error</dd>
+            <dt>負責功能</dt><dd>驗證交易指令並完成實際下單。</dd>
+            <dt>輸入</dt><dd>已驗證的 API 請求</dd>
+            <dt>輸出</dt><dd>成交確認結果</dd>
+            <dt>異常情況</dt><dd class="arch-fail">交易量錯誤、最小下單限制或執行失敗</dd>
           </dl>
         </div>
       </div>
@@ -634,15 +614,15 @@
         <div class="arch-node-box">
           <span class="arch-icon">🗄️</span>
           <div class="arch-name">Data Store</div>
-          <div class="arch-sub">State Sync</div>
+          <div class="arch-sub">狀態同步</div>
         </div>
         <div class="arch-detail">
-          <div class="arch-detail-title">Make Data Store</div>
+          <div class="arch-detail-title">資料儲存（Data Store）</div>
           <dl class="arch-detail-spec">
-            <dt>Responsibility</dt><dd>Persist position data for TP1 / TP2 / SL lookups</dd>
-            <dt>Input</dt><dd>Position open / close response</dd>
-            <dt>Output</dt><dd>Synced position records</dd>
-            <dt>Failure Point</dt><dd class="arch-fail">State drift vs broker reality</dd>
+            <dt>負責功能</dt><dd>保存持倉資料，供 TP1、TP2 及SL流程查詢。</dd>
+            <dt>輸入</dt><dd>開倉／平倉回應</dd>
+            <dt>輸出</dt><dd>同步後的持倉資料</dd>
+            <dt>異常情況</dt><dd class="arch-fail">資料不同步，導致系統狀態與交易平台不一致</dd>
           </dl>
         </div>
       </div>
@@ -658,67 +638,67 @@
 <section id="tech" class="section" aria-labelledby="tech-title">
   <div class="container">
     <div class="section-header fade-in">
-      <div class="eyebrow" style="margin-bottom:1rem;">Stack</div>
+      <div class="eyebrow" style="margin-bottom:1rem;">技術組成</div>
       <div class="section-divider"></div>
-      <h2 class="section-title" id="tech-title">Technology Stack</h2>
-      <p class="section-sub">Each technology is described by the role it plays in the system, not by its brand.</p>
+      <h2 class="section-title" id="tech-title">技術架構</h2>
+      <p class="section-sub">以下依照各項技術在系統中的職責進行說明，而非依品牌分類</p>
     </div>
 
     <div class="tech-grid">
 
       <div class="tech-card fade-in fade-in-delay-1">
         <span class="tech-icon-wrapper">📐</span>
-        <div class="tech-name">Signal Source</div>
-        <p class="tech-desc">Defines the conditions that produce an event and emits it as a structured alert. The entry point of the entire pipeline.</p>
+        <div class="tech-name">訊號來源</div>
+        <p class="tech-desc">負責產生交易條件，並將符合策略的結果轉換成標準化訊號，是整個流程的起點</p>
         <span class="tech-badge">Pine Script</span>
       </div>
 
       <div class="tech-card fade-in fade-in-delay-2">
         <span class="tech-icon-wrapper">📡</span>
-        <div class="tech-name">Event Dispatcher</div>
-        <p class="tech-desc">Turns an internal signal into an outbound network event, decoupling signal generation from downstream processing.</p>
+        <div class="tech-name">事件派送</div>
+        <p class="tech-desc">將交易訊號轉換成可傳輸的事件資料，降低訊號產生與後續流程之間的耦合</p>
         <span class="tech-badge">TradingView Alert</span>
       </div>
 
       <div class="tech-card fade-in fade-in-delay-3">
         <span class="tech-icon-wrapper">🔗</span>
-        <div class="tech-name">Transport Layer</div>
-        <p class="tech-desc">Carries serialized events between systems over HTTP in real time — the wire that connects two independent platforms.</p>
+        <div class="tech-name">傳輸層</div>
+        <p class="tech-desc">透過 HTTP 將資料即時傳送至不同平台，負責跨系統資料交換</p>
         <span class="tech-badge">Webhook</span>
       </div>
 
       <div class="tech-card fade-in fade-in-delay-4">
         <span class="tech-icon-wrapper">⚙️</span>
-        <div class="tech-name">Automation Engine</div>
-        <p class="tech-desc">Orchestrates the whole workflow — routing events, authenticating, branching by trade type, and dispatching API calls without a server to maintain.</p>
+        <div class="tech-name">自動化引擎</div>
+        <p class="tech-desc">負責整體流程控制、資料驗證、條件判斷與 API 呼叫，是整個系統的核心</p>
         <span class="tech-badge">Make</span>
       </div>
 
       <div class="tech-card fade-in fade-in-delay-1">
         <span class="tech-icon-wrapper">⚡</span>
-        <div class="tech-name">Execution Interface</div>
-        <p class="tech-desc">A REST contract for opening, closing, and querying positions, abstracting the broker behind a predictable request/response model.</p>
+        <div class="tech-name">執行介面</div>
+        <p class="tech-desc">透過 REST API 完成開倉、平倉及部位查詢，提供穩定且一致的交易介面</p>
         <span class="tech-badge">Capital.com API</span>
       </div>
 
       <div class="tech-card fade-in fade-in-delay-2">
         <span class="tech-icon-wrapper">📋</span>
-        <div class="tech-name">Message Contract</div>
-        <p class="tech-desc">The shared schema every system agrees on. Strict alert JSON is what makes cross-platform communication reliable.</p>
+        <div class="tech-name">資料格式</div>
+        <p class="tech-desc">使用統一的 JSON 結構，確保各系統皆能正確解析與交換資料</p>
         <span class="tech-badge">JSON</span>
       </div>
 
       <div class="tech-card fade-in fade-in-delay-3">
         <span class="tech-icon-wrapper">🗄️</span>
-        <div class="tech-name">State Layer</div>
-        <p class="tech-desc">Persists position data across events so TP1, TP2, and Stop-Loss flows can look up exactly which positions to close.</p>
+        <div class="tech-name">狀態管理</div>
+        <p class="tech-desc">保存每筆持倉資料，供 TP1、TP2 與SL流程查詢，確保交易狀態一致</p>
         <span class="tech-badge">Data Store</span>
       </div>
 
       <div class="tech-card fade-in fade-in-delay-4">
         <span class="tech-icon-wrapper">🔁</span>
-        <div class="tech-name">Iteration Module</div>
-        <p class="tech-desc">Splits a batch of open positions into individual records, letting each one be processed and closed independently.</p>
+        <div class="tech-name">迭代處理</div>
+        <p class="tech-desc">將多筆持倉逐一拆分處理，使每筆交易皆能獨立執行與平倉</p>
         <span class="tech-badge">Iterator</span>
       </div>
 
@@ -733,12 +713,11 @@
 <section id="timeline" class="section" aria-labelledby="timeline-title">
   <div class="container">
     <div class="section-header fade-in" style="text-align:center;">
-      <div class="eyebrow" style="margin-bottom:1rem;">Development</div>
+      <div class="eyebrow" style="margin-bottom:1rem;">開發歷程</div>
       <div class="section-divider" style="margin:0 auto 1.5rem;"></div>
-      <h2 class="section-title" id="timeline-title">Timeline</h2>
+      <h2 class="section-title" id="timeline-title">開發時間軸</h2>
       <p class="section-sub" style="margin:0 auto;">
-        A real development record — each milestone marks a working layer added to the
-        system, not just a planning step.
+        完整記錄專案從構想到完成的每個開發階段，每一個里程碑都代表一項功能真正完成，而不只是停留在規劃
       </p>
     </div>
 
@@ -746,12 +725,12 @@
 
       <div class="timeline-item fade-in">
         <div class="timeline-content">
-          <div class="timeline-phase">2025 · Start</div>
-          <div class="timeline-title">Project Started</div>
+          <div class="timeline-phase">2025・開始</div>
+          <div class="timeline-title">專案啟動</div>
           <dl class="timeline-csr">
-            <dt>Challenge</dt><dd>Define a clear engineering boundary for an open-ended idea.</dd>
-            <dt>Solution</dt><dd>Scoped the project to cross-platform automation and mapped every external dependency.</dd>
-            <dt>Result</dt><dd class="csr-win">A focused spec: integration over financial optimization.</dd>
+            <dt>問題</dt><dd>將原本零散的交易想法，規劃成一套可實際開發的系統架構</dd>
+            <dt>解法</dt><dd>確立專案以跨平台自動化整合為核心，規劃整體系統架構與資料流程</dd>
+            <dt>成果</dt><dd class="csr-win">完成專案方向規劃，聚焦於系統整合而非交易績效</dd>
           </dl>
         </div>
         <div class="timeline-center">
@@ -766,24 +745,24 @@
           <div class="timeline-dot">📐</div>
         </div>
         <div class="timeline-content">
-          <div class="timeline-phase">Milestone</div>
-          <div class="timeline-title">Pine Script — Strategy Prototype</div>
+
+          <div class="timeline-title">Pine Script 策略原型</div>
           <dl class="timeline-csr">
-            <dt>Challenge</dt><dd>Produce a reliable, testable signal before any integration existed.</dd>
-            <dt>Solution</dt><dd>Built alert conditions and verified the logic in isolation.</dd>
-            <dt>Result</dt><dd class="csr-win">A deterministic signal source to build the pipeline on.</dd>
+            <dt>問題</dt><dd>建立穩定且可驗證的交易訊號來源</dd>
+            <dt>解法</dt><dd>完成策略邏輯設計，並透過回測驗證訊號是否符合預期</dd>
+            <dt>成果</dt><dd class="csr-win">建立整套自動化流程的第一個可靠訊號來源</dd>
           </dl>
         </div>
       </div>
 
       <div class="timeline-item fade-in">
         <div class="timeline-content">
-          <div class="timeline-phase">Milestone</div>
-          <div class="timeline-title">Webhook — Communication Established</div>
+
+          <div class="timeline-title">建立 Webhook 通訊</div>
           <dl class="timeline-csr">
-            <dt>Challenge</dt><dd>Get two systems that don't know each other to exchange data.</dd>
-            <dt>Solution</dt><dd>Stood up an HTTP listener and validated end-to-end delivery with request inspection.</dd>
-            <dt>Result</dt><dd class="csr-win">First live signal received off-platform.</dd>
+            <dt>問題</dt><dd>讓 TradingView 與 Make 能夠穩定交換資料</dd>
+            <dt>解法</dt><dd>建立 HTTP Webhook 接收端，完成訊號接收、解析與驗證</dd>
+            <dt>成果</dt><dd class="csr-win">成功接收第一筆 TradingView 即時訊號</dd>
           </dl>
         </div>
         <div class="timeline-center">
@@ -798,24 +777,24 @@
           <div class="timeline-dot">⚡</div>
         </div>
         <div class="timeline-content">
-          <div class="timeline-phase">Milestone</div>
-          <div class="timeline-title">REST API — Authentication Completed</div>
+
+          <div class="timeline-title">完成 API 串接與驗證</div>
           <dl class="timeline-csr">
-            <dt>Challenge</dt><dd>Authenticate and submit orders against a stateless external API.</dd>
-            <dt>Solution</dt><dd>Built an API client with auth handling and structured error responses.</dd>
-            <dt>Result</dt><dd class="csr-win">First fully automated order, signal to execution.</dd>
+            <dt>問題</dt><dd>與 Capital.com API 建立安全且穩定的連線</dd>
+            <dt>解法</dt><dd>完成登入驗證、API 呼叫流程與錯誤處理機制</dd>
+            <dt>成果</dt><dd class="csr-win">完成第一筆自動化下單流程</dd>
           </dl>
         </div>
       </div>
 
       <div class="timeline-item fade-in">
         <div class="timeline-content">
-          <div class="timeline-phase">Milestone</div>
-          <div class="timeline-title">Position Synchronization — Resolved</div>
+
+          <div class="timeline-title">持倉同步問題修正</div>
           <dl class="timeline-csr">
-            <dt>Challenge</dt><dd>Local state drifted from the broker after network delays.</dd>
-            <dt>Solution</dt><dd>Switched to live reconciliation before every order — handler became stateless.</dd>
-            <dt>Result</dt><dd class="csr-win">State drift eliminated entirely.</dd>
+            <dt>問題</dt><dd>系統持倉資訊可能與交易平台不同步</dd>
+            <dt>解法</dt><dd>改用即時查詢持倉資料，不依賴本地快取資訊</dd>
+            <dt>成果</dt><dd class="csr-win">解決持倉不同步造成的錯誤</dd>
           </dl>
         </div>
         <div class="timeline-center">
@@ -830,24 +809,24 @@
           <div class="timeline-dot">🎯</div>
         </div>
         <div class="timeline-content">
-          <div class="timeline-phase">Milestone</div>
-          <div class="timeline-title">Partial TP — Implemented</div>
+
+          <div class="timeline-title">分批停利功能</div>
           <dl class="timeline-csr">
-            <dt>Challenge</dt><dd>Map percentage-based exits to exact, broker-valid order sizes.</dd>
-            <dt>Solution</dt><dd>Computed sizes dynamically with floor/ceiling precision guards.</dd>
-            <dt>Result</dt><dd class="csr-win">Zero rounding-rejected orders.</dd>
+            <dt>問題</dt><dd>依照百分比計算平倉數量時，容易因小數誤差導致下單失敗</dd>
+            <dt>解法</dt><dd>加入數量換算與精度控制，符合 Broker 下單規則</dd>
+            <dt>成果</dt><dd class="csr-win">避免因數量誤差造成訂單遭拒</dd>
           </dl>
         </div>
       </div>
 
       <div class="timeline-item fade-in">
         <div class="timeline-content">
-          <div class="timeline-phase">2025 – Present</div>
-          <div class="timeline-title">Continuous Optimization</div>
+          <div class="timeline-phase">2025 - 現今</div>
+          <div class="timeline-title">持續優化</div>
           <dl class="timeline-csr">
-            <dt>Challenge</dt><dd>Keep the pipeline correct as edge cases surface over time.</dd>
-            <dt>Solution</dt><dd>Ongoing work on idempotency, observability, and reliability hardening.</dd>
-            <dt>Result</dt><dd class="csr-win">A system that gets more robust with every iteration.</dd>
+            <dt>問題</dt><dd>隨著功能增加，持續修正各種邊界情況與例外狀況</dd>
+            <dt>解法</dt><dd>持續改善系統穩定性、資料同步與例外處理流程</dd>
+            <dt>成果</dt><dd class="csr-win">每一次除錯與修正，都讓整個系統更加穩定可靠</dd>
           </dl>
         </div>
         <div class="timeline-center">
@@ -867,32 +846,32 @@
 <section id="challenges" class="section" aria-labelledby="challenges-title">
   <div class="container">
     <div class="section-header fade-in">
-      <div class="eyebrow" style="margin-bottom:1rem;">Problem Solving</div>
+      <div class="eyebrow" style="margin-bottom:1rem;">工程問題</div>
       <div class="section-divider"></div>
-      <h2 class="section-title" id="challenges-title">Engineering Challenges</h2>
-      <p class="section-sub">Click each challenge to expand the full engineering context.</p>
+      <h2 class="section-title" id="challenges-title">技術挑戰</h2>
+      <p class="section-sub">點擊各項挑戰，可查看問題分析、解決方式與改善成果</p>
     </div>
 
     <div class="challenges-grid">
 
       <div class="challenge-card fade-in fade-in-delay-1">
         <div class="challenge-header">
-          <span class="challenge-num">CHALLENGE 01</span>
-          <h3 class="challenge-title">Position Synchronization</h3>
+          <span class="challenge-num">案例 01</span>
+          <h3 class="challenge-title">持倉同步</h3>
           <span class="challenge-toggle" aria-label="Expand">+</span>
         </div>
         <div class="challenge-body" aria-hidden="true">
           <div class="challenge-content">
-            <span class="challenge-tag">State Management</span>
+            <span class="challenge-tag">狀態管理（State Management）</span>
             <dl class="challenge-spec">
-              <dt>Problem</dt>
-              <dd>The next signal acted on a stale position, occasionally doubling or reversing a trade incorrectly.</dd>
-              <dt>Root Cause</dt>
-              <dd>The Webhook handler and the broker kept separate state models. A delayed API response let local state diverge from the broker's real position.</dd>
-              <dt>Solution</dt>
-              <dd>Added a reconciliation step that fetches the live position from the broker before every order, making the handler effectively stateless.</dd>
-              <dt>Lessons Learned</dt>
-              <dd class="challenge-lesson">Never trust cached state across a network boundary — reconcile against the source of truth.</dd>
+              <dt>問題</dt>
+              <dd>下一筆交易訊號有時會依據舊的持倉資料執行，導致部位重複建立或方向錯誤</dd>
+              <dt>根本原因</dt>
+              <dd>Webhook 與券商端各自維護持倉狀態，當 API 回傳延遲時，本地端資料可能與實際持倉不同步</dd>
+              <dt>解決方案</dt>
+              <dd>每次送單前重新向券商查詢最新持倉資料，再依據即時資訊計算下單內容，使流程不再依賴本地快取狀態</dd>
+              <dt>學習與收穫</dt>
+              <dd class="challenge-lesson">跨系統整合時，不應完全依賴本地資料，應以實際來源（Source of Truth）作為判斷依據</dd>
             </dl>
           </div>
         </div>
@@ -900,22 +879,22 @@
 
       <div class="challenge-card fade-in fade-in-delay-2">
         <div class="challenge-header">
-          <span class="challenge-num">CHALLENGE 02</span>
-          <h3 class="challenge-title">Duplicate Alert Firing</h3>
+          <span class="challenge-num">案例 02</span>
+          <h3 class="challenge-title">重複訊號觸發</h3>
           <span class="challenge-toggle" aria-label="Expand">+</span>
         </div>
         <div class="challenge-body" aria-hidden="true">
           <div class="challenge-content">
-            <span class="challenge-tag">Idempotency</span>
+            <span class="challenge-tag">冪等控制（Idempotency）</span>
             <dl class="challenge-spec">
-              <dt>Problem</dt>
-              <dd>The same signal occasionally produced two orders instead of one.</dd>
-              <dt>Root Cause</dt>
-              <dd>TradingView fires the same alert condition twice in rapid succession — on bar close and again on the next bar open.</dd>
-              <dt>Solution</dt>
-              <dd>Hashed each payload and added a time-windowed idempotency key; identical hashes inside the cool-down window are acknowledged but dropped before the API layer.</dd>
-              <dt>Lessons Learned</dt>
-              <dd class="challenge-lesson">At-least-once delivery is the norm — design every consumer to be idempotent.</dd>
+              <dt>問題</dt>
+              <dd>同一筆交易訊號偶爾會被系統重複執行，造成重複下單</dd>
+              <dt>根本原因</dt>
+              <dd>TradingView 在特定情況下可能於 K 棒收盤及下一根 K 棒開始時再次送出相同訊號</dd>
+              <dt>解決方案</dt>
+              <dd>替每筆請求建立唯一識別值（Hash），並加入短時間內的重複檢查機制，相同訊號直接忽略，不再送往 API</dd>
+              <dt>學習與收穫</dt>
+              <dd class="challenge-lesson">事件驅動架構應預設訊號可能重送，所有接收端都需要具備冪等（Idempotent）設計</dd>
             </dl>
           </div>
         </div>
@@ -923,22 +902,22 @@
 
       <div class="challenge-card fade-in fade-in-delay-3">
         <div class="challenge-header">
-          <span class="challenge-num">CHALLENGE 03</span>
-          <h3 class="challenge-title">Partial Take-Profit Logic</h3>
+          <span class="challenge-num">案例 03</span>
+          <h3 class="challenge-title">分批停利邏輯</h3>
           <span class="challenge-toggle" aria-label="Expand">+</span>
         </div>
         <div class="challenge-body" aria-hidden="true">
           <div class="challenge-content">
-            <span class="challenge-tag">Business Logic</span>
+            <span class="challenge-tag">商業邏輯（Business Logic）</span>
             <dl class="challenge-spec">
-              <dt>Problem</dt>
-              <dd>Take-profit orders were sometimes rejected or oversized.</dd>
-              <dt>Root Cause</dt>
-              <dd>A percentage-based exit had to map to an exact, broker-valid quantity — and floating-point math produced sizes the exchange's validator refused.</dd>
-              <dt>Solution</dt>
-              <dd>Fetched the live position size at execution time, computed the target quantity dynamically, and applied floor/ceiling guards aligned to the exchange's tick size.</dd>
-              <dt>Lessons Learned</dt>
-              <dd class="challenge-lesson">Respect the contract's precision rules — validate against the spec, not assumptions.</dd>
+              <dt>問題</dt>
+              <dd>分批停利偶爾因數量不符合券商規範而被拒單</dd>
+              <dt>根本原因</dt>
+              <dd>百分比計算後的數量可能出現浮點誤差，導致送出的委託數量不符合交易所規則</dd>
+              <dt>解決方案</dt>
+              <dd>送單前重新取得最新持倉數量，動態計算實際可交易口數，並加入上下限與四捨五入保護機制</dd>
+              <dt>學習與收穫</dt>
+              <dd class="challenge-lesson">所有交易數量都應依照 API 規格重新驗證，而不是直接相信程式計算結果</dd>
             </dl>
           </div>
         </div>
@@ -946,22 +925,22 @@
 
       <div class="challenge-card fade-in fade-in-delay-4">
         <div class="challenge-header">
-          <span class="challenge-num">CHALLENGE 04</span>
-          <h3 class="challenge-title">State Management</h3>
+          <span class="challenge-num">案例 04</span>
+          <h3 class="challenge-title">系統狀態同步</h3>
           <span class="challenge-toggle" aria-label="Expand">+</span>
         </div>
         <div class="challenge-body" aria-hidden="true">
           <div class="challenge-content">
-            <span class="challenge-tag">Consistency</span>
+            <span class="challenge-tag">一致性（Consistency）</span>
             <dl class="challenge-spec">
-              <dt>Problem</dt>
-              <dd>Failures were often invisible at the point they occurred, making root cause hard to find.</dd>
-              <dt>Root Cause</dt>
-              <dd>State spanned three asynchronous systems; a dropped order or delayed confirmation could desync the handler from the broker silently.</dd>
-              <dt>Solution</dt>
-              <dd>Made the handler stateless via live reconciliation and instrumented every boundary with structured logs — timestamp, payload hash, origin, outcome.</dd>
-              <dt>Lessons Learned</dt>
-              <dd class="challenge-lesson">Observability is a design requirement, not an afterthought — you can't fix what you can't see.</dd>
+              <dt>問題</dt>
+              <dd>當系統發生錯誤時，不容易快速定位是哪個環節出了問題</dd>
+              <dt>根本原因</dt>
+              <dd>整個流程橫跨 TradingView、Make 與 Capital.com 三個平台，任何一個節點延遲或失敗，都可能造成資料不同步</dd>
+              <dt>解決方案</dt>
+              <dd>建立完整的流程紀錄（Log），記錄每一步的時間、來源、請求內容與執行結果，並搭配持倉同步機制，方便快速追蹤問題</dd>
+              <dt>學習與收穫</dt>
+              <dd class="challenge-lesson">可觀測性（Observability）應在系統設計初期就納入考量，而不是等到發生問題後才補上</dd>
             </dl>
           </div>
         </div>
@@ -978,10 +957,10 @@
 <section id="debug" class="section" aria-labelledby="debug-title">
   <div class="container">
     <div class="section-header fade-in">
-      <div class="eyebrow" style="margin-bottom:1rem;">Engineering Process</div>
+      <div class="eyebrow" style="margin-bottom:1rem;">除錯紀錄</div>
       <div class="section-divider"></div>
-      <h2 class="section-title" id="debug-title">Debug Journey</h2>
-      <p class="section-sub">Real engineering is measured by how problems are diagnosed and resolved — not just by the features that ship.</p>
+      <h2 class="section-title" id="debug-title">除錯歷程</h2>
+      <p class="section-sub">真正的工程能力，不只是完成功能，更重要的是如何分析問題、修正錯誤，並持續提升系統穩定性</p>
     </div>
 
     <!-- Git Commit Style Debug Log -->
@@ -1007,15 +986,12 @@
           <div class="git-commit-body">
             <div class="git-commit-top">
               <span class="git-tag">v0.2</span>
-              <span class="git-hash">a1f9c3d</span>
+              <span class="git-hash">初版策略完成</span>
               <span class="git-label git-label-fix">fix</span>
             </div>
-            <h3 class="git-commit-msg">Resolve TP1 partial take-profit quantity bug</h3>
+            <h3 class="git-commit-msg">修正 TP1 分批停利數量計算錯誤</h3>
             <p class="git-commit-desc">
-              Take-profit signals mapped a percentage exit to an exact order size,
-              but already-filled partial orders caused over-selling. Added dynamic
-              position-size lookup at execution time with floor/ceiling guards
-              against floating-point rounding.
+              修正 TP1 百分比停利換算造成的數量誤差，改為依照實際持倉重新計算可平倉數量，避免超額平倉
             </p>
             <div class="git-commit-files">
               <span class="git-file">webhook/handler.js</span>
@@ -1034,15 +1010,12 @@
           <div class="git-commit-body">
             <div class="git-commit-top">
               <span class="git-tag">v0.4</span>
-              <span class="git-hash">7b2e8a1</span>
+              <span class="git-hash">完成 Webhook、API串接</span>
               <span class="git-label git-label-refactor">refactor</span>
             </div>
-            <h3 class="git-commit-msg">Improve position synchronization with exchange</h3>
+            <h3 class="git-commit-msg">改善持倉同步機制</h3>
             <p class="git-commit-desc">
-              Local state diverged from the exchange after network delays, causing
-              the next signal to act on stale data. Replaced cached local state with
-              a reconciliation step that always fetches the live position before
-              every order — handler is now effectively stateless.
+              取消使用本地快取資料，每次下單前即時查詢 Broker 持倉，避免同步延遲造成判斷錯誤
             </p>
             <div class="git-commit-files">
               <span class="git-file">api/position.js</span>
@@ -1060,16 +1033,13 @@
           </div>
           <div class="git-commit-body">
             <div class="git-commit-top">
-              <span class="git-tag">v0.6</span>
-              <span class="git-hash">c4d0f5e</span>
+              <span class="git-tag">v0.5</span>
+              <span class="git-hash">修正持倉同步</span>
               <span class="git-label git-label-fix">fix</span>
             </div>
-            <h3 class="git-commit-msg">Fix race condition on close + open reversal</h3>
+            <h3 class="git-commit-msg">修正反手交易競態問題</h3>
             <p class="git-commit-desc">
-              Reversal alerts fired position-close and position-open within
-              milliseconds; the exchange processed the open before the close
-              settled, doubling the position. Introduced a FIFO async queue so each
-              payload resolves before the next is dispatched.
+              避免平倉與反向開倉同時送出造成順序錯亂，加入排隊機制，確保訂單依序執行
             </p>
             <div class="git-commit-files">
               <span class="git-file">webhook/queue.js</span>
@@ -1086,16 +1056,13 @@
           </div>
           <div class="git-commit-body">
             <div class="git-commit-top">
-              <span class="git-tag">v0.8</span>
-              <span class="git-hash">e9a7b2c</span>
+              <span class="git-tag">v1.3</span>
+              <span class="git-hash">修正重複下單</span>
               <span class="git-label git-label-feat">feat</span>
             </div>
-            <h3 class="git-commit-msg">Resolve duplicate alert firing with idempotency keys</h3>
+            <h3 class="git-commit-msg">修正訊號重複觸發</h3>
             <p class="git-commit-desc">
-              TradingView occasionally fired the same alert twice — on bar close and
-              next bar open — causing double submissions. Added time-windowed
-              idempotency: each payload is hashed and silently dropped if an identical
-              hash arrives inside the cool-down window.
+              加入去重機制，避免 TradingView 重複送出相同訊號時造成重複下單
             </p>
             <div class="git-commit-files">
               <span class="git-file">webhook/idempotency.js</span>
@@ -1112,17 +1079,14 @@
           </div>
           <div class="git-commit-body">
             <div class="git-commit-top">
-              <span class="git-tag git-tag-head">v1.0</span>
-              <span class="git-hash">f1c0de0</span>
+              <span class="git-tag git-tag-head">v1.8</span>
+              <span class="git-hash">穩定版</span>
               <span class="git-label git-label-feat">feat</span>
               <span class="git-head-badge">HEAD → main</span>
             </div>
-            <h3 class="git-commit-msg">Add structured observability across all boundaries</h3>
+            <h3 class="git-commit-msg">建立完整系統監控與紀錄</h3>
             <p class="git-commit-desc">
-              Instrumented every integration boundary with structured log entries —
-              timestamp, payload hash, system origin, and outcome — plus a local
-              correlation viewer. Mean time to root cause dropped dramatically. System
-              reached production-grade reliability.
+              加入完整的 Log 紀錄與事件追蹤，方便快速定位問題來源，大幅提升系統維護效率。
             </p>
             <div class="git-commit-files">
               <span class="git-file">lib/logger.js</span>
@@ -1145,37 +1109,37 @@
 <section id="results" class="section" aria-labelledby="results-title">
   <div class="container">
     <div class="section-header fade-in">
-      <div class="eyebrow" style="margin-bottom:1rem;">Engineering Outcomes</div>
+      <div class="eyebrow" style="margin-bottom:1rem;">工程成果</div>
       <div class="section-divider"></div>
-      <h2 class="section-title" id="results-title">Results</h2>
-      <p class="section-sub">Measured in system reliability and integration completeness — not financial performance.</p>
+      <h2 class="section-title" id="results-title">成果總覽</h2>
+      <p class="section-sub">以系統可靠性與整合能力作為成果衡量，而非交易績效 </p>
     </div>
 
     <!-- Measurable engineering metrics -->
     <div class="results-metrics fade-in">
       <div class="rmetric">
         <span class="rmetric-num">0</span>
-        <span class="rmetric-label">Manual steps per trade</span>
+        <span class="rmetric-label">人工操作步驟</span>
       </div>
       <div class="rmetric">
         <span class="rmetric-num">100%</span>
-        <span class="rmetric-label">Signals schema-validated</span>
+        <span class="rmetric-label">訊號格式驗證通過率</span>
       </div>
       <div class="rmetric">
         <span class="rmetric-num">12+</span>
-        <span class="rmetric-label">Bugs reproduced &amp; fixed</span>
+        <span class="rmetric-label">已修復 &amp; 排除問題數</span>
       </div>
       <div class="rmetric">
         <span class="rmetric-num">7</span>
-        <span class="rmetric-label">Pipeline layers instrumented</span>
+        <span class="rmetric-label">系統架構層數</span>
       </div>
       <div class="rmetric">
-        <span class="rmetric-num">&lt;1s</span>
-        <span class="rmetric-label">Signal-to-order latency</span>
+        <span class="rmetric-num">&lt;1秒</span>
+        <span class="rmetric-label">訊號至送單延遲</span>
       </div>
       <div class="rmetric">
         <span class="rmetric-num">0</span>
-        <span class="rmetric-label">Duplicate orders after fix</span>
+        <span class="rmetric-label">重複觸發訂單(錯誤)</span>
       </div>
     </div>
 
@@ -1184,48 +1148,48 @@
       <div class="result-item fade-in fade-in-delay-1">
         <div class="result-check">✓</div>
         <div class="result-text">
-          <h4>End-to-End Webhook Integration</h4>
-          <p>TradingView alerts reliably deliver structured JSON payloads to the handler endpoint with full schema validation on every request.</p>
+          <h4>TradingView Webhook 串接完成</h4>
+          <p>TradingView 發出的警示訊號可透過 Webhook 穩定傳送至後端，並完成 JSON 格式驗證與資料解析</p>
         </div>
       </div>
 
       <div class="result-item fade-in fade-in-delay-2">
         <div class="result-check">✓</div>
         <div class="result-text">
-          <h4>Execution API Connected</h4>
-          <p>REST API client handles authentication, order submission, position queries, and structured error responses across all execution paths.</p>
+          <h4>Capital.com API 串接完成</h4>
+          <p>完成登入驗證、開倉、平倉、查詢持倉等 API 串接，並建立完整的錯誤處理流程</p>
         </div>
       </div>
 
       <div class="result-item fade-in fade-in-delay-3">
         <div class="result-check">✓</div>
         <div class="result-text">
-          <h4>Cross-platform Workflow Established</h4>
-          <p>A single Pine Script signal propagates through TradingView, Webhook transport, and Exchange API without any manual intervention at any stage.</p>
+          <h4>建立跨平台自動化流程</h4>
+          <p>完成 TradingView → Webhook → Make → Capital.com 的事件流程，交易訊號可全程自動執行，無需人工介入</p>
         </div>
       </div>
 
       <div class="result-item fade-in fade-in-delay-4">
         <div class="result-check">✓</div>
         <div class="result-text">
-          <h4>Idempotency & Duplicate Prevention</h4>
-          <p>Time-windowed deduplication prevents duplicate order submission from near-simultaneous alert firings at the TradingView layer.</p>
+          <h4>防止重複送單機制</h4>
+          <p>加入 Hash 與冪等（Idempotency）檢查，避免 TradingView 重複發送訊號造成重複下單</p>
         </div>
       </div>
 
       <div class="result-item fade-in fade-in-delay-1">
         <div class="result-check">✓</div>
         <div class="result-text">
-          <h4>Sequential Order Execution Queue</h4>
-          <p>FIFO async queue ensures position-close and position-open orders are never dispatched concurrently, eliminating the race condition class of errors.</p>
+          <h4>建立順序送單機制</h4>
+          <p>利用 FIFO 佇列依序處理平倉與反向開倉請求，避免競態條件（Race Condition）造成持倉錯誤</p>
         </div>
       </div>
 
       <div class="result-item fade-in fade-in-delay-2">
         <div class="result-check">✓</div>
         <div class="result-text">
-          <h4>Structured Observability</h4>
-          <p>Every integration boundary emits structured log entries for timestamp, payload hash, system origin, and outcome — enabling rapid root-cause analysis.</p>
+          <h4>完整流程紀錄（Log）</h4>
+          <p>每一個流程節點皆記錄時間、來源、資料內容與執行結果，方便快速追蹤問題並提升除錯效率</p>
         </div>
       </div>
 
@@ -1240,13 +1204,11 @@
 <section id="gallery" class="section" aria-labelledby="gallery-title">
   <div class="container">
     <div class="section-header fade-in">
-      <div class="eyebrow" style="margin-bottom:1rem;">Proof of Work</div>
+      <div class="eyebrow" style="margin-bottom:1rem;">開發紀錄</div>
       <div class="section-divider"></div>
-      <h2 class="section-title" id="gallery-title">Implementation Gallery</h2>
+      <h2 class="section-title" id="gallery-title">系統實作展示</h2>
       <p class="section-sub">
-        Real screenshots from the live system — API configuration, Make scenarios,
-        HTTP request/response pairs, Data Store records, and the TradingView alerts
-        that drive it all. Click any image to enlarge.
+        展示專案實際開發畫面，包括 API 設定、Make 流程、HTTP 請求、Data Store 以及 TradingView 訊號設定。點擊圖片即可放大檢視
       </p>
     </div>
 
@@ -1254,21 +1216,21 @@
     <div class="gallery-group fade-in">
       <div class="gallery-group-head">
         <span class="gallery-group-num">01</span>
-        <h3 class="gallery-group-title">System Setup &amp; Architecture</h3>
-        <p class="gallery-group-desc">API credentials and the end-to-end Make scenario that connects every platform.</p>
+        <h3 class="gallery-group-title">系統架構 &amp; 環境設定</h3>
+        <p class="gallery-group-desc">展示 API 金鑰設定，以及 Make 自動化流程的整體架構</p>
       </div>
       <div class="gallery-grid">
-        <figure class="gallery-item" data-src="img/01_capital_api_key_management.png">
+        <figure class="gallery-item" data-src="img/capital_api_key_management.png">
           <div class="gallery-thumb"><img loading="lazy" src="img/capital_api_key_management.png" alt="Capital.com API key management"></div>
-          <figcaption><span class="gallery-tag">01</span> Capital.com API Key management — the foundation for broker communication.</figcaption>
+          <figcaption><span class="gallery-tag">01</span> Capital.com API 金鑰設定</figcaption>
         </figure>
-        <figure class="gallery-item" data-src="img/02_make_scenario_overview.png">
+        <figure class="gallery-item" data-src="img/make_scenario_overview.png">
           <div class="gallery-thumb"><img loading="lazy" src="img/make_scenario_overview.png" alt="Make scenario overview"></div>
-          <figcaption><span class="gallery-tag">02</span> Make scenario overview — the whole TradingView → Make → Capital.com data flow at a glance.</figcaption>
+          <figcaption><span class="gallery-tag">02</span> Make 自動化流程總覽</figcaption>
         </figure>
-        <figure class="gallery-item" data-src="img/03_make_workflow_architecture.png">
+        <figure class="gallery-item" data-src="img/make_workflow_architecture.png">
           <div class="gallery-thumb"><img loading="lazy" src="img/make_workflow_architecture.png" alt="Make workflow architecture"></div>
-          <figcaption><span class="gallery-tag">03</span> Full Make workflow — each module handles a different trade event end to end.</figcaption>
+          <figcaption><span class="gallery-tag">03</span> 完整交易流程架構</figcaption>
         </figure>
       </div>
     </div>
@@ -1277,17 +1239,17 @@
     <div class="gallery-group fade-in">
       <div class="gallery-group-head">
         <span class="gallery-group-num">02</span>
-        <h3 class="gallery-group-title">Position Entry (Buy / Sell)</h3>
-        <p class="gallery-group-desc">From webhook signal to an open position, with the data persisted for later management.</p>
+        <h3 class="gallery-group-title">建立交易（買進／賣出）</h3>
+        <p class="gallery-group-desc">從 TradingView 訊號開始，到建立持倉並寫入資料庫的完整流程</p>
       </div>
       <div class="gallery-grid">
-        <figure class="gallery-item" data-src="img/04_buy_sell_execution_workflow.png">
+        <figure class="gallery-item" data-src="img/buy_sell_execution_workflow.png">
           <div class="gallery-thumb"><img loading="lazy" src="img/buy_sell_execution_workflow.png" alt="Buy/Sell execution workflow"></div>
-          <figcaption><span class="gallery-tag">04</span> Entry workflow — webhook → auth → Capital API → save to Data Store.</figcaption>
+          <figcaption><span class="gallery-tag">04</span> 建立持倉流程（Webhook → 驗證 → API → Data Store）</figcaption>
         </figure>
-        <figure class="gallery-item" data-src="img/05_http_open_position_request_response.png">
+        <figure class="gallery-item" data-src="img/http_open_position_request_response.png">
           <div class="gallery-thumb"><img loading="lazy" src="img/http_open_position_request_response.png" alt="HTTP open position request and response"></div>
-          <figcaption><span class="gallery-tag">05</span> Open-position HTTP request &amp; response — API confirms the order was accepted.</figcaption>
+          <figcaption><span class="gallery-tag">05</span> 開倉 API 請求 &amp; 回應</figcaption>
         </figure>
       </div>
     </div>
@@ -1296,21 +1258,21 @@
     <div class="gallery-group fade-in">
       <div class="gallery-group-head">
         <span class="gallery-group-num">03</span>
-        <h3 class="gallery-group-title">TP1 — Partial Close</h3>
-        <p class="gallery-group-desc">Iterating open positions and closing a portion when the first take-profit triggers.</p>
+        <h3 class="gallery-group-title">TP1 分批停利</h3>
+        <p class="gallery-group-desc">達到第一停利點後，自動平倉部分持倉</p>
       </div>
       <div class="gallery-grid">
-        <figure class="gallery-item" data-src="img/06_tp1_execution_workflow.png">
+        <figure class="gallery-item" data-src="img/tp1_execution_workflow.png">
           <div class="gallery-thumb"><img loading="lazy" src="img/tp1_execution_workflow.png" alt="TP1 execution workflow"></div>
-          <figcaption><span class="gallery-tag">06</span> TP1 flow — partial close triggered automatically on the TP1 condition.</figcaption>
+          <figcaption><span class="gallery-tag">06</span> TP1 自動分批停利流程</figcaption>
         </figure>
-        <figure class="gallery-item" data-src="img/07_position_iterator_processing.png">
+        <figure class="gallery-item" data-src="img/position_iterator_processing.png">
           <div class="gallery-thumb"><img loading="lazy" src="img/position_iterator_processing.png" alt="Position iterator processing"></div>
-          <figcaption><span class="gallery-tag">07</span> Iterator splits held positions into single records for per-position handling.</figcaption>
+          <figcaption><span class="gallery-tag">07</span> Iterator 逐筆處理持倉資料</figcaption>
         </figure>
-        <figure class="gallery-item" data-src="img/08_http_tp1_close_request_response.png">
+        <figure class="gallery-item" data-src="img/http_tp1_close_request_response.png">
           <div class="gallery-thumb"><img loading="lazy" src="img/http_tp1_close_request_response.png" alt="HTTP TP1 close request and response"></div>
-          <figcaption><span class="gallery-tag">08</span> TP1 close HTTP request &amp; response — partial close confirmed by the API.</figcaption>
+          <figcaption><span class="gallery-tag">08</span> TP1 平倉 API 執行結果</figcaption>
         </figure>
       </div>
     </div>
@@ -1319,21 +1281,21 @@
     <div class="gallery-group fade-in">
       <div class="gallery-group-head">
         <span class="gallery-group-num">04</span>
-        <h3 class="gallery-group-title">TP2 / Stop-Loss — Final Close</h3>
-        <p class="gallery-group-desc">The final exit path, mapping each held position back to the right close call.</p>
+        <h3 class="gallery-group-title">TP2／SL 最終平倉</h3>
+        <p class="gallery-group-desc">當 TP2 或停損條件成立時，自動完成最終平倉</p>
       </div>
       <div class="gallery-grid">
-        <figure class="gallery-item" data-src="img/09_tp2_sl_execution_workflow.png">
+        <figure class="gallery-item" data-src="img/tp2_sl_execution_workflow.png">
           <div class="gallery-thumb"><img loading="lazy" src="img/tp2_sl_execution_workflow.png" alt="TP2/SL execution workflow"></div>
-          <figcaption><span class="gallery-tag">09</span> TP2 / SL flow — final close executed when either condition is met.</figcaption>
+          <figcaption><span class="gallery-tag">09</span> TP2／停損流程</figcaption>
         </figure>
-        <figure class="gallery-item" data-src="img/10_http_tp2_sl_close_request_response.png">
+        <figure class="gallery-item" data-src="img/http_tp2_sl_close_request_response.png">
           <div class="gallery-thumb"><img loading="lazy" src="img/http_tp2_sl_close_request_response.png" alt="HTTP TP2/SL close request and response"></div>
-          <figcaption><span class="gallery-tag">10</span> TP2 / SL close — the API call result for the final exit.</figcaption>
+          <figcaption><span class="gallery-tag">10</span> 最終平倉 API 回應</figcaption>
         </figure>
-        <figure class="gallery-item" data-src="img/11_position_close_mapping.png">
+        <figure class="gallery-item" data-src="img/position_close_mapping.png">
           <div class="gallery-thumb"><img loading="lazy" src="img/position_close_mapping.png" alt="Position close mapping"></div>
-          <figcaption><span class="gallery-tag">11</span> Position mapping — every held position matched to its correct close call.</figcaption>
+          <figcaption><span class="gallery-tag">11</span> 比照現有持倉數量進行平倉</figcaption>
         </figure>
       </div>
     </div>
@@ -1342,17 +1304,17 @@
     <div class="gallery-group fade-in">
       <div class="gallery-group-head">
         <span class="gallery-group-num">05</span>
-        <h3 class="gallery-group-title">Data Store — State Management</h3>
-        <p class="gallery-group-desc">The schema and live records that keep position state consistent across events.</p>
+        <h3 class="gallery-group-title">Data Store 狀態管理</h3>
+        <p class="gallery-group-desc">Data Store 所需參數(epic、positionId)</p>
       </div>
       <div class="gallery-grid">
-        <figure class="gallery-item" data-src="img/12_datastore_configuration.png">
+        <figure class="gallery-item" data-src="img/datastore_configuration.png">
           <div class="gallery-thumb"><img loading="lazy" src="img/datastore_configuration.png" alt="Data Store configuration"></div>
-          <figcaption><span class="gallery-tag">12</span> Data Store schema — the fields tracked throughout the trade lifecycle.</figcaption>
+          <figcaption><span class="gallery-tag">12</span> Data Store 結構設計</figcaption>
         </figure>
-        <figure class="gallery-item" data-src="img/13_datastore_records.png">
+        <figure class="gallery-item" data-src="img/datastore_records.png">
           <div class="gallery-thumb"><img loading="lazy" src="img/datastore_records.png" alt="Data Store records"></div>
-          <figcaption><span class="gallery-tag">13</span> Live records — actual stored data queried by the TP1 / TP2 / SL flows.</figcaption>
+          <figcaption><span class="gallery-tag">13</span> 實際儲存的持倉資料</figcaption>
         </figure>
       </div>
     </div>
@@ -1361,25 +1323,25 @@
     <div class="gallery-group fade-in">
       <div class="gallery-group-head">
         <span class="gallery-group-num">06</span>
-        <h3 class="gallery-group-title">TradingView Alerts &amp; Pine Script</h3>
-        <p class="gallery-group-desc">The signal source — alert payloads and the Pine Script that generates them.</p>
+        <h3 class="gallery-group-title">TradingView 訊號 &amp; Pine Script</h3>
+        <p class="gallery-group-desc">展示 TradingView 警示設定，以及 Pine Script 所產生的 JSON 訊號</p>
       </div>
       <div class="gallery-grid">
-        <figure class="gallery-item" data-src="img/14_tradingview_tp1_alert.png">
+        <figure class="gallery-item" data-src="img/tradingview_tp1_alert.png">
           <div class="gallery-thumb"><img loading="lazy" src="img/tradingview_tp1_alert.png" alt="TradingView TP1 alert JSON"></div>
-          <figcaption><span class="gallery-tag">14</span> TP1 alert JSON sent by TradingView when the condition is met.</figcaption>
+          <figcaption><span class="gallery-tag">14</span> TP1 警示 JSON</figcaption>
         </figure>
-        <figure class="gallery-item" data-src="img/15_tradingview_tp2_sl_alert.png">
+        <figure class="gallery-item" data-src="img/tradingview_tp2_sl_alert.png">
           <div class="gallery-thumb"><img loading="lazy" src="img/tradingview_tp2_sl_alert.png" alt="TradingView TP2/SL alert JSON"></div>
-          <figcaption><span class="gallery-tag">15</span> TP2 / SL alert JSON for the final-exit trigger.</figcaption>
+          <figcaption><span class="gallery-tag">15</span> TP2／停損警示 JSON</figcaption>
         </figure>
-        <figure class="gallery-item" data-src="img/16_tradingview_long_entry_alert_code.png">
+        <figure class="gallery-item" data-src="img/tradingview_long_entry_alert_code.png">
           <div class="gallery-thumb"><img loading="lazy" src="img/tradingview_long_entry_alert_code.png" alt="Pine Script long entry alert code"></div>
-          <figcaption><span class="gallery-tag">16</span> Pine Script entry alert — symbol, side, size and params, sent via webhook.</figcaption>
+          <figcaption><span class="gallery-tag">16</span> 進場訊號程式</figcaption>
         </figure>
-        <figure class="gallery-item" data-src="img/17_tradingview_long_exit_alert_code.png">
+        <figure class="gallery-item" data-src="img/tradingview_long_exit_alert_code.png">
           <div class="gallery-thumb"><img loading="lazy" src="img/tradingview_long_exit_alert_code.png" alt="Pine Script long exit alert code"></div>
-          <figcaption><span class="gallery-tag">17</span> Pine Script exit alerts — TP1, move-stop-loss and TP2 close logic.</figcaption>
+          <figcaption><span class="gallery-tag">17</span> 出場訊號程式（TP1／移動停損／TP2）</figcaption>
         </figure>
       </div>
     </div>
@@ -1414,13 +1376,11 @@
     <div class="lessons-inner">
 
       <div class="fade-in">
-        <div class="eyebrow" style="margin-bottom:1rem;">Key Takeaways</div>
+        <div class="eyebrow" style="margin-bottom:1rem;">專案收穫</div>
         <div class="section-divider"></div>
-        <h2 class="section-title" id="lessons-title">Lessons<br />Learned</h2>
-        <p class="section-sub" style="margin-top:1rem; font-size:0.9rem;">
-          The lasting output of this project is not a workflow — it is an
-          engineering mindset built through repeated cycles of failure,
-          analysis, and resolution.
+        <h2 class="section-title" id="lessons-title">學習成果</h2>
+        <p class="section-sub" style="margin-top:1rem; font-size:1.1rem; color: gray;">
+          這個專案帶給我的，不只是完成一套自動化流程，更是在一次次除錯、分析與改善中，建立了解決問題的工程思維
         </p>
       </div>
 
@@ -1430,8 +1390,8 @@
           <div class="lesson-card-num">01</div>
           <div class="lesson-card-icon">🧠</div>
           <div class="lesson-text">
-            <h4>System Thinking</h4>
-            <p>Learned to decompose a complex workflow into independent modules with clearly defined responsibilities and communication boundaries.</p>
+            <h4>系統思維</h4>
+            <p>將複雜的流程拆解成獨立模組，明確定義每個元件的職責與資料流向，讓系統更容易維護與擴充 </p>
           </div>
         </div>
 
@@ -1439,8 +1399,8 @@
           <div class="lesson-card-num">02</div>
           <div class="lesson-card-icon">⚡</div>
           <div class="lesson-text">
-            <h4>API Integration</h4>
-            <p>Built practical experience in request validation, authentication, and reliable API communication across external systems.</p>
+            <h4>API 整合</h4>
+            <p>熟悉 API 驗證、資料交換與錯誤處理流程，並完成跨平台之間的穩定通訊。</p>
           </div>
         </div>
 
@@ -1448,8 +1408,8 @@
           <div class="lesson-card-num">03</div>
           <div class="lesson-card-icon">🐛</div>
           <div class="lesson-text">
-            <h4>Debugging</h4>
-            <p>Developed a structured debugging workflow by reproducing, isolating, verifying, and documenting issues throughout development.</p>
+            <h4>除錯能力</h4>
+            <p>建立系統化的除錯流程，透過重現問題、分析原因、驗證假設與持續修正，提高系統可靠性。</p>
           </div>
         </div>
 
@@ -1457,8 +1417,8 @@
           <div class="lesson-card-num">04</div>
           <div class="lesson-card-icon">🔄</div>
           <div class="lesson-text">
-            <h4>State Management</h4>
-            <p>Learned the importance of maintaining consistent system state across asynchronous events.</p>
+            <h4>狀態管理</h4>
+            <p>理解跨系統同步的重要性，透過即時資料驗證與同步機制，維持資料一致性。</p>
           </div>
         </div>
 
@@ -1466,8 +1426,8 @@
           <div class="lesson-card-num">05</div>
           <div class="lesson-card-icon">🔗</div>
           <div class="lesson-text">
-            <h4>Cross-platform Workflow</h4>
-            <p>Integrated multiple independent services into a unified event-driven automation pipeline.</p>
+            <h4>跨平台整合</h4>
+            <p>成功串接多個獨立平台，建立完整的事件驅動自動化流程。</p>
           </div>
         </div>
 
@@ -1475,8 +1435,8 @@
           <div class="lesson-card-num">06</div>
           <div class="lesson-card-icon">📈</div>
           <div class="lesson-text">
-            <h4>Continuous Learning</h4>
-            <p>Every issue became an opportunity to improve engineering judgment and problem-solving ability.</p>
+            <h4>持續學習</h4>
+            <p>每一次錯誤都是改善系統的機會，也讓自己逐步累積工程判斷與問題解決能力。</p>
           </div>
         </div>
 
@@ -1495,32 +1455,19 @@
 
       <!-- Left -->
       <div class="reflection-left fade-in">
-        <div class="eyebrow" style="margin-bottom:1rem;">Looking Back</div>
+        <div class="eyebrow" style="margin-bottom:1rem;">專案回顧</div>
         <div class="section-divider"></div>
-        <h2 class="section-title" id="reflection-title">Reflection</h2>
+        <h2 class="section-title" id="reflection-title">專案心得 </h2>
       </div>
 
       <!-- Right -->
       <div class="reflection-right">
         <p class="fade-in fade-in-delay-1">
-          The greatest takeaway was never a trading strategy. It was gradually coming
-          to understand — through one debugging session after another — why system
-          integration, API communication, event-driven architecture, and cross-platform
-          collaboration matter so much.
+          這個專案最大的收穫，不是完成一套交易系統，而是在一次次除錯與驗證的過程中，慢慢理解系統整合、API 溝通、事件驅動架構，以及跨平台協作的重要性。<br><br>
+          開發過程中，我遇到不少看似相同、實際原因卻完全不同的問題，這也讓我慢慢養成先分析問題、確認原因，慢慢修改程式的習慣，而不是急著嘗試各種修正方式，亂修會出事.....很多時候，真正需要修正的不是程式碼，而是對系統運作流程的理解。
         </p>
-        <p class="fade-in fade-in-delay-2">
-          Every bug forced me to re-examine my own design assumptions. Over time, that
-          built a habit: analyze the problem first, verify the hypothesis next, and only
-          then correct the workflow.
-        </p>
-        <p class="fade-in fade-in-delay-3">
-          Through this project I didn't just finish an automation pipeline — I built an
-          engineering mindset for facing unknown problems with continuous analysis,
-          debugging, and optimization.
-        </p>
-        <p class="reflection-closer fade-in fade-in-delay-4">
-          That mindset — decompose the problem, design for failure, verify every
-          assumption — is what I'd bring to any engineering team, regardless of the domain.
+        <p class="reflection-closer fade-in fade-in-delay-2">
+          面對問題、拆解問題、驗證問題，並理解出一套屬於自己的知識來解決問題，是我希望帶進每一個開發團隊的工程習慣！
         </p>
       </div>
 
@@ -1536,13 +1483,12 @@
   <div class="mindset-bg"></div>
   <div class="container">
     <div class="mindset-inner fade-in">
-      <div class="eyebrow" style="margin-bottom:1.5rem;color:var(--cyan);">Engineering Mindset</div>
       <h2 class="mindset-quote" id="mindset-title">
         Good software isn't built by avoiding bugs.<br />
         It's built by <span class="mindset-highlight">learning from every bug.</span>
       </h2>
       <p class="mindset-sub">
-        好的軟體不是因為沒有錯誤，而是因為每一次錯誤都讓系統變得更可靠。
+        好的軟體不是因為沒有錯誤，而是因為每一次錯誤都讓系統變得更可靠
       </p>
     </div>
   </div>
@@ -1556,62 +1502,62 @@
   <div class="container">
 
     <div class="dash-header fade-in">
-      <div class="eyebrow" style="margin-bottom:1rem;">Project Info</div>
+      <div class="eyebrow" style="margin-bottom:1rem;">專案資訊</div>
       <div class="section-divider"></div>
-      <h2 class="section-title">Engineering Dashboard</h2>
+      <h2 class="section-title">專案總覽</h2>
     </div>
 
     <!-- Top row: health + phase -->
     <div class="dash-grid">
 
       <div class="dash-card fade-in fade-in-delay-1">
-        <div class="dash-card-label">Project Health</div>
+        <div class="dash-card-label">專案狀態</div>
         <div class="dash-card-value">
           <span class="dash-pulse"></span>
-          Stable
+          穩定運行
         </div>
-        <div class="dash-card-meta">All pipeline layers operational</div>
+        <div class="dash-card-meta">所有流程皆可正常運作</div>
       </div>
 
       <div class="dash-card fade-in fade-in-delay-2">
-        <div class="dash-card-label">Current Phase</div>
-        <div class="dash-card-value">Optimization</div>
-        <div class="dash-card-meta">Reliability &amp; observability hardening</div>
+        <div class="dash-card-label">開發階段</div>
+        <div class="dash-card-value">開發階段</div>
+        <div class="dash-card-meta">持續提升系統穩定性 &amp; 可靠性</div>
       </div>
 
       <div class="dash-card fade-in fade-in-delay-3">
-        <div class="dash-card-label">Architecture Size</div>
-        <div class="dash-card-value">7 layers · 3 systems</div>
-        <div class="dash-card-meta">Signal source → execution</div>
+        <div class="dash-card-label">系統架構</div>
+        <div class="dash-card-value">7 個流程層級・3 個核心系統</div>
+        <div class="dash-card-meta">TradingView → Make → Capital.com</div>
       </div>
 
       <!-- Engineering statistics strip -->
       <div class="dash-card dash-card-wide dash-stats-card fade-in fade-in-delay-1">
-        <div class="dash-card-label">Engineering Statistics</div>
+        <div class="dash-card-label">專案統計</div>
         <div class="dash-stats">
-          <div class="dash-stat"><span class="dash-stat-num">12+</span><span class="dash-stat-lbl">Bugs Fixed</span></div>
-          <div class="dash-stat"><span class="dash-stat-num">100%</span><span class="dash-stat-lbl">Automated</span></div>
-          <div class="dash-stat"><span class="dash-stat-num">0</span><span class="dash-stat-lbl">Manual Steps</span></div>
-          <div class="dash-stat"><span class="dash-stat-num">&lt;1s</span><span class="dash-stat-lbl">Latency</span></div>
-          <div class="dash-stat"><span class="dash-stat-num">6</span><span class="dash-stat-lbl">Technologies</span></div>
+          <div class="dash-stat"><span class="dash-stat-num">12+</span><span class="dash-stat-lbl">已修正問題</span></div>
+          <div class="dash-stat"><span class="dash-stat-num">100%</span><span class="dash-stat-lbl">自動化流程</span></div>
+          <div class="dash-stat"><span class="dash-stat-num">0</span><span class="dash-stat-lbl">人工操作</span></div>
+          <div class="dash-stat"><span class="dash-stat-num">&lt;1s</span><span class="dash-stat-lbl">平均延遲</span></div>
+          <div class="dash-stat"><span class="dash-stat-num">6</span><span class="dash-stat-lbl">核心技術</span></div>
         </div>
       </div>
 
       <div class="dash-card fade-in fade-in-delay-2">
-        <div class="dash-card-label">Role</div>
-        <div class="dash-card-value">Full Stack Developer</div>
-        <div class="dash-card-meta">Design · build · integrate · verify</div>
+        <div class="dash-card-label">擔任角色</div>
+        <div class="dash-card-value">全端開發</div>
+        <div class="dash-card-meta">設計・開發・整合・驗證</div>
       </div>
 
       <div class="dash-card fade-in fade-in-delay-3">
-        <div class="dash-card-label">Duration</div>
-        <div class="dash-card-value">2025 – Present</div>
-        <div class="dash-card-meta">Actively maintained</div>
+        <div class="dash-card-label">開發期間</div>
+        <div class="dash-card-value">2025 - 至今</div>
+        <div class="dash-card-meta">持續維護與優化</div>
       </div>
 
       <!-- Technologies -->
       <div class="dash-card dash-card-wide fade-in fade-in-delay-1">
-        <div class="dash-card-label">Technologies</div>
+        <div class="dash-card-label">使用技術</div>
         <div class="dash-tech">
           <span class="dash-tech-tag">TradingView</span>
           <span class="dash-tech-tag">Pine Script</span>
@@ -1624,16 +1570,16 @@
       </div>
 
       <div class="dash-card fade-in fade-in-delay-2">
-        <div class="dash-card-label">Repository</div>
-        <div class="dash-card-value dash-muted">
+        <div class="dash-card-label">程式碼</div>
+        <div class="dash-card-value dash-muted" style="color:white; font-size: 1.3rem">
           <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0a8 8 0 00-2.5 15.6c.4.07.55-.17.55-.38v-1.3c-2.2.48-2.67-1.07-2.67-1.07-.36-.92-.88-1.16-.88-1.16-.72-.49.05-.48.05-.48.8.06 1.22.82 1.22.82.71 1.22 1.87.87 2.33.66.07-.52.28-.87.5-1.07-1.76-.2-3.6-.88-3.6-3.92 0-.87.31-1.58.82-2.13-.08-.2-.36-1.01.08-2.1 0 0 .67-.22 2.2.82a7.6 7.6 0 014 0c1.53-1.04 2.2-.82 2.2-.82.44 1.09.16 1.9.08 2.1.51.55.82 1.26.82 2.13 0 3.05-1.85 3.72-3.61 3.92.28.24.54.72.54 1.46v2.17c0 .21.15.46.55.38A8 8 0 008 0z"/></svg>
-          Private
+          未公開
         </div>
       </div>
 
       <div class="dash-card fade-in fade-in-delay-3">
-        <div class="dash-card-label">Demo</div>
-        <div class="dash-card-value dash-muted">Portfolio Only</div>
+        <div class="dash-card-label">展示方式</div>
+        <div class="dash-card-value dash-muted" style="color:white; font-size: 1.3rem">作品集展示</div>
       </div>
 
     </div>
@@ -1641,39 +1587,35 @@
     <!-- Engineering Credits -->
     <div class="credits fade-in">
       <div class="credits-header">
-        <div class="eyebrow" style="margin-bottom:0.5rem;color:var(--cyan);">Engineering Credits</div>
-        <p class="credits-sub">A transparent look at how this project was built.</p>
+        <div class="eyebrow" style="font-size:1.2rem;color:var(--cyan);">開發說明</div>
+        <p class="credits-sub">本專案由本人獨立設計與開發，AI 工具主要作為技術討論與介面優化輔助</p>
       </div>
 
       <div class="credits-grid">
         <div class="credit-card credit-primary">
-          <div class="credit-role">Developer</div>
+          <div class="credit-role">開發者</div>
           <div class="credit-name">Jarory</div>
-          <div class="credit-detail">Design, implementation, integration &amp; final verification</div>
+          <div class="credit-detail">系統設計、程式開發、平台整合 &amp; 最終驗證</div>
         </div>
         <div class="credit-card">
-          <div class="credit-role">AI Assistant</div>
+          <div class="credit-role">AI 技術協作</div>
           <div class="credit-name">ChatGPT</div>
-          <div class="credit-detail">Engineering discussions &amp; architecture review</div>
+          <div class="credit-detail">技術討論 &amp; 架構分析</div>
         </div>
         <div class="credit-card">
-          <div class="credit-role">AI Assistant</div>
+          <div class="credit-role">AI 介面協作</div>
           <div class="credit-name">Claude</div>
-          <div class="credit-detail">UI design iteration &amp; visual refinement</div>
+          <div class="credit-detail">介面設計優化 &amp; 視覺調整</div>
         </div>
       </div>
 
       <p class="credits-statement">
-        This portfolio was independently designed and developed by <strong>Jarory</strong>.
-        Throughout the development process, ChatGPT and Claude were used as engineering
-        assistants for brainstorming, architecture discussions, debugging, UI refinement,
-        and documentation review. All design decisions, implementation, integration, and
-        final verification were completed by the developer.
+        本專案由<strong>Jarory</strong>獨立完成系統設計、程式開發、跨平台整合與功能驗證。開發過程中，使用 ChatGPT 與 Claude 作為技術討論、除錯分析、介面優化及文件整理的輔助工具；所有系統架構、程式實作、整合流程與最終成果皆由本人規劃、實作與驗證。
       </p>
     </div>
 
     <div class="footer-bottom">
-      <p>Built with vanilla HTML · CSS · JavaScript — no frameworks</p>
+      <p>使用 HTML、CSS、JavaScript 原生開發（無框架）</p>
       <div class="footer-status">
         <span class="footer-status-dot"></span>
         System Active · Continuous Improvement
@@ -1684,6 +1626,6 @@
 </footer>
 
 
-<script src="./js/main.js"></script>
+<script src="./js/main.js?v=5"></script>
 </body>
 </html>
