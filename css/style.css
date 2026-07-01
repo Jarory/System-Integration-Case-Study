@@ -2870,7 +2870,7 @@ body::before {
 }
 
 .bp-node-text {
-  font-size: 0.82rem;
+  font-size: 0.95rem;
   font-weight: 600;
   color: var(--text-primary);
   flex: 1;
@@ -2947,7 +2947,7 @@ body::before {
 
 .why-chapter-tag {
   font-family: var(--font-mono);
-  font-size: 0.68rem;
+  font-size: 0.95rem;
   font-weight: 600;
   color: var(--cyan);
   text-transform: uppercase;
